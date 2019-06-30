@@ -91,14 +91,16 @@
                                             <img class="slide-image" src="{{ product.image.url }}"
                                                  alt="" style="width: auto; height: 400px; margin: 0 auto">
                                             <br>
+                                            <br>
                                             <a href="{{ product.get_absolute_url }}">
-                                                <button class="btn btn-primary">{{ product.title }}</button>
+                                                <button class="btn btn-primary" style="position: center">{{ product.title }}</button>
                                             </a>
                                         </div>
                                     {% else %}
                                         <div class="item">
                                             <img class="slide-image" src="{{ product.image.url }}" alt=""
                                                  style="width: auto; height: 400px; margin: 0 auto ">
+                                            <br>
                                             <br>
                                             <a href="{{ product.get_absolute_url }}">
                                                 <button class="btn btn-primary">{{ product.title }}</button>
