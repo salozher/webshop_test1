@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
-
+import random, string
+from .utils import random_string_generator
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
@@ -34,8 +35,9 @@ class Brand(models.Model):
 
 
 def image_folder(instance, filename):
-    filename = instance.slug + '.' + filename.split('.')[1]
-    return "{0}/{1}".format(instance.slug, filename)
+    filename = instance.title + '-' + instance.slug + '.' + filename.split('.')[1]
+    foldername = instance.title + '-' + instance.slug
+    return "{0}/{1}".format(foldername, filename)
     # return "{instance.slug - for folder name}/{filename}".format(instance.slug, filename)
 
 
@@ -44,11 +46,28 @@ class ProductManager(models.Manager):
         return super(ProductManager, self).get_queryset().filter(available=True)
 
 
-class Product(models.Model):
+class ArtObject(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    title = models.CharField(max_length=120)
+    slug = models.SlugField(max_length=200, unique=True, default=(random_string_generator(10)), editable=False)
+    description = models.TextField()
+    image = models.ImageField(upload_to=image_folder)
+    price = models.DecimalField(max_digits=9, decimal_places=2)
+    available = models.BooleanField(default=True)
+    objects = ProductManager()
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('product_detail', kwargs={'product_slug': self.slug})
+
+
+class Product_alternative(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     brand = models.ForeignKey(Brand, on_delete=models.PROTECT)
     title = models.CharField(max_length=120)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=200, unique=False, default=(random_string_generator(10)), editable=False)
     description = models.TextField()
     image = models.ImageField(upload_to=image_folder)
     price = models.DecimalField(max_digits=9, decimal_places=2)
@@ -63,7 +82,7 @@ class Product(models.Model):
 
 
 class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    product = models.ForeignKey(ArtObject, on_delete=models.PROTECT)
     qty = models.PositiveIntegerField(default=1)
     item_total = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
 

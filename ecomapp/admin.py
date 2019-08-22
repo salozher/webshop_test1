@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ecomapp.models import Category, Brand, Product, CartItem, Cart
+from ecomapp.models import Category, Brand, ArtObject, CartItem, Cart, Product_alternative
 
 
-admin.site.register([Category, Brand, Product, CartItem, Cart])
+admin.site.register([Category, ArtObject, CartItem, Cart])
