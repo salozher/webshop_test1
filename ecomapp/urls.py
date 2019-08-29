@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from ecomapp.views import base_view, product_view, category_view, cart_view, add_to_cart_view, remove_from_cart_view
+from .views import base_view, product_view, category_view, cart_view, add_to_cart_view, remove_from_cart_view
 
 urlpatterns = [
     # url(r'^category/(?P<category_slug>[-\W]+)/S', category_view, name='category_detail'),

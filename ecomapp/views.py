@@ -4,11 +4,10 @@ from ecomapp.models import Category, ArtObject, CartItem, Cart
 
 
 
-# Create your views here.
 def base_view(request):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id - cart_id)
+        cart = Cart.objects.get(id = cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -26,10 +25,11 @@ def base_view(request):
     # returns render(request, template of certain product or element, context dictionary)
     return render(request, 'base.html', context)
 
+
 def product_view(request, product_slug):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id - cart_id)
+        cart = Cart.objects.get(id=cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -58,7 +58,7 @@ def category_view(request, category_slug):
 def cart_view(request):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id - cart_id)
+        cart = Cart.objects.get(id = cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -70,10 +70,11 @@ def cart_view(request):
     }
     return render(request, 'cart.html', context)
 
+
 def add_to_cart_view(request, product_slug):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id - cart_id)
+        cart = Cart.objects.get(id = cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -86,12 +87,14 @@ def add_to_cart_view(request, product_slug):
     if new_item not in cart.items.all():
         cart.items.add(new_item)
         cart.save()
+        product.available = False
+        product.save()
         return HttpResponseRedirect('/cart/')
 
 def remove_from_cart_view(request, product_slug):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id - cart_id)
+        cart = Cart.objects.get(id = cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -104,6 +107,8 @@ def remove_from_cart_view(request, product_slug):
         if cart_item.product == product:
             cart.items.remove(cart_item)
             cart.save()
+            product.available = True
+            product.save()
             return HttpResponseRedirect('/cart/')
 
 
@@ -111,7 +116,7 @@ def remove_from_cart_view(request, product_slug):
 def cart_create(request):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id - cart_id)
+        cart = Cart.objects.get(id = cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()

@@ -5,14 +5,15 @@
     <br>
     <table class="table">
         <tr>
-            <td class="text-center">Товар</td>
-            <td class="text-center">Кол-во</td>
-            <td class="text-center">Цена</td>
-            <td class="text-center"></td>
+            <td class="text-center">Art Object</td>
+            <td class="text-center">Period/Month</td>
+            <td class="text-center">Price</td>
+            <td class="text-center"> </td>
         </tr>
         {% for item in cart.items.all %}
             <tr>
-                <td class="text-center">{{ item.product.title }}</td>
+
+                <td class="text-center">{{ item.product.title }}<img src="{{ item.product.image.url }}" alt="" style="width: 50px; height: auto" ></td>
                 <td class="text-center">{{ item.qty }}</td>
                 <td class="text-center">{{ item.item_total }}</td>
                 <td class="text-center"><a href='{% url "remove_from_cart" product_slug=item.product.slug %}'><button class="btn btn-default">Remove from cart</button></a></td>

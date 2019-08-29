@@ -7,9 +7,9 @@
 {% for product in products_of_category %}
 <div class="col-sm-4">
     <img src="{{ product.image.url }}" style="width: 80%; height: auto">
-<h4 class="text-center">{{ product.title }}</h4>
+<h4 class="text-left">{{ product.title }}</h4>
 <p>Price: <strong> ${{ product.price }}</strong></p>
-  <p class="text-center"> <a href="#" class="text-center"><button class="btn btn-danger">Add to cart</button></a></p>
+  <a class="pull-left" href="{% url "add_to_cart" product_slug=product.slug %}"><button class="btn btn-danger">Add to cart</button></a>
 </div>
 
 

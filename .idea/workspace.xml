@@ -2,25 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ecomapp/migrations/0002_auto_20190822_1424.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecomapp/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/qwerty-5gh1l09s7b/qwerty-5gh1l09s7b.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecomapp/migrations/0003_auto_20190822_1759.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecomapp/migrations/0004_auto_20190822_1858.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecomapp/migrations/0005_auto_20190822_1938.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecomapp/migrations/0006_auto_20190829_1511.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Other1-9556yk/Other1-Other1-9556yk.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Paint1-koedwz/Paint1-Paint1-koedwz.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Paint1-p7kss3/Paint1-Paint1-p7kss3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Photo1-d4ia79/Photo1-Photo1-d4ia79.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Poster1-10f7tx/Poster1-Poster1-10f7tx.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Poster1-ndfdaf/Poster1-Poster1-ndfdaf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Poster1-rqt873/Poster1-Poster1-rqt873.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Sculpture1-cgn32b/Sculpture1-Sculpture1-cgn32b.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ecomapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0002_brand.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0003_remove_brand_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0004_product.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0005_auto_20190628_2213.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0006_cart_cartitem.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ecomapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecomapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecomapp/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/templates/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecomapp/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/templates/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecomapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecomapp/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecomapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/SamsungBook/SamsungBook.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/iphone-x-128gb/iphone-x-128gb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webshop_test1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webshop_test1/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/qwerty-5gh1l09s7b/qwerty-5gh1l09s7b.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/Paint1-7re9mo/Paint1-Paint1-7re9mo.jpg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +62,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
@@ -156,7 +160,13 @@
       <workItem from="1564872418894" duration="717000" />
       <workItem from="1564873156114" duration="2197000" />
       <workItem from="1565002424078" duration="1759000" />
-      <workItem from="1566476486350" duration="3265000" />
+      <workItem from="1566476486350" duration="11233000" />
+      <workItem from="1566494213004" duration="5052000" />
+      <workItem from="1566502601084" duration="1821000" />
+      <workItem from="1566563328080" duration="588000" />
+      <workItem from="1566563938862" duration="598000" />
+      <workItem from="1566904915656" duration="7000" />
+      <workItem from="1567080236804" duration="17639000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -165,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561923361472</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit on sunday evening">
+      <created>1566479960652</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566479960652</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +193,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

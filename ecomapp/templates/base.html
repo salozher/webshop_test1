@@ -30,10 +30,8 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navhhhhhhhhhhhhhhhhigation</span>
-                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Home</a>
+            <a class="navbar-brand" href="/"><strong>Home</strong></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -41,7 +39,7 @@
                 {% if not request.get_full_path == '/' %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Catettttttttttttttgories <span class="caret"></span></a>
+                           aria-expanded="false">Categories <span class="caret"></span></a>
                         <ul class="dropdown-menu">
 
                             {% for category in categories %}
@@ -84,21 +82,18 @@
                                     {% if forloop.first %}
                                         <div class="item active">
                                             <img class="slide-image" src="{{ product.image.url }}"
-                                                 alt="" style="width: auto; height: 400px; margin: 0 auto">
-                                            <br>
-                                            <br>
-                                            <a href="{{ product.get_absolute_url }}">
+                                                 alt="" style="width: auto; height: 400px; margin: 0 auto ">
+                                            <div class="align-content-center" style="width: available">
+                                             <a href="{{ product.get_absolute_url }}" style="position: center">
                                                 <button class="btn btn-primary"
                                                         style="position: center">{{ product.title }}</button>
                                             </a>
-                                            <br>
+                                            </div>
                                         </div>
                                     {% else %}
                                         <div class="item">
-                                            <img class="slide-image" src="{{ product.image.url }}" alt=""
-                                                 style="width: auto; height: 400px; margin: 0 auto ">
-                                            <br>
-                                            <br>
+                                            <img class="slide-image" src="{{ product.image.url }}"
+                                                 alt="" style="width: auto; height: 400px; margin: 0 auto ">
                                             <a href="{{ product.get_absolute_url }}">
                                                 <button class="btn btn-primary">{{ product.title }}</button>
                                             </a>
@@ -123,12 +118,14 @@
                     {% for product in products %}
                         <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
-                                <img src="{{ product.image.url }}" alt="" style="width: 100%; height: auto">
+                                <img src="{{ product.image.url }}" alt="" style="width: 200px; height: auto">
                                 <div class="caption">
                                     <h4 class="pull-right">${{ product.price }}/p.mounth</h4>
-                                    <h4><a href={{ product.get_absolute_url }}{{ product.title }}</a>
-                                    </h4>
+                                    <h4><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
+
                                     <p>{{ product.description }}</p>
+                                    <a class="pull-left" href="{% url "add_to_cart" product_slug=product.slug %}"><button class="btn btn-danger">Add to cart</button></a>
+                                    <a class="pull-right" href="{% url "add_to_cart" product_slug=product.slug %}"><button class="btn btn-danger">Add to cart</button></a>
                                 </div>
                             </div>
                         </div>
