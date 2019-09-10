@@ -41,7 +41,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Categories <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-
+                            <br>
+                            <br>
                             {% for category in categories %}
                                 <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
                             {% endfor %}
@@ -50,7 +51,9 @@
                     </li>
                 {% endif %}
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
+                <li> <a href="{% url 'admin:index' %}">Admin</a></li>
                 <li><a href="{% url "cart" %}">Cart<span class='badge'>{{ cart.items.count }}</span></a></li>
             </ul>
         </div>
@@ -84,10 +87,10 @@
                                             <img class="slide-image" src="{{ product.image.url }}"
                                                  alt="" style="width: auto; height: 400px; margin: 0 auto ">
                                             <div class="align-content-center" style="width: available">
-                                             <a href="{{ product.get_absolute_url }}" style="position: center">
-                                                <button class="btn btn-primary"
-                                                        style="position: center">{{ product.title }}</button>
-                                            </a>
+                                                <a href="{{ product.get_absolute_url }}" style="position: center">
+                                                    <button class="btn btn-primary center-block"
+                                                            style="position: center">{{ product.title }}</button>
+                                                </a>
                                             </div>
                                         </div>
                                     {% else %}
@@ -95,7 +98,8 @@
                                             <img class="slide-image" src="{{ product.image.url }}"
                                                  alt="" style="width: auto; height: 400px; margin: 0 auto ">
                                             <a href="{{ product.get_absolute_url }}">
-                                                <button class="btn btn-primary">{{ product.title }}</button>
+                                                <button class="btn btn-primary center-block"
+                                                        style="position: center">{{ product.title }}</button>
                                             </a>
                                         </div>
                                     {% endif %}
@@ -119,13 +123,18 @@
                         <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
                                 <img src="{{ product.image.url }}" alt="" style="width: 200px; height: auto">
-                                <div class="caption">
+                                <div class="caption" style="height: auto">
                                     <h4 class="pull-right">${{ product.price }}/p.mounth</h4>
                                     <h4><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
 
                                     <p>{{ product.description }}</p>
-                                    <a class="pull-left" href="{% url "add_to_cart" product_slug=product.slug %}"><button class="btn btn-danger">Add to cart</button></a>
-                                    <a class="pull-right" href="{% url "add_to_cart" product_slug=product.slug %}"><button class="btn btn-danger">Add to cart</button></a>
+{#                                    <a class="pull-left" >#}
+{#href="{% url "add_to_cart" product_slug=product.slug %}"#}
+{#                                        <input class="pull-left" type="number" value="{{product.renttime}}" step="1">Rent duration (month)</input>#}
+{#                                    </a>#}
+                                    <a class="pull-right" href="{% url "add_to_cart" product_slug=product.slug %}">
+                                        <button class="btn btn-danger">Add to cart</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

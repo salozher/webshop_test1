@@ -47,11 +47,23 @@ def product_view(request, product_slug):
     return render(request, 'product.html', context)
 
 def category_view(request, category_slug):
+    try:
+        cart_id = request.session['cart_id']
+        cart = Cart.objects.get(id=cart_id)
+        request.session['total'] = cart.items.count()
+    except:
+        cart = Cart()
+        cart.save()
+        cart_id = cart.id
+        request.session['cart_id'] = cart_id
+        cart = Cart.objects.get(id=cart_id)
+
     category = Category.objects.get(slug=category_slug)
-    products_of_category = ArtObject.objects.filter(category=category)
+    products_of_category = ArtObject.objects.filter(category=category).filter(available=True)
     context = {
         'category': category,
         'products_of_category': products_of_category,
+        'cart': cart,
     }
     return render(request, 'category.html', context)
 

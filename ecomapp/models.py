@@ -55,6 +55,7 @@ class ArtObject(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to=image_folder)
     price = models.DecimalField(max_digits=9, decimal_places=2)
+    renttime = models.PositiveIntegerField(default=3)
     available = models.BooleanField(default=True)
     objects = ProductManager()
 
