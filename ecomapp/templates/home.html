@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Serg's Rent Shop</p>
+            <div class="list-group">
+                {% for category in  categories %}
+                    <a href={{ category.get_absolute_url }} class="list-group-item">{{ category.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            {#                jQuery.js must be first, bootstrap.js - second. (in the end of this html file)#}
+            {#                otherwise carousel will not work!!!#}
+            <div class="row carousel-holder">
+                <div class="col-md-12">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for product in products %}
+                                {% if forloop.first %}
+                                    <div class="item active">
+                                        <img class="slide-image" src="{{ product.image.url }}"
+                                             alt="" style="width: auto; height: 400px; margin: 0 auto ">
+                                        <div class="align-content-center" style="width: available">
+                                            <a href="{{ product.get_absolute_url }}" style="position: center">
+                                                <button class="btn btn-primary center-block"
+                                                        style="position: center">{{ product.title }}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="item">
+                                        <img class="slide-image" src="{{ product.image.url }}"
+                                             alt="" style="width: auto; height: 400px; margin: 0 auto ">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            <button class="btn btn-primary center-block"
+                                                    style="position: center">{{ product.title }}</button>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"
+                           style="background: transparent">
+                            <span class="glyphicon glyphicon-chevron-left" style="color: black"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"
+                           style="background: transparent">
+                            <span class="glyphicon glyphicon-chevron-right" style="color: black"></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="{{ product.image.url }}" alt="" style="width: 200px; height: auto">
+                            <div class="caption" style="height: auto">
+                                <h4 class="pull-right">${{ product.price }}/p.mounth</h4>
+                                <h4><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
+
+                                <p>{{ product.description }}</p>
+                                {#                                 <a class="pull-left" >#}
+                                {#href="{% url "add_to_cart" product_slug=product.slug %}"#}
+                                {#                                     <input class="pull-left" type="number" value="{{product.renttime}}" step="1">Rent duration (month)</input>#}
+                                {#                                 </a>#}
+                                <a class="pull-right" href="{% url "add_to_cart" product_slug=product.slug %}">
+                                    <button class="btn btn-danger">Add to cart</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <h4>Hello Guest! To go ahead, please log in:</h4>
+        <a href="{% url 'login' %}">Login</a>
+
+    {% endif %}
+{% endblock content %}

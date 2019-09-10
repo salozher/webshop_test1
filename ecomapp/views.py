@@ -4,7 +4,7 @@ from ecomapp.models import Category, ArtObject, CartItem, Cart
 
 
 
-def base_view(request):
+def home_view(request):
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id = cart_id)
@@ -23,7 +23,7 @@ def base_view(request):
         'cart': cart,
     }
     # returns render(request, template of certain product or element, context dictionary)
-    return render(request, 'base.html', context)
+    return render(request, 'home.html', context)
 
 
 def product_view(request, product_slug):

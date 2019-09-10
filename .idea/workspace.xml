@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ecomapp/migrations/0007_auto_20190905_1758.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecomapp/migrations/0008_artobject_renttime.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecomapp/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecomapp/templates/registration/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecomapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/templates/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecomapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecomapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -156,7 +155,7 @@
       <workItem from="1567677352054" duration="622000" />
       <workItem from="1567678546897" duration="4547000" />
       <workItem from="1567759061307" duration="5397000" />
-      <workItem from="1568112949463" duration="3033000" />
+      <workItem from="1568112949463" duration="7187000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -179,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567113299075</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated Cart - only possible to see available items in all views">
+      <created>1568126727491</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1568126727491</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +207,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="commit on sunday evening" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit on sunday evening" />
+    <MESSAGE value="updated Cart - only possible to see available items in all views" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated Cart - only possible to see available items in all views" />
   </component>
 </project>
