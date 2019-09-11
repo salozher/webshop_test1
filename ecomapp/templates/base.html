@@ -41,8 +41,6 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Categories <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <br>
-                            <br>
                             {% for category in categories %}
                                 <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
                             {% endfor %}
@@ -61,10 +59,10 @@
 
 
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'admin:index' %}">Admin</a></li>
-                <li><a href="{% url "cart" %}">Cart<span class='badge'>{{ cart.items.count }}</span></a></li>
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                    <li><a href="{% url "cart" %}">Cart<span class='badge'>{{ cart.items.count }}</span></a></li>
+                </ul>
             {% endif %}
         </div>
         <!-- /.navbar-collapse -->

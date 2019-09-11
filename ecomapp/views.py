@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from ecomapp.models import Category, ArtObject, CartItem, Cart
+from ecomapp.models import Category, Art, CartItem, Cart
 
 
 
@@ -16,7 +16,7 @@ def home_view(request):
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
     categories = Category.objects.all()
-    products = ArtObject.objects.all()
+    products = Art.objects.all()
     context = {
         'categories': categories,
         'products': products,
@@ -37,7 +37,7 @@ def product_view(request, product_slug):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
-    product = ArtObject.objects.get(slug=product_slug)
+    product = Art.objects.get(slug=product_slug)
     categories = Category.objects.all()
     context = {
         'product': product,
@@ -57,17 +57,19 @@ def category_view(request, category_slug):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
-
+    categories = Category.objects.all()
     category = Category.objects.get(slug=category_slug)
-    products_of_category = ArtObject.objects.filter(category=category).filter(available=True)
+    products_of_category = Art.objects.filter(category=category).filter(available=True)
     context = {
         'category': category,
+        'categories': categories,
         'products_of_category': products_of_category,
         'cart': cart,
     }
     return render(request, 'category.html', context)
 
 def cart_view(request):
+    categories = Category.objects.all()
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id = cart_id)
@@ -78,7 +80,8 @@ def cart_view(request):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
     context = {
-        'cart': cart
+        'cart': cart,
+        'categories': categories,
     }
     return render(request, 'cart.html', context)
 
@@ -94,7 +97,7 @@ def add_to_cart_view(request, product_slug):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
-    product = ArtObject.objects.get(slug=product_slug)
+    product = Art.objects.get(slug=product_slug)
     new_item, _ = CartItem.objects.get_or_create(product=product, item_total=product.price)
     if new_item not in cart.items.all():
         cart.items.add(new_item)
@@ -114,7 +117,7 @@ def remove_from_cart_view(request, product_slug):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
-    product = ArtObject.objects.get(slug=product_slug)
+    product = Art.objects.get(slug=product_slug)
     for cart_item in cart.items.all():
         if cart_item.product == product:
             cart.items.remove(cart_item)
