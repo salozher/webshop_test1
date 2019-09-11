@@ -131,3 +131,5 @@ LOGOUT_REDIRECT_URL = 'home'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static_in_dev'),
 )
+
+AUTH_USER_MODEL = 'ecomapp.MyUser'

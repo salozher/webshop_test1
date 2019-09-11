@@ -3,28 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0002_auto_20190822_1424.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0003_auto_20190822_1759.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0004_auto_20190822_1858.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0005_auto_20190822_1938.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0006_auto_20190829_1511.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0007_auto_20190905_1758.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0008_artobject_renttime.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecomapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Other1-9556yk/Other1-Other1-9556yk.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Paint1-7re9mo/Paint1-Paint1-7re9mo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Paint1-koedwz/Paint1-Paint1-koedwz.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Paint1-p7kss3/Paint1-Paint1-p7kss3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Photo1-d4ia79/Photo1-Photo1-d4ia79.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Poster1-10f7tx/Poster1-Poster1-10f7tx.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Poster1-ndfdaf/Poster1-Poster1-ndfdaf.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Poster1-rqt873/Poster1-Poster1-rqt873.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Sculpture1-cgn32b/Sculpture1-Sculpture1-cgn32b.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webshop_test1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webshop_test1/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -175,7 +154,8 @@
       <workItem from="1567759061307" duration="5397000" />
       <workItem from="1568112949463" duration="7187000" />
       <workItem from="1568203068127" duration="5977000" />
-      <workItem from="1568209712531" duration="1729000" />
+      <workItem from="1568209712531" duration="2162000" />
+      <workItem from="1568213625051" duration="553000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -205,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568126727491</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated user model">
+      <created>1568213353776</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568213353776</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +215,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="commit on sunday evening" />
     <MESSAGE value="updated Cart - only possible to see available items in all views" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated Cart - only possible to see available items in all views" />
+    <MESSAGE value="updated user model" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated user model" />
   </component>
 </project>
