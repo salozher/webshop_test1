@@ -13,10 +13,10 @@
         {% for item in cart.items.all %}
             <tr>
 
-                <td class="text-center">{{ item.product.title }}<img src="{{ item.product.image.url }}" alt="" style="width: 50px; height: auto" ></td>
+                <td class="text-center"><strong>{{ item.product.title }}</strong><img src="{{ item.product.cover.url }}" alt="" style="width: 50px; height: auto" ></td>
                 <td class="text-center">{{ item.qty }}</td>
-                <td class="text-center">{{ item.item_total }}</td>
-                <td class="text-center"><a href='{% url "remove_from_cart" product_slug=item.product.slug %}'><button class="btn btn-default">Remove from cart</button></a></td>
+                <td class="text-center">${{ item.item_total }}</td>
+                <td class="text-center"><a href='{% url "remove_from_cart" product_slug=item.product.slug %}'><button class="btn btn-danger">Remove from cart</button></a></td>
             </tr>
         {% endfor %}
 

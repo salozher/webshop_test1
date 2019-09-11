@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% block content_header %}
+        <h2>Art objecttttttttts</h2>
+        <p>
+            <a href="{% url 'upload_art' %}" class="btn btn-primary">Upload Art Object</a>
+        </p>
+    {% endblock %}
+
+    <table class="table mb-0">
+        <thead>
+        <tr>
+            <th>Cover</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Order</th>
+            <th>Price/per month</th>
+            {% if user.is_employee %}
+            <th>Delete</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if user.is_employee %}
+             {% for art in arts %}
+            <tr>
+                <td>
+                    {% if art.cover %}
+                        <img src="{{ art.cover.url }}" alt="{{ art.title }}" style="width:100px;">
+                    {% else %}
+                        <span class="text-muted">No picture of art object is available</span>
+                    {% endif %}
+                </td>
+                <td>{{ art.title }}</td>
+                <td>{{ art.description }}</td>
+                <td>
+                    <a href="{{ art.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+                        Add to cart
+                    </a>
+                </td>
+            <td>{{ art.price }}</td>
+                <td>
+                    <form method="post" action="{% url 'delete_art' art.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

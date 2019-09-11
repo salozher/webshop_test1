@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from ecomapp.models import Category, Art, CartItem, Cart
+from .models import Category, Art, CartItem, Cart
+from .forms import ArtObjectForm
+from django.views.generic import TemplateView, ListView, CreateView
 
 
 
@@ -127,7 +130,6 @@ def remove_from_cart_view(request, product_slug):
             return HttpResponseRedirect('/cart/')
 
 
-
 def cart_create(request):
     try:
         cart_id = request.session['cart_id']
@@ -140,3 +142,54 @@ def cart_create(request):
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
     return cart
+
+
+
+class ArtsOfOwnerInRent(ListView):
+    model = Art
+    template_name = 'class_art_list.html'
+    context_object_name = 'arts'
+
+    # paginate_by = 5
+
+    def get_queryset(self):
+        loggeduser = self.request.user
+        if (loggeduser.is_student):
+            return Art.objects.all()
+        else:
+            return Art.objects.filter(owner=self.request.user).filter(available=False)
+
+
+class ArtsOfOwner(ListView):
+    model = Art
+    template_name = 'class_art_list.html'
+    context_object_name = 'arts'
+
+    # paginate_by = 5
+
+    def get_queryset(self):
+        loggeduser = self.request.user
+        if (loggeduser.is_student):
+            return Art.objects.all()
+        else:
+            return Art.objects.filter(owner=self.request.user)
+
+
+class UploadArtView(CreateView):
+    model = Art
+    form_class = ArtObjectForm
+    success_url = reverse_lazy('class_art_list')
+    template_name = 'add_new_art.html'
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super(UploadArtView, self).form_valid(form)
+
+
+
+
+def delete_art(request, pk):
+    if request.method == 'POST':
+        art = Art.objects.get(pk=pk)
+        art.delete()
+    return redirect('class_art_list')

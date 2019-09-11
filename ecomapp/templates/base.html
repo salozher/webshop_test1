@@ -48,6 +48,21 @@
                         </ul>
                     </li>
                 {% endif %}
+                {% if user.is_employee %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'class_art_list_in_use' %}">Your Art objects currently in
+                            rent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'class_art_list' %}">Add your new Art object</a>
+                    </li>
+                {% elif user.is_student %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'class_art_list' %}">Explore available Art objects for rent</a>
+                    </li>
+
+                {% endif %}
+
             </ul>
 
             {% if user.is_authenticated %}

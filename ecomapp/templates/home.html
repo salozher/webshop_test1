@@ -23,9 +23,10 @@
                             {% for product in products %}
                                 {% if forloop.first %}
                                     <div class="item active">
-                                        <img class="slide-image" src="{{ product.image.url }}"
+                                        <img class="slide-image" src="{{ product.cover.url }}"
                                              alt="" style="width: auto; height: 400px; margin: 0 auto ">
                                         <div class="align-content-center" style="width: available">
+                                            <br>
                                             <a href="{{ product.get_absolute_url }}" style="position: center">
                                                 <button class="btn btn-primary center-block"
                                                         style="position: center">{{ product.title }}</button>
@@ -34,8 +35,9 @@
                                     </div>
                                 {% else %}
                                     <div class="item">
-                                        <img class="slide-image" src="{{ product.image.url }}"
+                                        <img class="slide-image" src="{{ product.cover.url }}"
                                              alt="" style="width: auto; height: 400px; margin: 0 auto ">
+                                        <br>
                                         <a href="{{ product.get_absolute_url }}">
                                             <button class="btn btn-primary center-block"
                                                     style="position: center">{{ product.title }}</button>
@@ -61,7 +63,7 @@
                 {% for product in products %}
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="{{ product.image.url }}" alt="" style="width: 200px; height: auto">
+                            <img src="{{ product.cover.url }}" alt="" style="width: 200px; height: auto">
                             <div class="caption" style="height: auto">
                                 <h4 class="pull-right">${{ product.price }}/p.mounth</h4>
                                 <h4><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
@@ -82,7 +84,7 @@
         </div>
     </div>
     {% else %}
-        <h4>Hello Guest! To go ahead, please log in:</h4>
+        <h2>Hello Guest!<br> Welcome to Serg's Rent Shop <br> To go ahead, please log in:</h2>
         <a href="{% url 'login' %}">Login</a>
 
     {% endif %}

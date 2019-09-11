@@ -1,0 +1,13 @@
+{% extends 'art_list.html' %}
+
+{% block content_header %}
+    {% if user.is_employee %}
+        <h2>Add a new Art Object in to database</h2>
+        <p>
+            <a href="{% url 'class_upload_art' %}" class="btn btn-primary">Add new Art Item</a>
+        </p>
+    {% else %}
+    <h2>Art Objects available for rent (CBV)</h2>
+    {% endif %}
+
+{% endblock %}

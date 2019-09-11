@@ -3,14 +3,16 @@
 {% block content %}
 
     <div class='col-sm-4'>
-    <img src="{{ product.image.url }}" style="width: 80%; height: auto">
+        <img src="{{ product.cover.url }}" style="width: 80%; height: auto">
     </div>
-     <div class='col-sm-8'>
-     <h3 class="text-center">{{ product.title }}</h3>
-     <p>{{ product.description }}</p>
-         <hr>
-     <p>Price: <strong> ${{ product.price }}</strong></p>
-         <a href="{% url "add_to_cart" product_slug=product.slug %}"><button class="btn btn-danger">Add to cart</button></a>
+    <div class='col-sm-8'>
+        <h3 class="text-center">{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+        <hr>
+        <p class="pull-right">Price: <strong> ${{ product.price }} /p.month</strong></p>
+        <a class="pull-left" href="{% url "add_to_cart" product_slug=product.slug %}">
+            <button class="btn btn-danger">Add to cart</button>
+        </a>
     </div>
 
 {% endblock content %}
