@@ -2,36 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/2ir1dl/Cheburashka-2ir1dl.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/87h7u0/Mona_Lisa-87h7u0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/panxh0/Crocodile_Gena-panxh0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/rrevsf/Dartanian-rrevsf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0002_auto_20190912_1634.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/add_new_art.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/add_new_art.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/art_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/art_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/art_list_in_rent.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/art_list_in_rent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/class_art_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecomapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/31op0m/Photo2-31op0m.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/2t0vw9/Letter_A-2t0vw9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/37xgf2/Photo1-37xgf2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/37kqzs/Super_Pig-37kqzs.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webshop_test1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webshop_test1/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webshop_test1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webshop_test1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +164,8 @@
       <workItem from="1568213625051" duration="8548000" />
       <workItem from="1568287121822" duration="997000" />
       <workItem from="1568289218919" duration="498000" />
-      <workItem from="1568289738771" duration="959000" />
+      <workItem from="1568289738771" duration="4877000" />
+      <workItem from="1568298604225" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -233,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568214427442</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="application name updated from ecomapp to rentshop">
+      <created>1568291122813</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568291122814</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +241,7 @@
     <MESSAGE value="updated Cart - only possible to see available items in all views" />
     <MESSAGE value="updated user model" />
     <MESSAGE value="new user model - updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="new user model - updated" />
+    <MESSAGE value="application name updated from ecomapp to rentshop" />
+    <option name="LAST_COMMIT_MESSAGE" value="application name updated from ecomapp to rentshop" />
   </component>
 </project>

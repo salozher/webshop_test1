@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.contrib.auth.views import LogoutView
 from .models import Category, Art, CartItem, Cart
 from .forms import ArtObjectForm
 from django.views.generic import TemplateView, ListView, CreateView
@@ -128,6 +129,30 @@ def remove_from_cart_view(request, product_slug):
             product.available = True
             product.save()
             return HttpResponseRedirect('/cart/')
+
+
+def remove_from_cart_all_view(request):
+    try:
+        cart_id = request.session['cart_id']
+        cart = Cart.objects.get(id = cart_id)
+        request.session['total'] = cart.items.count()
+    except:
+        cart = Cart()
+        cart.save()
+        cart_id = cart.id
+        request.session['cart_id'] = cart_id
+        cart = Cart.objects.get(id=cart_id)
+    # product = Art.objects.get(slug=product_slug)
+    for cart_item in cart.items.all():
+        if cart_item:
+            prod = cart_item.product
+            cart.items.remove(cart_item)
+            cart.save()
+            prod.available = True
+            prod.save()
+        else:
+            pass
+    return HttpResponseRedirect('/logout')
 
 
 def cart_create(request):
