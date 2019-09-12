@@ -247,3 +247,12 @@ def delete_art(request, pk):
         art = Art.objects.get(pk=pk)
         art.delete()
     return redirect('class_art_list')
+
+
+def return_art(request, pk):
+    if request.method == 'POST':
+        art = Art.objects.get(pk=pk)
+        art.available = True
+        art.temp_owner = None
+        art.save()
+    return redirect('class_art_list')

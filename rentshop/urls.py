@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from rentshop.views import home_view, product_view, category_view, cart_view, add_to_cart_view, remove_from_cart_view, \
-    ArtsOfOwnerInRent, ArtsOfOwner, UploadArtView, delete_art, remove_from_cart_all_view
+    ArtsOfOwnerInRent, ArtsOfOwner, UploadArtView, delete_art, remove_from_cart_all_view, return_art
 
 urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
@@ -19,6 +19,7 @@ urlpatterns = [
 
     path('class/arts/upload/', UploadArtView.as_view(), name='class_upload_art'),
     path('arts/<int:pk>/', delete_art, name='delete_art'),
+    path('artsreturn/<int:pk>/', return_art, name='return_art'),
 
     path('cart/', cart_view, name='cart'),
     # url(r'^cart/$', cart_view, name='cart'),

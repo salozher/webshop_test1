@@ -38,7 +38,7 @@
                 <td>{{ art.temp_owner }}</td>
                 {% if not user.is_student %}
                     <td>
-                        <form method="post" action="{% url 'delete_art' art.pk %}">
+                        <form method="post" action="{% url 'return_art' art.pk %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger btn-sm">Item is returned <br> from renting person</button>
                         </form>
