@@ -14,7 +14,7 @@ urlpatterns = [
     path('product/<str:product_slug>/', product_view, name='product_detail'),
     # url(r'^product/(?P<product_slug>[-\W]+)/S', product_view, name='product_detail'),
 
-    path('class/artsinuse/', ArtsOfOwnerInRent.as_view(), name='class_art_list_in_use'),
+    path('class/artsinrent/', ArtsOfOwnerInRent.as_view(), name='class_art_list_in_use'),
     path('class/arts/', ArtsOfOwner.as_view(), name='class_art_list'),
 
     path('class/arts/upload/', UploadArtView.as_view(), name='class_upload_art'),

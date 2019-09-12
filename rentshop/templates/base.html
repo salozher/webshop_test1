@@ -54,12 +54,12 @@
                             rent</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'class_art_list' %}">Add your new Art object</a>
+                        <a class="nav-link" href="{% url 'class_art_list' %}">Manage your Art objects</a>
                     </li>
-                {% elif user.is_student %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'class_art_list' %}">Explore available Art objects for rent</a>
-                    </li>
+{#                {% elif user.is_student %}#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="{% url 'class_art_list' %}">List of available Art objects for rent</a>#}
+{#                    </li>#}
 
                 {% endif %}
 

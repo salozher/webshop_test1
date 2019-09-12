@@ -4,14 +4,13 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.views import LogoutView
 from .models import Category, Art, CartItem, Cart
 from .forms import ArtObjectForm
-from django.views.generic import TemplateView, ListView, CreateView
-
+from django.views.generic import TemplateView, ListView, CreateView, DetailView
 
 
 def home_view(request):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id = cart_id)
+        cart = Cart.objects.get(id=cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -50,6 +49,7 @@ def product_view(request, product_slug):
     }
     return render(request, 'product.html', context)
 
+
 def category_view(request, category_slug):
     try:
         cart_id = request.session['cart_id']
@@ -72,11 +72,12 @@ def category_view(request, category_slug):
     }
     return render(request, 'category.html', context)
 
+
 def cart_view(request):
     categories = Category.objects.all()
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id = cart_id)
+        cart = Cart.objects.get(id=cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -93,7 +94,7 @@ def cart_view(request):
 def add_to_cart_view(request, product_slug):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id = cart_id)
+        cart = Cart.objects.get(id=cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -110,10 +111,11 @@ def add_to_cart_view(request, product_slug):
         product.save()
         return HttpResponseRedirect('/cart/')
 
+
 def remove_from_cart_view(request, product_slug):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id = cart_id)
+        cart = Cart.objects.get(id=cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -134,7 +136,7 @@ def remove_from_cart_view(request, product_slug):
 def remove_from_cart_all_view(request):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id = cart_id)
+        cart = Cart.objects.get(id=cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -158,7 +160,7 @@ def remove_from_cart_all_view(request):
 def cart_create(request):
     try:
         cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id = cart_id)
+        cart = Cart.objects.get(id=cart_id)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
@@ -168,36 +170,65 @@ def cart_create(request):
         cart = Cart.objects.get(id=cart_id)
     return cart
 
+def products_in_rent(request):
+    return Art.objects.filter(owner=request.user).filter(available=False)
+
+def products(request):
+    return Art.objects.filter(owner=request.user)
 
 
 class ArtsOfOwnerInRent(ListView):
-    model = Art
-    template_name = 'class_art_list.html'
-    context_object_name = 'arts'
+    template_name = 'class_art_list_in_use.html'
+    context_object_name = 'products'
 
-    # paginate_by = 5
+    def get(self, request, *args, **kwargs):
+        try:
+            cart_id = request.session['cart_id']
+            cart = Cart.objects.get(id=cart_id)
+            request.session['total'] = cart.items.count()
+        except:
+            cart = Cart()
+            cart.save()
+            cart_id = cart.id
+            request.session['cart_id'] = cart_id
+            cart = Cart.objects.get(id=cart_id)
+        categories = Category.objects.all()
+        context = {
+            'categories': categories,
+            'products': products_in_rent(request),
+            'cart': cart,
+        }
+        return render(request, self.template_name, context)
 
-    def get_queryset(self):
-        loggeduser = self.request.user
-        if (loggeduser.is_student):
-            return Art.objects.all()
-        else:
-            return Art.objects.filter(owner=self.request.user).filter(available=False)
 
 
 class ArtsOfOwner(ListView):
     model = Art
     template_name = 'class_art_list.html'
-    context_object_name = 'arts'
+    context_object_name = 'products'
 
-    # paginate_by = 5
+    # def get_queryset(self):
+    #     return Art.objects.filter(owner=self.request.user)
 
-    def get_queryset(self):
-        loggeduser = self.request.user
-        if (loggeduser.is_student):
-            return Art.objects.all()
-        else:
-            return Art.objects.filter(owner=self.request.user)
+    def get(self, request, *args, **kwargs):
+        try:
+            cart_id = request.session['cart_id']
+            cart = Cart.objects.get(id=cart_id)
+            request.session['total'] = cart.items.count()
+        except:
+            cart = Cart()
+            cart.save()
+            cart_id = cart.id
+            request.session['cart_id'] = cart_id
+            cart = Cart.objects.get(id=cart_id)
+        categories = Category.objects.all()
+        # products = Art.objects.filter(owner=self.request.user)
+        context = {
+            'categories': categories,
+            'products': products(request),
+            'cart': cart,
+        }
+        return render(request, self.template_name, context)
 
 
 class UploadArtView(CreateView):
@@ -209,8 +240,6 @@ class UploadArtView(CreateView):
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super(UploadArtView, self).form_valid(form)
-
-
 
 
 def delete_art(request, pk):

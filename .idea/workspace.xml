@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0002_auto_20190912_1634.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/art_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/art_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/class_art_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
@@ -45,18 +47,19 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ecomapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/rentshop/templates" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\@Python Projects\webshop_test1\ecomapp" />
-      <recent name="C:\@Python Projects\webshop_test1\ecomapp\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\@Python Projects\webshop_test1\static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\@Python Projects\webshop_test1\rentshop\templates" />
+      <recent name="C:\@Python Projects\webshop_test1\ecomapp" />
+      <recent name="C:\@Python Projects\webshop_test1\ecomapp\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -165,7 +168,7 @@
       <workItem from="1568287121822" duration="997000" />
       <workItem from="1568289218919" duration="498000" />
       <workItem from="1568289738771" duration="4877000" />
-      <workItem from="1568298604225" duration="612000" />
+      <workItem from="1568298604225" duration="15362000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -216,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568291122814</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="on logout all items being removed from cart, items visible for rent again">
+      <created>1568299257017</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1568299257017</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +252,10 @@
     <MESSAGE value="updated user model" />
     <MESSAGE value="new user model - updated" />
     <MESSAGE value="application name updated from ecomapp to rentshop" />
-    <option name="LAST_COMMIT_MESSAGE" value="application name updated from ecomapp to rentshop" />
+    <MESSAGE value="on logout all items being removed from cart, items visible for rent again" />
+    <option name="LAST_COMMIT_MESSAGE" value="on logout all items being removed from cart, items visible for rent again" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/webshop_test1$manage.coverage" NAME="manage Coverage Results" MODIFIED="1568313373598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
