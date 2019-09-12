@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ecomapp',
+    'rentshop',
     'crispy_forms',
 ]
 
@@ -126,4 +126,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static_in_dev'),
 )
 
-AUTH_USER_MODEL = 'ecomapp.MyUser'
+AUTH_USER_MODEL = 'rentshop.MyUser'

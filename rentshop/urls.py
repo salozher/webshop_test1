@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from ecomapp.views import home_view, product_view, category_view, cart_view, add_to_cart_view, remove_from_cart_view, \
+from rentshop.views import home_view, product_view, category_view, cart_view, add_to_cart_view, remove_from_cart_view, \
     ArtsOfOwnerInRent, ArtsOfOwner, UploadArtView, delete_art
 
 urlpatterns = [
