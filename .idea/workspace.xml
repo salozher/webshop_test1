@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="" />
+    <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0003_auto_20190918_1200.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +169,11 @@
       <workItem from="1568287121822" duration="997000" />
       <workItem from="1568289218919" duration="498000" />
       <workItem from="1568289738771" duration="4877000" />
-      <workItem from="1568298604225" duration="17642000" />
+      <workItem from="1568298604225" duration="17677000" />
+      <workItem from="1568794093609" duration="58000" />
+      <workItem from="1568794202117" duration="4417000" />
+      <workItem from="1568887048485" duration="6973000" />
+      <workItem from="1568900254059" duration="10995000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -232,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568318070360</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="on logout all items being removed from cart, items visible for rent again">
+      <created>1568319928618</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1568319928618</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

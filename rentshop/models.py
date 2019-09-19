@@ -211,7 +211,7 @@ pre_save.connect(pre_save_art_slug, sender=Art)
 
 class CartItem(models.Model):
     product = models.ForeignKey(Art, on_delete=models.PROTECT)
-    qty = models.PositiveIntegerField(default=3)
+    rent_length = models.PositiveIntegerField(default=3)
     item_total = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
 
     def __unicode__(self):
@@ -224,4 +224,22 @@ class Cart(models.Model):
 
     def __unicode__(self):
         return str(self.id)
+
+    def add_to_cart(self, product_slug):
+        cart = self
+        product = Art.objects.get(slug=product_slug)
+        new_item, _ = CartItem.objects.get_or_create(product=product, item_total=product.price)
+        if new_item not in cart.items.all():
+            cart.items.add(new_item)
+            cart.save()
+
+    def remove_from_cart(self, product_slug):
+        cart = self
+        product = Art.objects.get(slug=product_slug)
+        for cart_item in cart.items.all():
+            if cart_item.product == product:
+                cart.items.remove(cart_item)
+                cart.save()
+                product.available = True
+                product.save()
 

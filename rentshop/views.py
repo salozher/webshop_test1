@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect
+from decimal import Decimal
+from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.views import LogoutView
 from .models import Category, Art, CartItem, Cart
 from .forms import ArtObjectForm
@@ -91,6 +92,7 @@ def cart_view(request):
     return render(request, 'cart.html', context)
 
 
+
 def add_to_cart_view(request, product_slug):
     try:
         cart_id = request.session['cart_id']
@@ -103,13 +105,13 @@ def add_to_cart_view(request, product_slug):
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
     product = Art.objects.get(slug=product_slug)
-    new_item, _ = CartItem.objects.get_or_create(product=product, item_total=product.price)
-    if new_item not in cart.items.all():
-        cart.items.add(new_item)
-        cart.save()
-        product.available = False
-        product.save()
-        return HttpResponseRedirect('/cart/')
+    cart.add_to_cart(product.slug)
+    new_cart_total = 0.00
+    for item in cart.items.all():
+        new_cart_total += float(item.item_total)
+    cart.cart_total = new_cart_total
+    cart.save()
+    return HttpResponseRedirect(reverse('cart'))
 
 
 def remove_from_cart_view(request, product_slug):
@@ -124,13 +126,13 @@ def remove_from_cart_view(request, product_slug):
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
     product = Art.objects.get(slug=product_slug)
-    for cart_item in cart.items.all():
-        if cart_item.product == product:
-            cart.items.remove(cart_item)
-            cart.save()
-            product.available = True
-            product.save()
-            return HttpResponseRedirect('/cart/')
+    cart.remove_from_cart(product.slug)
+    new_cart_total = 0.00
+    for item in cart.items.all():
+        new_cart_total += float(item.item_total)
+    cart.cart_total = new_cart_total
+    cart.save()
+    return HttpResponseRedirect(reverse('cart'))
 
 
 def remove_from_cart_all_view(request):
@@ -201,7 +203,6 @@ class ArtsOfOwnerInRent(ListView):
         return render(request, self.template_name, context)
 
 
-
 class ArtsOfOwner(ListView):
     model = Art
     template_name = 'class_art_list.html'
@@ -256,3 +257,31 @@ def return_art(request, pk):
         art.temp_owner = None
         art.save()
     return redirect('class_art_list')
+
+
+def change_rent_period(request):
+    try:
+        cart_id = request.session['cart_id']
+        cart = Cart.objects.get(id=cart_id)
+        request.session['total'] = cart.items.count()
+    except:
+        cart = Cart()
+        cart.save()
+        cart_id = cart.id
+        request.session['cart_id'] = cart_id
+        cart = Cart.objects.get(id=cart_id)
+    period = request.GET.get('period')
+    item_id = request.GET.get('item_id')
+    cart_item = CartItem.objects.get(id=int(item_id))
+    cart_item.rent_length = int(period)
+    cart_item.item_total = int(period) * Decimal(cart_item.product.price)
+    cart_item.save()
+    new_cart_total = 0.00
+    for item in cart.items.all():
+        new_cart_total += float(item.item_total)
+    cart.cart_total = new_cart_total
+    cart.save()
+    return JsonResponse(
+        {'cart_total': cart.items.count(),
+         'item_total': cart_item.item_total,
+         'cart_total_price': cart.cart_total})

@@ -1,24 +1,71 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
     <h3 class="text-center">Your cart</h3>
     <br>
     <table class="table">
         <tr>
             <td class="text-center">Art Object</td>
-            <td class="text-center">Period/Month</td>
             <td class="text-center">Price/p.month</td>
-            <td class="text-center"> </td>
+            <td class="text-center">Period/Month</td>
+            <td class="text-center">Price</td>
+            <td class="text-center"></td>
         </tr>
         {% for item in cart.items.all %}
             <tr>
 
-                <td class="text-center"><strong>{{ item.product.title }}</strong><img src="{{ item.product.cover.url }}" alt="" style="width: 50px; height: auto" ></td>
-                <td class="text-center">{{ item.qty }}</td>
-                <td class="text-center">${{ item.item_total }}</td>
-                <td class="text-center"><a href='{% url "remove_from_cart" product_slug=item.product.slug %}'><button class="btn btn-danger">Remove from cart</button></a></td>
+                <td class="text-center"><strong>{{ item.product.title }}</strong><img src="{{ item.product.cover.url }}"
+                                                                                      alt=""
+                                                                                      style="width: 50px; height: auto">
+                </td>
+                <td class="text-center">${{ item.product.price }}</td>
+                <td class="text-center">
+                    <form action="" method="GET">
+                        <input id="rent_period" type="number" name="rent_length" class="item_rent_length"
+                               data-id="{{ item.id }}" value="{{ item.rent_length }}" step="1" min="3" max="12"
+                               style="width: 44px"> <a
+                            href='{% url "remove_from_cart" product_slug=item.product.slug %}'>
+                        <button class="btn btn-warning">Change period</button>
+                    </a></form>
+                </td>
+                <td class="text-center" id="cart-item-total">${{ item.item_total }}</td>
+                <td class="text-center"><a href='{% url "remove_from_cart" product_slug=item.product.slug %}'>
+                    <button class="btn btn-danger">Remove from cart</button>
+                </a></td>
             </tr>
         {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="text-center" id="cart-total-price">Total Price: ${{ cart.cart_total }}</td>
+            <td></td>
+
+        </tr>
 
     </table>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.item_rent_length').on('click', function () {
+                period = $(this).val()
+                item_id = $(this).attr('data-id')
+                data = {
+                    period: period,
+                    item_id: item_id
+                }
+                $.ajax({
+                    type: "GET",
+                    url: '{%  url "change_rent_period" %}',
+                    data: data,
+                    success: function (data) {
+                        $('#cart-item-total' + item_id).html('$' + parseFloat(data.item_total).toFixed(2))
+                        $('#cart-total-price').html('$' + parseFloat(data.cart_total_price).toFixed(2))
+                    }
+                })
+            })
+        })
+    </script>
 {% endblock %}
