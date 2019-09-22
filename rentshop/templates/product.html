@@ -10,38 +10,19 @@
         <p>{{ product.description }}</p>
         <hr>
         <p class="pull-right">Price: <strong> ${{ product.price }} /p.month</strong></p>
-        <a class="test2" dataa-slug="{{ product.slug}}">
-            <button>Add to cart {{ product.slug}}</button>
+        <a class="addtocart" data-slug="{{ product.slug}}">
+            <button>Add to cart</button>
         </a>
     </div>
 
 
-    {#    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
-{#    <script src="{% static 'js/jquery.js' %}"></script>#}
     <script>
         $(document).ready(function () {
-            $('.test2').on('click', function (e) {
+            $('.addtocart').on('click', function (e) {
                 e.preventDefault()
-                product_slug = $(this).attr('dataa-slug')
-                data = {product_slug: product_slug}
-                console.log(product_slug)
-                $.ajax({
-                    type: 'GET',
-                    url: '{% url "add_to_cart" %}',
-                    data: data,
-                    success: function (data) {
-                        console.log(data)
-                        $("#cart_count").html(data.cart_total)
-                    }
-                })
-            })
-        })
-        $(document).ready(function () {
-            $('.test').on('click', function () {
                 product_slug = $(this).attr('data-slug')
                 data = {product_slug: product_slug}
                 console.log(product_slug)
-
                 $.ajax({
                     type: 'GET',
                     url: '{% url "add_to_cart" %}',
@@ -51,7 +32,6 @@
                         $("#cart_count").html(data.cart_total)
                     }
                 })
-
             })
         })
     </script>

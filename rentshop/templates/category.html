@@ -1,20 +1,43 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<div class="col-sm-12">
-<h2>{{ category.name }}</h2>
-    <hr>
-{% for product in products_of_category %}
-<div class="col-sm-4">
-    <img src="{{ product.cover.url }}" style="width: 80%; height: auto">
-<h4 class="pull-left">{{ product.title }}</h4>
-    <p>{{ product.description }}</p>
-<p class="pull-right">Price: <strong> ${{ product.price }} /p.month</strong></p>
-  <a class="pull-left" href="#"><button class="btn btn-danger">Add to cart</button></a>
-</div>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <div class="col-sm-12">
+        <h2>{{ category.name }}</h2>
+        <hr>
+        {% for product in products_of_category %}
+            <div class="col-sm-4">
+                <img src="{{ product.cover.url }}" style="width: 80%; height: auto">
+                <h4 class="pull-left">{{ product.title }}</h4>
+                <p>{{ product.description }}</p>
+                <p class="pull-right">Price: <strong> ${{ product.price }} /p.month</strong></p>
+                <a class="addtocart" data-slug="{{ product.slug}}">
+                    <button class="btn btn-danger">Add to cart</button>
+                </a>
+            </div>
 
 
-{% endfor %}
-</div>
+        {% endfor %}
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.addtocart').on('click', function (e) {
+                e.preventDefault()
+                product_slug = $(this).attr('data-slug')
+                data = {product_slug: product_slug}
+                console.log(product_slug)
+                $.ajax({
+                    type: 'GET',
+                    url: '{% url "add_to_cart" %}',
+                    data: data,
+                    success: function (data) {
+                        console.log(data)
+                        $("#cart_count").html(data.cart_total)
+                    }
+                })
+            })
+        })
+    </script>
 
 {% endblock content %}

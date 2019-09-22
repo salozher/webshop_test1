@@ -134,8 +134,10 @@ def remove_from_cart_view(request):
         new_cart_total += float(item.item_total)
     cart.cart_total = new_cart_total
     cart.save()
+
     return JsonResponse(
-        {'cart_total': cart.items.count()})
+        {'cart_total': cart.items.count(),
+         'cart_total_price': cart.cart_total})
 
 
 def remove_from_cart_all_view(request):
@@ -275,6 +277,7 @@ def change_rent_period(request):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
+
     period = request.GET.get('period')
     item_id = request.GET.get('item_id')
     cart_item = CartItem.objects.get(id=int(item_id))

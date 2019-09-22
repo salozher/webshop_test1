@@ -14,7 +14,7 @@
             <td class="text-center"></td>
         </tr>
         {% for item in cart.items.all %}
-            <tr class="cart-item-{{ item.product.id }}">
+            <tr class="cart-item-{{ item.product.id }}" item="{{ item.product.title }}">
 
                 <td class="text-center"><strong>{{ item.product.title }}</strong><img src="{{ item.product.cover.url }}"
                                                                                       alt=""
@@ -24,18 +24,23 @@
                 <td class="text-center">
                     <form action="" method="GET">
                         <input id="rent_period" type="number" name="rent_length" class="item_rent_length"
-                               data-id="{{ item.id }}" value="{{ item.rent_length }}" step="1" min="3" max="12"
-                               style="width: 44px"> <a
-                            {#                            href='{% url "remove_from_cart" product_slug=item.product.slug %}'#}
-                    >
-                        <button class="btn btn-warning">Change period</button>
+                               data-id="{{ item.id }}" default-value="{{ item.rent_period }}"  step="1" min="3"
+                               max="12"
+                               style="width: 44px"> <a>
                     </a></form>
                 </td>
                 <td class="text-center" id="cart-item-total-{{ item.id }}">${{ item.item_total }}</td>
-                <td class="text-center"><a class="remove_from_cart" data-slug="{{ item.product.slug }}" data-id="{{ item.product.id }}">
+                <td class="text-center"><a class="remove_from_cart" data-slug="{{ item.product.slug }}"
+                                           data-id="{{ item.product.id }}">
                     <button class="btn btn-danger">Remove from cart</button>
                 </a></td>
             </tr>
+            <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+            <script>
+            datavalue = $('.item_rent_length').val()
+            console.log(datavalue)
+
+            </script>
         {% endfor %}
         <tr>
             <td></td>
@@ -54,7 +59,8 @@
                 e.preventDefault()
                 product_slug = $(this).attr('data-slug')
                 item_product_id = $(this).attr('data-id')
-                data = {product_slug: product_slug}
+                data = {product_slug: product_slug,
+                }
                 console.log(product_slug)
                 $.ajax({
                     type: 'GET',
@@ -63,7 +69,8 @@
                     success: function (data) {
                         console.log(data)
                         $("#cart_count").html(data.cart_total)
-                        $('.cart-item-'+item_product_id).css('display', 'none')
+                        $('.cart-item-' + item_product_id).css('display', 'none')
+                        $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))
                     }
                 })
             })
@@ -71,9 +78,19 @@
 
     </script>
 
+{#    <script>#}
+{#        $(document).ready(function () {#}
+{#            for item in#}
+{#            period = $('.item_rent_length').val()#}
+{#            console.log(period)#}
+{#        })#}
+{##}
+{#    </script>#}
+
 
     <script>
         $(document).ready(function () {
+
             $('.item_rent_length').on('click', function () {
                 period = $(this).val()
                 item_id = $(this).attr('data-id')
@@ -86,8 +103,8 @@
                     url: '{%  url "change_rent_period" %}',
                     data: data,
                     success: function (data) {
-                        $('#cart-item-total-'+item_id).html('$' + parseFloat(data.item_total).toFixed(2))
-                        $('#cart-total-price').html('$' + parseFloat(data.cart_total_price).toFixed(2))
+                        $('#cart-item-total-' + item_id).html('$' + parseFloat(data.item_total).toFixed(2))
+                        $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))
                     }
                 })
             })

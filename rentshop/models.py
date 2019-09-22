@@ -232,6 +232,8 @@ class Cart(models.Model):
         if new_item not in cart.items.all():
             cart.items.add(new_item)
             cart.save()
+            product.available = False
+            product.save()
 
     def remove_from_cart(self, product_slug):
         cart = self
