@@ -1,20 +1,58 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
+    <script src="{% static 'js/jquery.js' %}"></script>
     <div class='col-sm-4'>
-        <img src="{{ product.cover.url }}" style="width: 80%; height: auto">
+        <img class="test" data-slug="{{ product.slug}}" src="{{ product.cover.url }}" style="width: 80%; height: auto">
     </div>
     <div class='col-sm-8'>
         <h3 class="text-center">{{ product.title }}</h3>
         <p>{{ product.description }}</p>
         <hr>
         <p class="pull-right">Price: <strong> ${{ product.price }} /p.month</strong></p>
-        <a class="pull-left" href="{% url "add_to_cart" product_slug=product.slug %}">
-            <button class="btn btn-danger">Add to cart</button>
+        <a class="test2" dataa-slug="{{ product.slug}}">
+            <button>Add to cart {{ product.slug}}</button>
         </a>
     </div>
+
+
+    {#    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
+{#    <script src="{% static 'js/jquery.js' %}"></script>#}
     <script>
-    alert('Hi')
+        $(document).ready(function () {
+            $('.test2').on('click', function (e) {
+                e.preventDefault()
+                product_slug = $(this).attr('dataa-slug')
+                data = {product_slug: product_slug}
+                console.log(product_slug)
+                $.ajax({
+                    type: 'GET',
+                    url: '{% url "add_to_cart" %}',
+                    data: data,
+                    success: function (data) {
+                        console.log(data)
+                        $("#cart_count").html(data.cart_total)
+                    }
+                })
+            })
+        })
+        $(document).ready(function () {
+            $('.test').on('click', function () {
+                product_slug = $(this).attr('data-slug')
+                data = {product_slug: product_slug}
+                console.log(product_slug)
+
+                $.ajax({
+                    type: 'GET',
+                    url: '{% url "add_to_cart" %}',
+                    data: data,
+                    success: function (data) {
+                        console.log(data)
+                        $("#cart_count").html(data.cart_total)
+                    }
+                })
+
+            })
+        })
     </script>
 {% endblock content %}

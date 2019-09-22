@@ -76,7 +76,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'admin:index' %}">Admin</a></li>
-                    <li><a href="{% url "cart" %}">Cart<span class='badge'>{{ cart.items.count }}</span></a></li>
+                    <li><a href="{% url "cart" %}">Cart<span class='badge' id="cart_count">{{ cart.items.count }}</span></a></li>
                 </ul>
             {% endif %}
         </div>
@@ -111,7 +111,6 @@
 {#jQuery must be firs, bootstrap - second. otherwise carousel will not work!!!#}
 <script src='{% static "js/jquery.js" %}'></script>
 <script src='{% static "js/bootstrap.js" %}'></script>
-
 
 </body>
 
