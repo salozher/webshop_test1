@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +169,8 @@
       <workItem from="1568900254059" duration="10995000" />
       <workItem from="1568978408300" duration="6337000" />
       <workItem from="1568984902078" duration="11231000" />
-      <workItem from="1569157733412" duration="14839000" />
+      <workItem from="1569157733412" duration="16263000" />
+      <workItem from="1569185652862" duration="101000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -261,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569160752237</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="updated cart - calculations of item total and cart total is working">
+      <created>1569184131661</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1569184131661</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
