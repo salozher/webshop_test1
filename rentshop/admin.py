@@ -5,7 +5,7 @@ from django import forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from .models import MyUser, Art, Category
+from .models import MyUser, Art, Category, Order
 
 
 class UserCreationForm(forms.ModelForm):
@@ -44,7 +44,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = MyUser
-        fields = ('username', 'password', 'crypto_wallet', 'crypto_balanse', 'is_employee', 'is_student', 'is_active', 'is_admin')
+        fields = ('username', 'password', 'private_key', 'public_key', 'crypto_wallet', 'crypto_balanse', 'is_employee', 'is_student', 'is_active', 'is_admin')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -65,7 +65,7 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('is_admin', 'is_employee', 'is_student')
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('email', 'crypto_wallet', 'crypto_balanse' )}),
+        ('Personal info', {'fields': ('email', 'crypto_wallet','private_key', 'public_key', 'crypto_balanse' )}),
         ('Permissions', {'fields': ('is_employee', 'is_student', 'is_admin')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -87,3 +87,4 @@ admin.site.register(Category)
 admin.site.unregister(Group)
 
 admin.site.register([CartItem, Cart])
+admin.site.register(Order)

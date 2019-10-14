@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
-from .utils import random_generator, random_string_generator, unique_slug_generator, crypto_wallet_generator
+from .utils import random_generator, random_string_generator, unique_slug_generator, order_id_generator, make_btc_account
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
@@ -43,50 +43,15 @@ class ProductManager(models.Manager):
     def all(self, *args, **kwargs):
         return super(ProductManager, self).get_queryset().filter(available=True)
 
-# class ArtObject(models.Model):
-#     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-#     title = models.CharField(max_length=120)
-#     slug = models.SlugField(max_length=100, unique=True, null=True, blank=True, editable=True)
-#     description = models.TextField()
-#     image = models.ImageField(upload_to=image_folder)
-#     price = models.DecimalField(max_digits=9, decimal_places=2)
-#     renttime = models.PositiveIntegerField(default=3)
-#     available = models.BooleanField(default=True)
-#     objects = ProductManager()
-#
-#     def __str__(self):
-#         return self.title
-#
-#     def get_absolute_url(self):
-#         return reverse('product_detail', kwargs={'product_slug': self.slug})
-#
-#     def save(self, *args, **kwargs):
-#         if self.slug:  # edit
-#             if slugify(self.title) != self.slug:
-#                 self.slug = unique_slug_generator(ArtObject, self.title)
-#         else:  # create
-#             self.slug = unique_slug_generator(ArtObject, self.title)
-#         super(ArtObject, self).save(*args, **kwargs)
-#
-#
-# def pre_save_art_slug(sender, instance, *args, **kwargs):
-#     if not instance.slug:
-#         slug = unique_slug_generator(sender, instance)
-#         # slug = slugify(instance.title)
-#         instance.slug = slug
-#
-#
-# pre_save.connect(pre_save_art_slug, sender=ArtObject)
+class OrderManager(models.Manager):
+    def all(self, *args, **kwargs):
+        return super(OrderManager, self).get_queryset().all()
 
 
-# ----------------------------------------
+
 
 class MyUserManager(BaseUserManager):
     def create_user(self, username, email, password):
-        """
-        Creates and saves a User with the given email, date of
-        birth and password.
-        """
         if not username:
             raise ValueError('Users must have a user name')
         if not email:
@@ -115,6 +80,8 @@ class MyUserManager(BaseUserManager):
         user.is_employee = True
         user.is_student = True
         user.crypto_balanse = 0
+        user.private_key = 0
+        user.public_key = 0
         user.crypto_wallet = 0
         user.save(using=self._db)
         return user
@@ -123,7 +90,9 @@ class MyUserManager(BaseUserManager):
 class MyUser(AbstractBaseUser):
     username = models.CharField(verbose_name='username', max_length=100, unique=True, )
     email = models.EmailField()
-    crypto_wallet = models.CharField(verbose_name='Crypto wallet', max_length=100, unique=True, )
+    private_key = models.CharField(verbose_name='Crypto wallet private (secret) key', max_length=100, unique=True)
+    public_key = models.CharField(verbose_name='Crypto wallet public key', max_length=130, unique=True)
+    crypto_wallet = models.CharField(verbose_name='Public Bitcoin Address', max_length=100, unique=True)
     crypto_balanse = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -139,29 +108,54 @@ class MyUser(AbstractBaseUser):
         return self.username
 
     def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
         return True
 
     def has_module_perms(self, app_label):
-        "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
         return True
 
     @property
     def is_staff(self):
-        "Is the user a member of staff?"
-        # Simplest possible answer: All admins are staff
         return self.is_admin
 
 
-def pre_save_user_wallet(sender, instance, *args, **kwargs):
-    if not instance.crypto_wallet:
-        wallet = crypto_wallet_generator(sender, instance)
-        instance.crypto_wallet = wallet
+def pre_save_user_btc_account_set(sender, instance, *args, **kwargs):
+    if not instance.private_key:
+        btc_account_set = make_btc_account(sender, instance)
+        instance.private_key = btc_account_set[0]
+        instance.public_key = btc_account_set[1]
+        instance.crypto_wallet = btc_account_set[2]
 
 
-pre_save.connect(pre_save_user_wallet, sender=MyUser)
+pre_save.connect(pre_save_user_btc_account_set, sender=MyUser)
+
+
+#
+# def pre_save_user_private_key(sender, instance, *args, **kwargs):
+#     if not instance.private_key:
+#         private_key = crypto_wallet_generator(sender, instance)
+#         instance.private_key = private_key
+#
+#
+# pre_save.connect(pre_save_user_private_key, sender=MyUser)
+#
+# def pre_save_user_public_key(sender, instance, *args, **kwargs):
+#     if not instance.public_key:
+#         public_key = crypto_wallet_generator(sender, instance)
+#         instance.public_key = public_key
+#
+#
+# pre_save.connect(pre_save_user_public_key, sender=MyUser)
+#
+#
+# def pre_save_user_wallet(sender, instance, *args, **kwargs):
+#     if not instance.crypto_wallet:
+#         wallet = crypto_wallet_generator(sender, instance)
+#         instance.crypto_wallet = wallet
+#
+#
+# pre_save.connect(pre_save_user_wallet, sender=MyUser)
+
+
 
 
 
@@ -172,7 +166,7 @@ class Art(models.Model):
     description = models.TextField()
     slug = models.SlugField(max_length=200, unique=True, editable=True)
     owner = models.ForeignKey(MyUser, related_name='artowner', on_delete=models.CASCADE, blank=True)
-    temp_owner = models.ForeignKey(MyUser, null=True, related_name='artrenter', blank=True, on_delete=models.PROTECT)
+    temp_owner = models.ForeignKey(MyUser, null=True, related_name='art_renter', blank=True, on_delete=models.PROTECT)
     cover = models.ImageField(upload_to=image_folder, null=True, blank=True)
     rent_start_date = models.DateField(default=timezone.now(), blank=True)
     rent_end_date = models.DateField(default=timezone.now(), blank=True)
@@ -245,3 +239,24 @@ class Cart(models.Model):
                 product.available = True
                 product.save()
 
+
+
+class Order(models.Model):
+    order_id = models.CharField(verbose_name='Order id', max_length=100, unique=True, editable=False, blank=True)
+    art_item = models.ForeignKey(Art, related_name='art_ordered', on_delete=models.CASCADE, blank=True)
+    transaction_complete = models.BooleanField(default=False)
+    amount_payed = models.DecimalField(max_digits=10, decimal_places=7)
+    exchange_rate = models.DecimalField(max_digits=10, decimal_places=7)
+    objects = OrderManager()
+
+    def __str__(self):
+        return self.art_item.title
+
+
+def pre_save_order_id(sender, instance, *args, **kwargs):
+    if not instance.order_id:
+        order_id = order_id_generator(sender, instance)
+        instance.order_id = order_id
+
+
+pre_save.connect(pre_save_order_id, sender=Order)

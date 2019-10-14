@@ -24,7 +24,7 @@ SECRET_KEY = 'wsle8pc#yp&30p@v3n05701v04(2pu=6ouvd+viknj-+qp-ko2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*' ]
 
 # Application definition
 

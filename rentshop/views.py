@@ -6,6 +6,8 @@ from django.contrib.auth.views import LogoutView
 from .models import Category, Art, CartItem, Cart
 from .forms import ArtObjectForm
 from django.views.generic import TemplateView, ListView, CreateView, DetailView
+from datetime import *
+from django.contrib import messages
 
 
 def home_view(request):
@@ -258,12 +260,16 @@ def delete_art(request, pk):
 
 
 def return_art(request, pk):
+    present = date.today()
     if request.method == 'POST':
         art = Art.objects.get(pk=pk)
-        art.available = True
-        art.temp_owner = None
-        art.save()
-    return redirect('class_art_list')
+        if (art.rent_end_date <= present):
+            art.available = True
+            art.temp_owner = None
+            art.save()
+        else:
+            pass
+    return redirect('class_art_list_in_use')
 
 
 def change_rent_period(request):

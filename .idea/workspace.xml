@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0002_auto_20191014_2318.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/2ir1dl/Cheburashka-2ir1dl.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/3qtgf5/Cheburashka-3qtgf5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/2t0vw9/Letter_A-2t0vw9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/82mjxm/a-82mjxm.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/37kqzs/Super_Pig-37kqzs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/87h7u0/Mona_Lisa-87h7u0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/panxh0/Crocodile_Gena-panxh0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/rrevsf/Dartanian-rrevsf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0002_auto_20190912_1634.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0003_auto_20190918_1200.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0004_auto_20190920_1624.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webshop_test1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webshop_test1/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,6 +189,11 @@
       <workItem from="1568984902078" duration="11231000" />
       <workItem from="1569157733412" duration="16263000" />
       <workItem from="1569185652862" duration="101000" />
+      <workItem from="1569186260529" duration="3031000" />
+      <workItem from="1570617533601" duration="1034000" />
+      <workItem from="1570699315434" duration="49000" />
+      <workItem from="1571063612251" duration="4651000" />
+      <workItem from="1571068989360" duration="14440000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
