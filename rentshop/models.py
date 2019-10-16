@@ -7,7 +7,8 @@ from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
-from .utils import random_generator, random_string_generator, unique_slug_generator, order_id_generator, make_btc_account
+from .utils import random_generator, random_string_generator, unique_slug_generator, order_id_generator, \
+    make_btc_account
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
@@ -43,11 +44,10 @@ class ProductManager(models.Manager):
     def all(self, *args, **kwargs):
         return super(ProductManager, self).get_queryset().filter(available=True)
 
+
 class OrderManager(models.Manager):
     def all(self, *args, **kwargs):
         return super(OrderManager, self).get_queryset().all()
-
-
 
 
 class MyUserManager(BaseUserManager):
@@ -156,10 +156,6 @@ pre_save.connect(pre_save_user_btc_account_set, sender=MyUser)
 # pre_save.connect(pre_save_user_wallet, sender=MyUser)
 
 
-
-
-
-
 class Art(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     title = models.CharField(max_length=100)
@@ -194,7 +190,6 @@ def pre_save_art_slug(sender, instance, *args, **kwargs):
 
 pre_save.connect(pre_save_art_slug, sender=Art)
 
-
 # def pre_save_category_slug(sender, instance, *args, **kwargs):
 #     if not instance.slug:
 #         slug = unique_slug_generator(sender, instance)
@@ -202,6 +197,20 @@ pre_save.connect(pre_save_art_slug, sender=Art)
 #
 #
 # pre_save.connect(pre_save_category_slug, sender=Art)
+
+# RENT_LENGTH_CHOICES = (
+#     ('3', 3),
+#     ('4', 4),
+#     ('5', 5),
+#     ('6', 6),
+#     ('7', 7),
+#     ('8', 8),
+#     ('9', 9),
+#     ('10', 10),
+#     ('11', 11),
+#     ('12', 12),
+# )
+
 
 class CartItem(models.Model):
     product = models.ForeignKey(Art, on_delete=models.PROTECT)
@@ -224,6 +233,9 @@ class Cart(models.Model):
         product = Art.objects.get(slug=product_slug)
         new_item, _ = CartItem.objects.get_or_create(product=product, item_total=product.price)
         if new_item not in cart.items.all():
+            new_item.rent_length = 3
+            new_item.item_total = new_item.item_total*3
+            new_item.save()
             cart.items.add(new_item)
             cart.save()
             product.available = False
@@ -240,17 +252,20 @@ class Cart(models.Model):
                 product.save()
 
 
-
 class Order(models.Model):
-    order_id = models.CharField(verbose_name='Order id', max_length=100, unique=True, editable=False, blank=True)
-    art_item = models.ForeignKey(Art, related_name='art_ordered', on_delete=models.CASCADE, blank=True)
+    order_id = models.CharField(verbose_name='Order id', max_length=100, unique=True, editable=True, blank=True)
+    art_item = models.CharField(verbose_name='Art item', max_length=200, unique=False, editable=True, blank=True)
+    renting_person = models.CharField(verbose_name='Renting person email', max_length=200, unique=False, editable=False,
+                                      blank=True)
+    order_start_date = models.DateField(default=timezone.now(), blank=True)
+    order_end_date = models.DateField(default=timezone.now(), blank=True)
     transaction_complete = models.BooleanField(default=False)
     amount_payed = models.DecimalField(max_digits=10, decimal_places=7)
     exchange_rate = models.DecimalField(max_digits=10, decimal_places=7)
     objects = OrderManager()
 
     def __str__(self):
-        return self.art_item.title
+        return "Order Number{0}:".format(str(self.id))
 
 
 def pre_save_order_id(sender, instance, *args, **kwargs):

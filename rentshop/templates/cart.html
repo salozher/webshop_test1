@@ -24,7 +24,7 @@
                 <td class="text-center">
                     <form action="" method="GET">
                         <input id="rent_period" type="number" name="rent_length" class="item_rent_length"
-                               data-id="{{ item.id }}" default-value="{{ item.rent_period }}"  step="1" min="3"
+                               data-id="{{ item.id }}" value="{{ item.rent_length }}" step="1" min="3"
                                max="12"
                                style="width: 44px"> <a>
                     </a></form>
@@ -37,8 +37,8 @@
             </tr>
             <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
             <script>
-            datavalue = $('.item_rent_length').val()
-            console.log(datavalue)
+                datavalue = $('.item_rent_length').val()
+                console.log(datavalue)
 
             </script>
         {% endfor %}
@@ -52,6 +52,12 @@
         </tr>
 
     </table>
+    <div>
+        <a class="pull-right" href={% url "make_order" %}>
+            <button class="btn btn-success">Make your order</button>
+        </a>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
         $(document).ready(function () {
@@ -59,7 +65,8 @@
                 e.preventDefault()
                 product_slug = $(this).attr('data-slug')
                 item_product_id = $(this).attr('data-id')
-                data = {product_slug: product_slug,
+                data = {
+                    product_slug: product_slug,
                 }
                 console.log(product_slug)
                 $.ajax({
@@ -78,14 +85,14 @@
 
     </script>
 
-{#    <script>#}
-{#        $(document).ready(function () {#}
-{#            for item in#}
-{#            period = $('.item_rent_length').val()#}
-{#            console.log(period)#}
-{#        })#}
-{##}
-{#    </script>#}
+    {#    <script>#}
+    {#        $(document).ready(function () {#}
+    {#            for item in#}
+    {#            period = $('.item_rent_length').val()#}
+    {#            console.log(period)#}
+    {#        })#}
+    {##}
+    {#    </script>#}
 
 
     <script>
