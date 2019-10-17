@@ -3,11 +3,17 @@ from decimal import Decimal
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.views import LogoutView
-from .models import Category, Art, CartItem, Cart
+from .models import Category, Art, CartItem, Cart, MyUser
 from .forms import ArtObjectForm
 from django.views.generic import TemplateView, ListView, CreateView, DetailView
 from datetime import *
 from django.contrib import messages
+import smtplib, ssl, csv
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import logging
+from django.core.mail import send_mail, send_mass_mail
+from django.http import HttpResponse
 
 
 def home_view(request):
@@ -317,3 +323,100 @@ def make_order(request):
         'categories': categories,
     }
     return render(request, 'order.html', context)
+
+
+def send_fancy_email(owner_email):
+    sender_email = "sergiyrentshop@gmail.com"
+    receiver_email = owner_email['email']
+    password = 'Password2019'
+    # renter_email = renter_email
+
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "multipart test"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+
+    # Create the plain-text and HTML version of your message
+    text = """\
+    Hi,
+    How are you?
+    Real Python has many great tutorials:
+    www.realpython.com"""
+    html = """\
+    <html>
+      <body>
+        <p>Hi,<br>
+           How are you?<br>
+           <a href="http://www.realpython.com">Real Python</a> 
+           has many great tutorials.
+        </p>
+      </body>
+    </html>
+    """
+
+    # Turn these into plain/html MIMEText objects
+    part1 = MIMEText(text, "plain")
+    part2 = MIMEText(html, "html")
+
+    # Add HTML/plain-text parts to MIMEMultipart message
+    # The email client will try to render the last part first
+    message.attach(part1)
+    message.attach(part2)
+
+    # Create secure connection with server and send email
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(
+            sender_email, receiver_email, message.as_string()
+        )
+    return HttpResponseRedirect('/cart')
+
+
+def complete_order(request, pk):
+    user = MyUser.objects.get(crypto_wallet=pk)
+
+    cart_id = request.session['cart_id']
+    cart = Cart.objects.get(id=cart_id)
+    mailinglist = []
+    for ordered_item in cart.items.all():
+        product = ordered_item.product
+        product_title = product.title
+        ordered_item_owner = product.owner.username
+        owner_email = product.owner.email
+        price_to_pay = str(ordered_item.item_total)
+        order_period = str(ordered_item.rent_length)
+        renter_email = user.email
+        renter_name = user.username
+
+        message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
+                              "Thank you for ordering an art object " + product_title + " from " +
+                              ordered_item_owner + "! You can contact the owner by email: " +
+                              owner_email + " to arrange the item delivery to you.",
+                              'SergiyRentShop@gmail.com', [renter_email],)
+        message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
+                            "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
+                            renter_name + " for a period of " + order_period + " month! The price amount of $" +
+                            price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
+                            renter_email + " to arrange the item delivery.",
+                            "SergiyRentShop@gmail.com", [owner_email],)
+        message_list = ()
+
+        send_mass_mail((message_to_owner, message_to_student), fail_silently=False)
+    return HttpResponse('Mail successfully sent')
+
+
+# return HttpResponseRedirect('/cart')
+
+
+def sendmail(request):
+    to_addr = 'sergiy.piano@gmail.com'
+    send_mail(
+        'Subject',
+        'Email message',
+        'sergiyrentshop@gmail.com',
+        [to_addr],
+        fail_silently=False,
+    )
+
+    return HttpResponse('Mail successfully sent')

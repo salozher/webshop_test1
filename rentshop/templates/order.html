@@ -30,10 +30,7 @@
 {#                    </a></form>#}
 {#                </td>#}
                 <td class="text-center" id="cart-item-total-{{ item.id }}">${{ item.item_total }}</td>
-                <td class="text-center"><a class="remove_from_cart" data-slug="{{ item.product.slug }}"
-                                           data-id="{{ item.product.id }}">
-                    <button class="btn btn-danger">Remove from cart</button>
-                </a></td>
+                <td class="text-center">BTC: Owner: {{ item.product.owner.email }} User: {{ user.email }}</td>
             </tr>
             <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
             <script>
@@ -47,14 +44,14 @@
             <td></td>
             <td></td>
             <td class="text-center" id="cart-total-price">Total Price: ${{ cart.cart_total }}</td>
-            <td></td>
+            <td class="text-center">Total Price in BTC:</td>
 
         </tr>
 
     </table>
 
     <div>
-        <a class="pull-right" href={% url "make_order" %}>
+        <a class="pull-right" href={% url "complete_order" user.crypto_wallet %}>
             <button class="btn btn-success">Pay / complete your order</button>
         </a>
     </div>
