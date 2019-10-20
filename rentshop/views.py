@@ -378,7 +378,7 @@ def complete_order(request, pk):
 
     cart_id = request.session['cart_id']
     cart = Cart.objects.get(id=cart_id)
-    mailinglist = []
+
     for ordered_item in cart.items.all():
         product = ordered_item.product
         product_title = product.title
@@ -389,20 +389,22 @@ def complete_order(request, pk):
         renter_email = user.email
         renter_name = user.username
 
+        mailinglist = ()
         message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
-                              "Thank you for ordering an art object " + product_title + " from " +
-                              ordered_item_owner + "! You can contact the owner by email: " +
-                              owner_email + " to arrange the item delivery to you.",
-                              'SergiyRentShop@gmail.com', [renter_email],)
-        message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
-                            "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
-                            renter_name + " for a period of " + order_period + " month! The price amount of $" +
-                            price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
-                            renter_email + " to arrange the item delivery.",
-                            "SergiyRentShop@gmail.com", [owner_email],)
-        message_list = ()
+                  "Thank you for ordering an art object " + product_title + " from " +
+                  ordered_item_owner + "! You can contact the owner by email: " +
+                  owner_email + " to arrange the item delivery to you.",
+                  'SergiyRentShop@gmail.com', [renter_email],)
 
-        send_mass_mail((message_to_owner, message_to_student), fail_silently=False)
+        message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
+                  "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
+                  renter_name + " for a period of " + order_period + " month! The price amount of $" +
+                  price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
+                  renter_email + " to arrange the item delivery.",
+                  "SergiyRentShop@gmail.com", [owner_email],)
+        mailinglist = mailinglist + (message_to_student, message_to_owner,)
+
+        send_mass_mail(mailinglist, fail_silently=False)
     return HttpResponse('Mail successfully sent')
 
 
