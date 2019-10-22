@@ -6,12 +6,13 @@
         <h2>{{ category.name }}</h2>
         <hr>
         {% for product in products_of_category %}
-            <div class="col-sm-4">
+
+            <div class="col-sm-4 product-item-{{ product.id }}">
                 <img src="{{ product.cover.url }}" style="width: 80%; height: auto">
                 <h4 class="pull-left">{{ product.title }}</h4>
                 <p>{{ product.description }}</p>
                 <p class="pull-right">Price: <strong> ${{ product.price }} /p.month</strong></p>
-                <a class="addtocart" data-slug="{{ product.slug}}">
+                <a class="addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">
                     <button class="btn btn-danger">Add to cart</button>
                 </a>
             </div>
@@ -25,6 +26,7 @@
             $('.addtocart').on('click', function (e) {
                 e.preventDefault()
                 product_slug = $(this).attr('data-slug')
+                item_product_id = $(this).attr('data-id')
                 data = {product_slug: product_slug}
                 console.log(product_slug)
                 $.ajax({
@@ -33,6 +35,7 @@
                     data: data,
                     success: function (data) {
                         console.log(data)
+                        $('.product-item-' + item_product_id).css('display', 'none')
                         $("#cart_count").html(data.cart_total)
                     }
                 })

@@ -62,15 +62,20 @@
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="{{ product.cover.url }}" alt="" style="width: 200px; height: auto">
-                                <div class="caption" style="height: auto">
-                                    <h4 class="pull-right">${{ product.price }}/p.mounth</h4>
-                                    <h4><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
-                                    <p>{{ product.description }}</p>
-                                    <a class="pull-right" href="#">
-                                        <button class="btn btn-danger addtocart" data-slug="{{ product.slug}}">Add to cart</button>
-                                    </a>
+                            <div class="product-item-{{ product.id }}">
+                                <div class="thumbnail">
+                                    <img src="{{ product.cover.url }}" alt="" style="width: 200px; height: auto">
+                                    <div class="caption" style="height: auto">
+                                        <h4 class="pull-right">${{ product.price }}/p.mounth</h4>
+                                        <h4><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
+                                        <p>{{ product.description }}</p>
+                                        <p>{{ product.id }}</p>
+                                        <a class="pull-right" href="#">
+                                            <button class="btn btn-danger addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">Add
+                                                to cart
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -89,6 +94,7 @@
             $('.addtocart').on('click', function (e) {
                 e.preventDefault()
                 product_slug = $(this).attr('data-slug')
+                item_product_id = $(this).attr('data-id')
                 data = {product_slug: product_slug}
                 console.log(product_slug)
                 $.ajax({
@@ -96,11 +102,42 @@
                     url: '{% url "add_to_cart" %}',
                     data: data,
                     success: function (data) {
-                        console.log(data)
+                        console.log(item_product_id)
+                        $('.product-item-' + item_product_id).css('display', 'none')
                         $("#cart_count").html(data.cart_total)
                     }
                 })
             })
         })
     </script>
+
+{#    script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
+{#    <#}
+{#    script >#}
+{#    $(document).ready(function () {#}
+{#        $('.remove_from_cart').on('click', function (e) {#}
+{#            e.preventDefault()#}
+{#            product_slug = $(this).attr('data-slug')#}
+{#            item_product_id = $(this).attr('data-id')#}
+{#            data = {#}
+{#                product_slug: product_slug,#}
+{#            }#}
+{#            console.log(product_slug)#}
+{#            $.ajax({#}
+{#                type: 'GET',#}
+{#                url: '{% url "remove_from_cart" %}',#}
+{#                data: data,#}
+{#                success: function (data) {#}
+{#                    console.log(data)#}
+{#                    $("#cart_count").html(data.cart_total)#}
+{#                    $('.cart-item-' + item_product_id).css('display', 'none')#}
+{#                    $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))#}
+{#                }#}
+{#            })#}
+{#        })#}
+{#    })#}
+{##}
+{#    </script>#}
+
+
 {% endblock content %}

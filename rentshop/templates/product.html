@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
     <script src="{% static 'js/jquery.js' %}"></script>
+    <div class="product-item-{{ product.id }}">
     <div class='col-sm-4'>
         <img class="test" data-slug="{{ product.slug}}" src="{{ product.cover.url }}" style="width: 80%; height: auto">
     </div>
@@ -10,17 +11,18 @@
         <p>{{ product.description }}</p>
         <hr>
         <p class="pull-right">Price: <strong> ${{ product.price }} /p.month</strong></p>
-        <a class="addtocart" data-slug="{{ product.slug}}">
+        <a class="addtocart" data-slug="{{ product.slug}}" data-id="{{ product.id }}">
             <button>Add to cart</button>
         </a>
     </div>
-
+    </div>
 
     <script>
         $(document).ready(function () {
             $('.addtocart').on('click', function (e) {
                 e.preventDefault()
                 product_slug = $(this).attr('data-slug')
+                item_product_id = $(this).attr('data-id')
                 data = {product_slug: product_slug}
                 console.log(product_slug)
                 $.ajax({
@@ -29,6 +31,7 @@
                     data: data,
                     success: function (data) {
                         console.log(data)
+                        $('.product-item-' + item_product_id).css('display', 'none')
                         $("#cart_count").html(data.cart_total)
                     }
                 })
