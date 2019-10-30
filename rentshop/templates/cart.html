@@ -20,7 +20,7 @@
                                                                                       alt=""
                                                                                       style="width: 50px; height: auto">
                 </td>
-                <td class="text-center">${{ item.product.price }}</td>
+                <td class="text-center">€{{ item.product.price }}</td>
                 <td class="text-center">
                     <form action="" method="GET">
                         <input id="rent_period" type="number" name="rent_length" class="item_rent_length"
@@ -29,7 +29,7 @@
                                style="width: 44px"> <a>
                     </a></form>
                 </td>
-                <td class="text-center" id="cart-item-total-{{ item.id }}">${{ item.item_total }}</td>
+                <td class="text-center" id="cart-item-total-{{ item.id }}">€{{ item.item_total }}</td>
                 <td class="text-center"><a class="remove_from_cart" data-slug="{{ item.product.slug }}"
                                            data-id="{{ item.product.id }}">
                     <button class="btn btn-danger">Remove from cart</button>
@@ -46,14 +46,36 @@
             <td></td>
             <td></td>
             <td></td>
-            <td class="text-center" id="cart-total-price">Total Price: ${{ cart.cart_total }}</td>
+            <td class="text-center" id="cart-total-price">Total Price: €{{ cart.cart_total }}</td>
             <td></td>
 
         </tr>
 
     </table>
+
+    <table class="table">
+
+        <tr>
+            <div>
+                <td class="text-center">Your BTC account</td>
+                <td class="text-center">Your BTC balance</td>
+                <td class="text-center">Exchange rate 1€ = </td>
+            </div>
+        </tr>
+        <br>
+    <tr>
+            <div>
+                <td class="text-center">{{user.crypto_wallet}}</td>
+                <td class="text-center">BTC: {{ btc_balance }}</td>
+                <td class="text-center">{{eur_btc_rate}}</td>
+            </div>
+        </tr>
+
+    </table>
+
     <div>
-        <a class="pull-right" href={% url "make_order" %}>
+        <a class=" pull-right
+            " href={% url "make_order" %}>
             <button class="btn btn-success">Make your order</button>
         </a>
     </div>

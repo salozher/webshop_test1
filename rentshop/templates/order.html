@@ -10,7 +10,7 @@
             <td class="text-center">Art Object</td>
             <td class="text-center">Price/p.month</td>
             <td class="text-center">Period/Month</td>
-            <td class="text-center">Price in $$</td>
+            <td class="text-center">Price in €</td>
             <td class="text-center">Price in Bitcoins</td>
         </tr>
         {% for item in cart.items.all %}
@@ -20,7 +20,7 @@
                                                                                       alt=""
                                                                                       style="width: 50px; height: auto">
                 </td>
-                <td class="text-center">${{ item.product.price }}</td>
+                <td class="text-center">€{{ item.product.price }}</td>
                 <td class="text-center">{{ item.rent_length }}</td>
 {#                    <form action="" method="GET">#}
 {#                        <input id="rent_period" type="number" name="rent_length" class="item_rent_length"#}
@@ -29,7 +29,7 @@
 {#                               style="width: 44px"> <a>#}
 {#                    </a></form>#}
 {#                </td>#}
-                <td class="text-center" id="cart-item-total-{{ item.id }}">${{ item.item_total }}</td>
+                <td class="text-center" id="cart-item-total-{{ item.id }}">€{{ item.item_total }}</td>
                 <td class="text-center">BTC: Owner: {{ item.product.owner.email }} User: {{ user.email }}</td>
             </tr>
             <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -43,7 +43,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td class="text-center" id="cart-total-price">Total Price: ${{ cart.cart_total }}</td>
+            <td class="text-center" id="cart-total-price">Total Price: €{{ cart.cart_total }}</td>
             <td class="text-center">Total Price in BTC:</td>
 
         </tr>

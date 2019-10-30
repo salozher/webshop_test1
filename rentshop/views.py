@@ -14,6 +14,8 @@ from email.mime.multipart import MIMEMultipart
 import logging
 from django.core.mail import send_mail, send_mass_mail
 from django.http import HttpResponse
+from blockcypher import get_address_overview, get_address_details
+from blockchain import blockexplorer, exchangerates
 
 
 def home_view(request):
@@ -81,9 +83,19 @@ def category_view(request, category_slug):
     }
     return render(request, 'category.html', context)
 
+def check_balance(request):
+    pass
+
 
 def cart_view(request):
     categories = Category.objects.all()
+    user = MyUser.objects.get(username=request.user.username)
+    btc_user_info = blockexplorer.get_address(user.crypto_wallet)
+    btc_balance = btc_user_info.final_balance / 100000000
+    btc_rates = exchangerates.get_ticker()
+    btc_eur_rate = btc_rates.get('EUR').buy
+    eur_btc_rate = '{:09.8f}'.format(1 / btc_eur_rate)
+    print(btc_balance)
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
@@ -96,6 +108,9 @@ def cart_view(request):
     context = {
         'cart': cart,
         'categories': categories,
+        'btc_balance': btc_balance,
+        'eur_btc_rate': eur_btc_rate,
+
     }
     return render(request, 'cart.html', context)
 
