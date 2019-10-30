@@ -75,19 +75,19 @@
             <div>
                 <td class="text-center">{{ user.crypto_wallet }}</td>
                 <td class="text-center">BTC: {{ btc_balance }}</td>
-                <td class="text-center">{{ eur_btc_rate }}</td>
+                <td class="text-center">BTC: {{ eur_btc_rate }}</td>
             </div>
         </tr>
 
     </table>
-
-    <div>
-        <a class=" pull-right
+    {% if btc_balance >= cart.btc_cart_total %}
+        <div id="order-button">
+            <a class=" pull-right
             " href={% url "make_order" %}>
-            <button class="btn btn-success">Make your order</button>
-        </a>
-    </div>
-
+                <button class="btn btn-success">Make your order</button>
+            </a>
+        </div>
+    {% endif %}
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
         $(document).ready(function () {
@@ -109,6 +109,7 @@
                         $('.cart-item-' + item_product_id).css('display', 'none')
                         $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))
                         $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
+                        $('#order-button').html()
                     }
                 })
             })
