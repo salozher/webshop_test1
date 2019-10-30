@@ -83,8 +83,12 @@ def category_view(request, category_slug):
     }
     return render(request, 'category.html', context)
 
-def check_balance(request):
-    pass
+
+def btc_current_rates():
+    btc_rates = exchangerates.get_ticker()
+    btc_eur_rate = btc_rates.get('EUR').buy
+    eur_btc_rate = float('{:09.8f}'.format(1 / btc_eur_rate))
+    return eur_btc_rate
 
 
 def cart_view(request):
@@ -92,30 +96,31 @@ def cart_view(request):
     user = MyUser.objects.get(username=request.user.username)
     btc_user_info = blockexplorer.get_address(user.crypto_wallet)
     btc_balance = btc_user_info.final_balance / 100000000
-    btc_rates = exchangerates.get_ticker()
-    btc_eur_rate = btc_rates.get('EUR').buy
-    eur_btc_rate = '{:09.8f}'.format(1 / btc_eur_rate)
+    eur_btc_rate = btc_current_rates()
     print(btc_balance)
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
+        # btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
         cart.save()
         cart_id = cart.id
         request.session['cart_id'] = cart_id
+        # btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
     context = {
         'cart': cart,
         'categories': categories,
         'btc_balance': btc_balance,
         'eur_btc_rate': eur_btc_rate,
-
+        # 'btc_cart_total': btc_cart_total
     }
     return render(request, 'cart.html', context)
 
 
 def add_to_cart_view(request):
+    eur_btc_rate = btc_current_rates()
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
@@ -133,12 +138,14 @@ def add_to_cart_view(request):
     for item in cart.items.all():
         new_cart_total += float(item.item_total)
     cart.cart_total = new_cart_total
+    cart.btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
     cart.save()
     return JsonResponse(
         {'cart_total': cart.items.count()})
 
 
 def remove_from_cart_view(request):
+    eur_btc_rate = btc_current_rates()
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
@@ -156,11 +163,14 @@ def remove_from_cart_view(request):
     for item in cart.items.all():
         new_cart_total += float(item.item_total)
     cart.cart_total = new_cart_total
+    cart.btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
     cart.save()
 
     return JsonResponse(
         {'cart_total': cart.items.count(),
-         'cart_total_price': cart.cart_total})
+         'cart_total_price': cart.cart_total,
+         'cart_btc_total_price': cart.btc_cart_total,
+         })
 
 
 def remove_from_cart_all_view(request):
@@ -294,6 +304,7 @@ def return_art(request, pk):
 
 
 def change_rent_period(request):
+    eur_btc_rate = btc_current_rates()
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
@@ -315,11 +326,14 @@ def change_rent_period(request):
     for item in cart.items.all():
         new_cart_total += float(item.item_total)
     cart.cart_total = new_cart_total
+    cart.btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
     cart.save()
     return JsonResponse(
         {'cart_total': cart.items.count(),
          'item_total': cart_item.item_total,
-         'cart_total_price': cart.cart_total})
+         'cart_total_price': cart.cart_total,
+         'cart_btc_total_price': cart.btc_cart_total,
+         })
 
 
 def make_order(request):
@@ -406,17 +420,17 @@ def complete_order(request, pk):
 
         mailinglist = ()
         message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
-                  "Thank you for ordering an art object " + product_title + " from " +
-                  ordered_item_owner + "! You can contact the owner by email: " +
-                  owner_email + " to arrange the item delivery to you.",
-                  'SergiyRentShop@gmail.com', [renter_email],)
+                              "Thank you for ordering an art object " + product_title + " from " +
+                              ordered_item_owner + "! You can contact the owner by email: " +
+                              owner_email + " to arrange the item delivery to you.",
+                              'SergiyRentShop@gmail.com', [renter_email],)
 
         message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
-                  "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
-                  renter_name + " for a period of " + order_period + " month! The price amount of $" +
-                  price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
-                  renter_email + " to arrange the item delivery.",
-                  "SergiyRentShop@gmail.com", [owner_email],)
+                            "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
+                            renter_name + " for a period of " + order_period + " month! The price amount of $" +
+                            price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
+                            renter_email + " to arrange the item delivery.",
+                            "SergiyRentShop@gmail.com", [owner_email],)
         mailinglist = mailinglist + (message_to_student, message_to_owner,)
 
         send_mass_mail(mailinglist, fail_silently=False)

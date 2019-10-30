@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0004_auto_20191030_2231.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -221,7 +218,7 @@
       <workItem from="1571322640233" duration="22472000" />
       <workItem from="1571581721631" duration="2798000" />
       <workItem from="1571740798511" duration="5851000" />
-      <workItem from="1572431676445" duration="22374000" />
+      <workItem from="1572431676445" duration="27626000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -356,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571744761572</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="in cart view implemented BTC module with currency balance and exchange rate">
+      <created>1572466094183</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1572466094183</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +394,8 @@
     <MESSAGE value="sending authomated e-mail notifications per ordered item by order completion is implemented" />
     <MESSAGE value="sending authomated e-mail notifications per ordered item by order completion is implemented&#10;successfully tested" />
     <MESSAGE value="in all views product removed from diplay after being added in to the cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="in all views product removed from diplay after being added in to the cart" />
+    <MESSAGE value="in cart view implemented BTC module with currency balance and exchange rate" />
+    <option name="LAST_COMMIT_MESSAGE" value="in cart view implemented BTC module with currency balance and exchange rate" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/serg_rentshop$manage.coverage" NAME="manage Coverage Results" MODIFIED="1571321897031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

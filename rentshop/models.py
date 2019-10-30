@@ -212,6 +212,7 @@ class CartItem(models.Model):
 class Cart(models.Model):
     items = models.ManyToManyField(CartItem, blank=True)
     cart_total = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
+    btc_cart_total = models.DecimalField(max_digits=12, decimal_places=8, default=0.00000000)
 
     def __unicode__(self):
         return str(self.id)

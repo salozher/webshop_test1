@@ -50,6 +50,14 @@
             <td></td>
 
         </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="text-center" id="cart-btc-total-price">Total Price in BTC: {{ cart.btc_cart_total }}</td>
+            <td></td>
+
+        </tr>
 
     </table>
 
@@ -59,15 +67,15 @@
             <div>
                 <td class="text-center">Your BTC account</td>
                 <td class="text-center">Your BTC balance</td>
-                <td class="text-center">Exchange rate 1€ = </td>
+                <td class="text-center">Exchange rate 1€ =</td>
             </div>
         </tr>
         <br>
-    <tr>
+        <tr>
             <div>
-                <td class="text-center">{{user.crypto_wallet}}</td>
+                <td class="text-center">{{ user.crypto_wallet }}</td>
                 <td class="text-center">BTC: {{ btc_balance }}</td>
-                <td class="text-center">{{eur_btc_rate}}</td>
+                <td class="text-center">{{ eur_btc_rate }}</td>
             </div>
         </tr>
 
@@ -100,6 +108,7 @@
                         $("#cart_count").html(data.cart_total)
                         $('.cart-item-' + item_product_id).css('display', 'none')
                         $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))
+                        $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
                     }
                 })
             })
@@ -124,8 +133,9 @@
                     url: '{%  url "change_rent_period" %}',
                     data: data,
                     success: function (data) {
-                        $('#cart-item-total-' + item_id).html('$' + parseFloat(data.item_total).toFixed(2))
-                        $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))
+                        $('#cart-item-total-' + item_id).html('€' + parseFloat(data.item_total).toFixed(2))
+                        $('#cart-total-price').html('Total Price: €' + parseFloat(data.cart_total_price).toFixed(2))
+                        $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
                     }
                 })
             })
