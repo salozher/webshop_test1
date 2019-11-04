@@ -121,9 +121,9 @@
                         $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
                         if (data.user_btc_balance_enough) {
                             $('#order-button').css('visibility', 'visible');
-                        } else if (!data.user_btc_balance_enough) {
+                        } if (!data.user_btc_balance_enough) {
                             $('#order-button').css('visibility', 'hidden');
-                        } else if (!data.cart_is_not_empty) {
+                        } if (data.cart_total_items < 1) {
                             $('#order-button').css('visibility', 'hidden');
                         }
                     }
