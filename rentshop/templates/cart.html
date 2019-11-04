@@ -85,16 +85,15 @@
         <a class="pull-right" href={% url "make_order" %}>
             <button class="btn btn-success">Make your order</button>
         </a>
-
+        </div>
     {% endif %}
 
 {% if not user_btc_balance_enough %}
     <script>
         $('#order-button').css('visibility', 'hidden')
     </script>
-    <H1>CART IS EMPTY CHECKED</H1>
 {% endif %}
-</div>
+
 
 
 
@@ -121,9 +120,11 @@
                         $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
                         if (data.user_btc_balance_enough) {
                             $('#order-button').css('visibility', 'visible');
-                        } if (!data.user_btc_balance_enough) {
+                        }
+                        if (!data.user_btc_balance_enough) {
                             $('#order-button').css('visibility', 'hidden');
-                        } if (data.cart_total_items < 1) {
+                        }
+                        if (data.cart_total_items < 1) {
                             $('#order-button').css('visibility', 'hidden');
                         }
                     }
