@@ -197,11 +197,19 @@ def remove_from_cart_view(request):
         user_btc_balance_enough = False
     print(user_btc_balance_enough)
 
+    cart_is_not_empty = False
+    if (cart.items.count() > 0):
+        cart_is_not_empty = True
+        print(cart_is_not_empty)
+    else:
+        print(cart_is_not_empty)
+
     return JsonResponse(
         {'cart_total_items': cart.items.count(),
          'cart_total_price': cart.cart_total,
          'cart_btc_total_price': cart.btc_cart_total,
          'user_btc_balance_enough': user_btc_balance_enough,
+         'cart_is_not_empty': cart_is_not_empty
          })
 
 
