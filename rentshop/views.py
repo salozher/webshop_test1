@@ -91,13 +91,20 @@ def btc_current_rates():
     return eur_btc_rate
 
 
-def cart_view(request):
-    categories = Category.objects.all()
+def user_crypto_balance(request):
     user = MyUser.objects.get(username=request.user.username)
     btc_user_info = blockexplorer.get_address(user.crypto_wallet)
     btc_balance = btc_user_info.final_balance / 100000000
+    return btc_balance
+
+
+def cart_view(request):
+    request = request
+    categories = Category.objects.all()
+    # user = MyUser.objects.get(username=request.user.username)
+    # btc_user_info = blockexplorer.get_address(user.crypto_wallet)
+    btc_balance = user_crypto_balance(request)
     eur_btc_rate = btc_current_rates()
-    print(btc_balance)
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
@@ -109,13 +116,27 @@ def cart_view(request):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
         # btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
+
+    user_btc_balance_enough = False
+    if (user_crypto_balance(request) >= cart.btc_cart_total):
+        user_btc_balance_enough = True
+
+    cart_is_not_empty = False
+    if (cart.items.count() > 0):
+        cart_is_not_empty = True
+        print(cart_is_not_empty)
+    else:
+        print(cart_is_not_empty)
+
     context = {
         'cart': cart,
         'categories': categories,
         'btc_balance': btc_balance,
         'eur_btc_rate': eur_btc_rate,
-        # 'btc_cart_total': btc_cart_total
+        'user_btc_balance_enough': user_btc_balance_enough,
+        'cart_is_not_empty': cart_is_not_empty,
     }
+    print(cart_is_not_empty)
     return render(request, 'cart.html', context)
 
 
@@ -145,6 +166,7 @@ def add_to_cart_view(request):
 
 
 def remove_from_cart_view(request):
+    request = request
     eur_btc_rate = btc_current_rates()
     try:
         cart_id = request.session['cart_id']
@@ -166,10 +188,20 @@ def remove_from_cart_view(request):
     cart.btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
     cart.save()
 
+    user_btc_balance_enough = False
+    balance = float(user_crypto_balance(request))
+    total = float(cart.btc_cart_total)
+    if (balance >= total):
+        user_btc_balance_enough = True
+    else:
+        user_btc_balance_enough = False
+    print(user_btc_balance_enough)
+
     return JsonResponse(
-        {'cart_total': cart.items.count(),
+        {'cart_total_items': cart.items.count(),
          'cart_total_price': cart.cart_total,
          'cart_btc_total_price': cart.btc_cart_total,
+         'user_btc_balance_enough': user_btc_balance_enough,
          })
 
 
@@ -304,6 +336,7 @@ def return_art(request, pk):
 
 
 def change_rent_period(request):
+    request = request
     eur_btc_rate = btc_current_rates()
     try:
         cart_id = request.session['cart_id']
@@ -328,11 +361,31 @@ def change_rent_period(request):
     cart.cart_total = new_cart_total
     cart.btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
     cart.save()
+
+    user_btc_balance_enough = False
+    balance = float(user_crypto_balance(request))
+    total = float(cart.btc_cart_total)
+    if (balance >= total):
+        user_btc_balance_enough = True
+    else:
+        user_btc_balance_enough = False
+    print(user_btc_balance_enough)
+
+
+    cart_is_empty = True
+    if (int(cart.items.count()) > 0):
+        cart_is_empty = False
+
     return JsonResponse(
-        {'cart_total': cart.items.count(),
+        {'cart_total_items': cart.items.count(),
          'item_total': cart_item.item_total,
          'cart_total_price': cart.cart_total,
          'cart_btc_total_price': cart.btc_cart_total,
+         'user_btc_balance_enough': user_btc_balance_enough,
+         'balance': balance,
+         'total': total,
+         'cart_is_empty': cart_is_empty,
+
          })
 
 
@@ -402,8 +455,9 @@ def send_fancy_email(owner_email):
     return HttpResponseRedirect('/cart')
 
 
-def complete_order(request, pk):
-    user = MyUser.objects.get(crypto_wallet=pk)
+def complete_order(request):
+    # user = MyUser.objects.get(crypto_wallet=pk)
+    user = MyUser.objects.get(username=request.user.username)
 
     cart_id = request.session['cart_id']
     cart = Cart.objects.get(id=cart_id)

@@ -67,7 +67,7 @@
             <div>
                 <td class="text-center">Your BTC account</td>
                 <td class="text-center">Your BTC balance</td>
-                <td class="text-center">Exchange rate 1€ =</td>
+                <td class="text-center">Exchange rate</td>
             </div>
         </tr>
         <br>
@@ -75,19 +75,34 @@
             <div>
                 <td class="text-center">{{ user.crypto_wallet }}</td>
                 <td class="text-center">BTC: {{ btc_balance }}</td>
-                <td class="text-center">BTC: {{ eur_btc_rate }}</td>
+                <td class="text-center">1€ = BTC: {{ eur_btc_rate }}</td>
             </div>
         </tr>
 
     </table>
-    {% if btc_balance >= cart.btc_cart_total %}
-        <div id="order-button">
-            <a class=" pull-right
-            " href={% url "make_order" %}>
-                <button class="btn btn-success">Make your order</button>
-            </a>
-        </div>
-    {% endif %}
+
+    <div id="order-button" style="visibility: visible">
+        <a class="pull-right" href={% url "make_order" %}>
+            <button class="btn btn-success">Make your order</button>
+        </a>
+
+
+        {% if not user_btc_balance_enough %}
+            <script>
+                $('#order-button').css('visibility', 'hidden')
+            </script>
+            <H1>BALANCE IS NOT ENOUGH CHECKED</H1>
+
+        {% elif not cart_is_not_empty %}
+            <script>
+                $('#order-button').css('visibility', 'hidden')
+            </script>
+            <H1>CART IS EMPTY CHECKED</H1>
+        {% endif %}
+    </div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
         $(document).ready(function () {
@@ -105,11 +120,15 @@
                     data: data,
                     success: function (data) {
                         console.log(data)
-                        $("#cart_count").html(data.cart_total)
+                        $("#cart_count").html(data.cart_total_items)
                         $('.cart-item-' + item_product_id).css('display', 'none')
                         $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))
                         $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
-                        $('#order-button').html()
+                        if (data.user_btc_balance_enough) {
+                            $('#order-button').css('visibility', 'visible');
+                        } else if (!data.user_btc_balance_enough) {
+                            $('#order-button').css('visibility', 'hidden');
+                        }
                     }
                 })
             })
@@ -130,15 +149,22 @@
                 }
 
                 $.ajax({
-                    type: "GET",
-                    url: '{%  url "change_rent_period" %}',
-                    data: data,
-                    success: function (data) {
-                        $('#cart-item-total-' + item_id).html('€' + parseFloat(data.item_total).toFixed(2))
-                        $('#cart-total-price').html('Total Price: €' + parseFloat(data.cart_total_price).toFixed(2))
-                        $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
+                        type: "GET",
+                        url: '{%  url "change_rent_period" %}',
+                        data: data,
+                        success: function (data) {
+
+                            $('#cart-item-total-' + item_id).html('€' + parseFloat(data.item_total).toFixed(2))
+                            $('#cart-total-price').html('Total Price: €' + parseFloat(data.cart_total_price).toFixed(2))
+                            $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))
+                            if (data.user_btc_balance_enough) {
+                                $('#order-button').css('visibility', 'visible');
+                            } else if (!data.user_btc_balance_enough) {
+                                $('#order-button').css('visibility', 'hidden');
+                            }
+                        }
                     }
-                })
+                )
             })
         })
     </script>
