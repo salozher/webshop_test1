@@ -30,7 +30,7 @@ def home_view(request):
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
     categories = Category.objects.all()
-    products = Art.objects.all()
+    products = Art.objects.all(available=True)
     context = {
         'categories': categories,
         'products': products,

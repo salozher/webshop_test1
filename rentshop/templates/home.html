@@ -18,11 +18,11 @@
                 {#                otherwise carousel will not work!!!#}
                 <div class="row carousel-holder">
                     <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <div id="carousel-example-generic rentshop-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 {% for product in products %}
                                     {% if forloop.first %}
-                                        <div class="item active">
+                                        <div class="item active product-item-{{ product.id }}">
                                             <img class="slide-image" src="{{ product.cover.url }}"
                                                  alt="" style="width: auto; height: 400px; margin: 0 auto ">
                                             <div class="align-content-center" style="width: available">
@@ -34,7 +34,7 @@
                                             </div>
                                         </div>
                                     {% else %}
-                                        <div class="item">
+                                        <div class="item product-item-{{ product.id }}">
                                             <img class="slide-image" src="{{ product.cover.url }}"
                                                  alt="" style="width: auto; height: 400px; margin: 0 auto ">
                                             <br>
@@ -64,16 +64,14 @@
                         <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="product-item-{{ product.id }}">
                                 <div class="thumbnail">
-                                    <img src="{{ product.cover.url }}" alt="" style="width: 200px; height: auto">
+                                    <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt="" style="width: 200px; height: auto"></a>
                                     <div class="caption" style="height: auto">
-                                        <h4 class="pull-right">€{{ product.price }}/p.mounth</h4>
-                                        <h4><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
-                                        <p>{{ product.description }}</p>
-                                        <p>{{ product.id }}</p>
-                                        <a class="pull-right" href="#">
-                                            <button class="btn btn-danger addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">Add
-                                                to cart
-                                            </button>
+
+                                        <h4 class="text-center"><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
+                                        <h4 class="text-center">€{{ product.price }}/p.mounth</h4>
+
+                                        <a class="pull-right">
+                                            <button class="btn btn-danger addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">Add to cart</button>
                                         </a>
                                     </div>
                                 </div>
@@ -105,6 +103,7 @@
                         console.log(item_product_id)
                         $('.product-item-' + item_product_id).css('display', 'none')
                         $("#cart_count").html(data.cart_total)
+                        location.reload();
                     }
                 })
             })

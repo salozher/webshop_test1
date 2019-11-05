@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +48,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/rentshop/templates" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -219,7 +221,8 @@
       <workItem from="1572602067774" duration="1662000" />
       <workItem from="1572605482781" duration="10518000" />
       <workItem from="1572860451529" duration="100000" />
-      <workItem from="1572860603744" duration="22359000" />
+      <workItem from="1572860603744" duration="26534000" />
+      <workItem from="1572954821492" duration="2637000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -396,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572884098870</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (completed) + empty cart blocking order button (completed)">
+      <created>1572884667465</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1572884667465</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
