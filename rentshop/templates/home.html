@@ -17,31 +17,24 @@
                 {#                jQuery.js must be first, bootstrap.js - second. (in the end of this html file)#}
                 {#                otherwise carousel will not work!!!#}
                 <div class="row carousel-holder">
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic rentshop-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="col-xl-2">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 {% for product in products %}
                                     {% if forloop.first %}
                                         <div class="item active product-item-{{ product.id }}">
+                                        <a href={{ product.get_absolute_url }}>
                                             <img class="slide-image" src="{{ product.cover.url }}"
-                                                 alt="" style="width: auto; height: 400px; margin: 0 auto ">
+                                                 alt="" style="width: auto; height: 400px; margin: 0 auto "></a>
                                             <div class="align-content-center" style="width: available">
-                                                <br>
-                                                <a href="{{ product.get_absolute_url }}" style="position: center">
-                                                    <button class="btn btn-primary center-block"
-                                                            style="position: center">{{ product.title }}</button>
-                                                </a>
+                                                <p class="text-center">{{ product.title }}</p>
                                             </div>
                                         </div>
                                     {% else %}
                                         <div class="item product-item-{{ product.id }}">
-                                            <img class="slide-image" src="{{ product.cover.url }}"
-                                                 alt="" style="width: auto; height: 400px; margin: 0 auto ">
-                                            <br>
-                                            <a href="{{ product.get_absolute_url }}">
-                                                <button class="btn btn-primary center-block"
-                                                        style="position: center">{{ product.title }}</button>
-                                            </a>
+                                            <a href={{ product.get_absolute_url }}><img class="slide-image" src="{{ product.cover.url }}"
+                                                 alt="" style="width: auto; height: 400px; margin: 0 auto "></a>
+                                            <p class="text-center">{{ product.title }}</p>
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -61,17 +54,17 @@
 
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="col-sm-3">
                             <div class="product-item-{{ product.id }}">
                                 <div class="thumbnail">
                                     <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt="" style="width: 200px; height: auto"></a>
                                     <div class="caption" style="height: auto">
 
-                                        <h4 class="text-center"><a href={{ product.get_absolute_url }}>{{ product.title }}</a></h4>
+                                        <h4 class="text-center"><a href={{ product.get_absolute_url }}>{{ product.title }} {{ product.id }}</a></h4>
                                         <h4 class="text-center">€{{ product.price }}/p.mounth</h4>
 
                                         <a class="pull-right">
-                                            <button class="btn btn-danger addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">Add to cart</button>
+                                            <button class="btn btn-success addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">Add to cart</button>
                                         </a>
                                     </div>
                                 </div>

@@ -201,7 +201,7 @@ pre_save.connect(pre_save_art_slug, sender=Art)
 
 
 class CartItem(models.Model):
-    product = models.ForeignKey(Art, on_delete=models.PROTECT)
+    product = models.ForeignKey(Art, on_delete=models.CASCADE)
     rent_length = models.PositiveIntegerField(default=3)
     item_total = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
 
