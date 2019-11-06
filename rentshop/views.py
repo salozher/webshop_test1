@@ -101,21 +101,17 @@ def user_crypto_balance(request):
 def cart_view(request):
     request = request
     categories = Category.objects.all()
-    # user = MyUser.objects.get(username=request.user.username)
-    # btc_user_info = blockexplorer.get_address(user.crypto_wallet)
     btc_balance = user_crypto_balance(request)
     eur_btc_rate = btc_current_rates()
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
-        # btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
         request.session['total'] = cart.items.count()
     except:
         cart = Cart()
         cart.save()
         cart_id = cart.id
         request.session['cart_id'] = cart_id
-        # btc_cart_total = '{:12.8f}'.format(cart.cart_total * eur_btc_rate)
 
     user_btc_balance_enough = False
     if (user_crypto_balance(request) >= cart.btc_cart_total):
@@ -362,6 +358,9 @@ def change_rent_period(request):
     cart_item = CartItem.objects.get(id=int(item_id))
     cart_item.rent_length = int(period)
     cart_item.item_total = int(period) * Decimal(cart_item.product.price)
+    cart_item.btc_item_total = '{:12.8f}'.format(float(cart_item.item_total) * eur_btc_rate)
+    print(cart_item.btc_item_total)
+
     cart_item.save()
     new_cart_total = 0.00
     for item in cart.items.all():
@@ -415,53 +414,6 @@ def make_order(request):
     return render(request, 'order.html', context)
 
 
-def send_fancy_email(owner_email):
-    sender_email = "sergiyrentshop@gmail.com"
-    receiver_email = owner_email['email']
-    password = 'Password2019'
-    # renter_email = renter_email
-
-    message = MIMEMultipart("alternative")
-    message["Subject"] = "multipart test"
-    message["From"] = sender_email
-    message["To"] = receiver_email
-
-    # Create the plain-text and HTML version of your message
-    text = """\
-    Hi,
-    How are you?
-    Real Python has many great tutorials:
-    www.realpython.com"""
-    html = """\
-    <html>
-      <body>
-        <p>Hi,<br>
-           How are you?<br>
-           <a href="http://www.realpython.com">Real Python</a> 
-           has many great tutorials.
-        </p>
-      </body>
-    </html>
-    """
-
-    # Turn these into plain/html MIMEText objects
-    part1 = MIMEText(text, "plain")
-    part2 = MIMEText(html, "html")
-
-    # Add HTML/plain-text parts to MIMEMultipart message
-    # The email client will try to render the last part first
-    message.attach(part1)
-    message.attach(part2)
-
-    # Create secure connection with server and send email
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(
-            sender_email, receiver_email, message.as_string()
-        )
-    return HttpResponseRedirect('/cart')
-
 
 def complete_order(request):
     # user = MyUser.objects.get(crypto_wallet=pk)
@@ -497,8 +449,6 @@ def complete_order(request):
 
         send_mass_mail(mailinglist, fail_silently=False)
     return HttpResponse('Mail successfully sent')
-
-
 # return HttpResponseRedirect('/cart')
 
 

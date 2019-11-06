@@ -1,15 +1,14 @@
 from __future__ import unicode_literals
-import random, string
+from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser
 from django.db import models
 from django.db.models.signals import pre_save
-from django.utils.text import slugify
 from django.urls import reverse
-from django.conf import settings
-from django.contrib.auth.models import User
 from django.utils import timezone
-from .utils import random_generator, random_string_generator, unique_slug_generator, order_id_generator, \
+from django.utils.text import slugify
+from .utils import unique_slug_generator, order_id_generator, \
     make_btc_account
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from blockchain import blockexplorer, exchangerates
+# from rentshop.views import btc_current_rates
 
 
 class Category(models.Model):
@@ -129,32 +128,6 @@ def pre_save_user_btc_account_set(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_user_btc_account_set, sender=MyUser)
 
 
-#
-# def pre_save_user_private_key(sender, instance, *args, **kwargs):
-#     if not instance.private_key:
-#         private_key = crypto_wallet_generator(sender, instance)
-#         instance.private_key = private_key
-#
-#
-# pre_save.connect(pre_save_user_private_key, sender=MyUser)
-#
-# def pre_save_user_public_key(sender, instance, *args, **kwargs):
-#     if not instance.public_key:
-#         public_key = crypto_wallet_generator(sender, instance)
-#         instance.public_key = public_key
-#
-#
-# pre_save.connect(pre_save_user_public_key, sender=MyUser)
-#
-#
-# def pre_save_user_wallet(sender, instance, *args, **kwargs):
-#     if not instance.crypto_wallet:
-#         wallet = crypto_wallet_generator(sender, instance)
-#         instance.crypto_wallet = wallet
-#
-#
-# pre_save.connect(pre_save_user_wallet, sender=MyUser)
-
 
 class Art(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
@@ -190,20 +163,12 @@ def pre_save_art_slug(sender, instance, *args, **kwargs):
 
 pre_save.connect(pre_save_art_slug, sender=Art)
 
-# def pre_save_category_slug(sender, instance, *args, **kwargs):
-#     if not instance.slug:
-#         slug = unique_slug_generator(sender, instance)
-#         instance.slug = slug
-#
-#
-# pre_save.connect(pre_save_category_slug, sender=Art)
-
-
 
 class CartItem(models.Model):
     product = models.ForeignKey(Art, on_delete=models.CASCADE)
     rent_length = models.PositiveIntegerField(default=3)
     item_total = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
+    btc_item_total = models.DecimalField(max_digits=12, decimal_places=8, default=0.00000000)
 
     def __unicode__(self):
         return "Cart item for product {0}".format(self.product.title)
@@ -218,12 +183,16 @@ class Cart(models.Model):
         return str(self.id)
 
     def add_to_cart(self, product_slug):
+        btc_rates = exchangerates.get_ticker()
+        btc_eur_rate = btc_rates.get('EUR').buy
+        eur_btc_rate = float('{:09.8f}'.format(1 / btc_eur_rate))
         cart = self
         product = Art.objects.get(slug=product_slug)
         new_item, _ = CartItem.objects.get_or_create(product=product, item_total=product.price)
         if new_item not in cart.items.all():
             new_item.rent_length = 3
             new_item.item_total = new_item.item_total*3
+            new_item.btc_item_total = '{:12.8f}'.format(float(new_item.item_total) * eur_btc_rate)
             new_item.save()
             cart.items.add(new_item)
             cart.save()

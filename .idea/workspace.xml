@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/0oubuv/Maastricht-0oubuv.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/l0n2u8/Letter_A-l0n2u8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/m2ztyf/Letter_B-m2ztyf.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0005_auto_20191105_1347.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0006_auto_20191106_1413.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0007_auto_20191106_1648.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0008_auto_20191106_1700.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/82mjxm/a-82mjxm.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +226,9 @@
       <workItem from="1572605482781" duration="10518000" />
       <workItem from="1572860451529" duration="100000" />
       <workItem from="1572860603744" duration="26534000" />
-      <workItem from="1572954821492" duration="6083000" />
+      <workItem from="1572954821492" duration="6521000" />
+      <workItem from="1573030025579" duration="7496000" />
+      <workItem from="1573055682098" duration="1539000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -419,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572957880175</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="minor front-end design adjustments:&#10;Active click on picture&#10;elements layout adjusted on each Art object&#10;autorefresh on carouselle elements&#10;product preview image is made bigger">
+      <created>1572961023410</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1572961023410</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
