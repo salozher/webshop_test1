@@ -33,6 +33,7 @@
             </button>
             <a class="navbar-brand" href="/"><strong>Home</strong></a>
         </div>
+        {% if user.is_authenticated %}
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -69,14 +70,9 @@
                     </ul>
                 </li>
 
-
-
-
-
-
             </ul>
 
-            {% if user.is_authenticated %}
+
                 <ul class="nav navbar-nav navbar-right">
 
                     <li><a href="{% url "cart" %}">Cart<span class='badge' id="cart_count">{{ cart.items.count }}</span></a>
