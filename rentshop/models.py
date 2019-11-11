@@ -233,3 +233,16 @@ def pre_save_order_id(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_order_id, sender=Order)
+
+
+class OrderHistory(models.Model):
+    item_title = models.CharField(max_length=100)
+    slug = models.CharField(max_length=20)
+    owner_email = models.CharField(max_length=100)
+    temp_owner_email = models.CharField(max_length=100)
+    rent_start_date = models.CharField(max_length=10)
+    rent_end_date = models.CharField(max_length=10)
+    payment_amount = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.item_title

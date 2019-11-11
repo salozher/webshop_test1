@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% block content_header %}
+        <h2>Order History</h2>
+    {% endblock %}
+
+    <table class="table mb-0">
+        <thead>
+        <tr>
+            <th>Item title</th>
+            {% if user.is_student %}
+                <th>Owner e-mail</th>
+            {% endif %}
+            {% if user.is_employee %}
+                <th>Renter e-mail</th>
+            {% endif %}
+            <th>Rent start-date</th>
+            <th>Rent end-date</th>
+            <th>Payment amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.item_title }}</td>
+                {% if user.is_student %}
+                    <th>{{ order.owner_email }}</th>
+                {% endif %}
+                {% if user.is_employee %}
+                    <th>{{ order.temp_owner_email }}</th>
+                {% endif %}
+                <td>{{ order.rent_start_date }}</td>
+                <td>{{ order.rent_end_date }}</td>
+                <td>€{{ order.payment_amount }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -3,9 +3,10 @@
 {% load static %}
 
 {% block content %}
-    <h3 class="text-center">Your cart</h3>
+    <h2 class="text-center">Your cart</h2>
     <br>
-    <table class="table">
+    <table class="table mb-md-3">
+        <thead>
         <tr>
             <td class="text-center">Art Object</td>
             <td class="text-center">Price/p.month</td>
@@ -13,6 +14,7 @@
             <td class="text-center">Price</td>
             <td class="text-center"></td>
         </tr>
+        </thead>
         {% for item in cart.items.all %}
             <tr class="cart-item-{{ item.product.id }}" item="{{ item.product.title }}">
 

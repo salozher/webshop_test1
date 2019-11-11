@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.views import LogoutView
-from .models import Category, Art, CartItem, Cart, MyUser
+from .models import Category, Art, CartItem, Cart, MyUser, OrderHistory
 from .forms import ArtObjectForm
 from django.views.generic import TemplateView, ListView, CreateView, DetailView
 from datetime import *
@@ -16,6 +16,8 @@ from django.core.mail import send_mail, send_mass_mail
 from django.http import HttpResponse
 from blockcypher import get_address_overview, get_address_details
 from blockchain import blockexplorer, exchangerates
+from dateutil.relativedelta import *
+from datetime import date
 
 
 def home_view(request):
@@ -413,7 +415,10 @@ def make_order(request):
     }
     return render(request, 'order.html', context)
 
-
+def rent_enddate_calculator(period_month):
+    start_date = date.today()
+    end_date = start_date+relativedelta(months= +period_month)
+    return end_date
 
 def complete_order(request):
     # user = MyUser.objects.get(crypto_wallet=pk)
@@ -431,25 +436,34 @@ def complete_order(request):
         order_period = str(ordered_item.rent_length)
         renter_email = user.email
         renter_name = user.username
+        order = OrderHistory()
+        order.item_title = product.title
+        order.slug = product.slug
+        order.owner_email = owner_email
+        order.temp_owner_email = renter_email
+        order.rent_start_date = date.today()
+        order.rent_end_date = rent_enddate_calculator(int(order_period))
+        order.payment_amount = price_to_pay
+        order.save()
 
-        mailinglist = ()
-        message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
-                              "Thank you for ordering an art object " + product_title + " from " +
-                              ordered_item_owner + "! You can contact the owner by email: " +
-                              owner_email + " to arrange the item delivery to you.",
-                              'SergiyRentShop@gmail.com', [renter_email],)
-
-        message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
-                            "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
-                            renter_name + " for a period of " + order_period + " month! The price amount of $" +
-                            price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
-                            renter_email + " to arrange the item delivery.",
-                            "SergiyRentShop@gmail.com", [owner_email],)
-        mailinglist = mailinglist + (message_to_student, message_to_owner,)
-
-        send_mass_mail(mailinglist, fail_silently=False)
-    return HttpResponse('Mail successfully sent')
-# return HttpResponseRedirect('/cart')
+        # mailinglist = ()
+        # message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
+        #                       "Thank you for ordering an art object " + product_title + " from " +
+        #                       ordered_item_owner + "! You can contact the owner by email: " +
+        #                       owner_email + " to arrange the item delivery to you.",
+        #                       'SergiyRentShop@gmail.com', [renter_email],)
+        #
+        # message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
+        #                     "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
+        #                     renter_name + " for a period of " + order_period + " month! The price amount of $" +
+        #                     price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
+        #                     renter_email + " to arrange the item delivery.",
+        #                     "SergiyRentShop@gmail.com", [owner_email],)
+        # mailinglist = mailinglist + (message_to_student, message_to_owner,)
+        #
+        # send_mass_mail(mailinglist, fail_silently=False)
+    # return HttpResponse('Mail successfully sent')
+    return HttpResponseRedirect('/orderhistory')
 
 
 def sendmail(request):
@@ -463,3 +477,34 @@ def sendmail(request):
     )
 
     return HttpResponse('Mail successfully sent')
+
+
+
+def order_history(request):
+    request = request
+    current_user = MyUser.objects.get(username=request.user.username)
+
+    categories = Category.objects.all()
+    if(current_user.is_student):
+        orders = OrderHistory.objects.all().filter(temp_owner_email=current_user.email)
+    else:
+        orders = OrderHistory.objects.all().filter(owner_email=current_user.email)
+    try:
+        cart_id = request.session['cart_id']
+        cart = Cart.objects.get(id=cart_id)
+        request.session['total'] = cart.items.count()
+    except:
+        cart = Cart()
+        cart.save()
+        cart_id = cart.id
+        request.session['cart_id'] = cart_id
+
+
+    context = {
+        'cart': cart,
+        'categories': categories,
+        'orders': orders,
+    }
+    return render(request, 'order_history.html', context)
+
+

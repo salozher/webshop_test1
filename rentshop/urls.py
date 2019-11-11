@@ -15,7 +15,8 @@ from rentshop.views import (
     remove_from_cart_all_view,
     return_art, change_rent_period,
     make_order, complete_order,
-    sendmail
+    sendmail,
+    order_history
 )
 
 urlpatterns = [
@@ -36,6 +37,8 @@ urlpatterns = [
     path('cart/', cart_view, name='cart'),
     path('makeorder/', make_order, name='make_order'),
     path('complete_order/', complete_order, name='complete_order'),
+
+    path('orderhistory/', order_history, name='order_history'),
 
     path('add_to_cart/', add_to_cart_view, name='add_to_cart'),
     path('remove_from_cart/', remove_from_cart_view, name='remove_from_cart'),
