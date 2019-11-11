@@ -12,9 +12,11 @@
 
         <hr>
         <p class="pull-right">Price: <strong> €{{ product.price }} /p.month</strong></p>
+        {% if user.is_student %}
         <a class="addtocart" data-slug="{{ product.slug}}" data-id="{{ product.id }}">
             <button class="btn-success">Add to cart</button>
         </a>
+        {% endif %}
     </div>
     </div>
 

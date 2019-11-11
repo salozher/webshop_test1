@@ -1,26 +1,17 @@
-from django.shortcuts import render, redirect
-from decimal import Decimal
-from django.urls import reverse_lazy, reverse
-from django.http import HttpResponseRedirect, JsonResponse
-from django.contrib.auth.views import LogoutView
-from .models import Category, Art, CartItem, Cart, MyUser, OrderHistory
-from .forms import ArtObjectForm
-from django.views.generic import TemplateView, ListView, CreateView, DetailView
-from datetime import *
-from django.contrib import messages
-import smtplib, ssl, csv
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-import logging
-from django.core.mail import send_mail, send_mass_mail
-from django.http import HttpResponse
-from blockcypher import get_address_overview, get_address_details
-from blockchain import blockexplorer, exchangerates
-from dateutil.relativedelta import *
 from datetime import date
+from decimal import Decimal
+from blockchain import blockexplorer
+from dateutil.relativedelta import *
+from django.http import HttpResponseRedirect, JsonResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView
+from .forms import ArtObjectForm
+from .models import Category, Art, CartItem, Cart, MyUser, OrderHistory
+from .utils import btc_current_rates
 
 
-def home_view(request):
+def cart_create(request):
     try:
         cart_id = request.session['cart_id']
         cart = Cart.objects.get(id=cart_id)
@@ -31,6 +22,10 @@ def home_view(request):
         cart_id = cart.id
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
+    return cart
+
+def home_view(request):
+    cart = cart_create(request)
     categories = Category.objects.all()
     products = Art.objects.all(available=True)
     context = {
@@ -43,16 +38,7 @@ def home_view(request):
 
 
 def product_view(request, product_slug):
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
-        cart = Cart.objects.get(id=cart_id)
+    cart = cart_create(request)
     product = Art.objects.get(slug=product_slug)
     categories = Category.objects.all()
     context = {
@@ -64,16 +50,7 @@ def product_view(request, product_slug):
 
 
 def category_view(request, category_slug):
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
-        cart = Cart.objects.get(id=cart_id)
+    cart = cart_create(request)
     categories = Category.objects.all()
     category = Category.objects.get(slug=category_slug)
     products_of_category = Art.objects.filter(category=category).filter(available=True)
@@ -84,13 +61,6 @@ def category_view(request, category_slug):
         'cart': cart,
     }
     return render(request, 'category.html', context)
-
-
-def btc_current_rates():
-    btc_rates = exchangerates.get_ticker()
-    btc_eur_rate = btc_rates.get('EUR').buy
-    eur_btc_rate = float('{:09.8f}'.format(1 / btc_eur_rate))
-    return eur_btc_rate
 
 
 def user_crypto_balance(request):
@@ -105,15 +75,7 @@ def cart_view(request):
     categories = Category.objects.all()
     btc_balance = user_crypto_balance(request)
     eur_btc_rate = btc_current_rates()
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
+    cart = cart_create(request)
 
     user_btc_balance_enough = False
     if (user_crypto_balance(request) >= cart.btc_cart_total):
@@ -122,10 +84,8 @@ def cart_view(request):
     cart_is_not_empty = False
     if (cart.items.count() > 0):
         cart_is_not_empty = True
-        print(cart_is_not_empty)
     else:
-        print(cart_is_not_empty)
-
+        cart_is_not_empty = False
     context = {
         'cart': cart,
         'categories': categories,
@@ -134,22 +94,12 @@ def cart_view(request):
         'user_btc_balance_enough': user_btc_balance_enough,
         'cart_is_not_empty': cart_is_not_empty,
     }
-    print(cart_is_not_empty)
     return render(request, 'cart.html', context)
 
 
 def add_to_cart_view(request):
     eur_btc_rate = btc_current_rates()
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
-        cart = Cart.objects.get(id=cart_id)
+    cart = cart_create(request)
     product_slug = request.GET.get('product_slug')
     product = Art.objects.get(slug=product_slug)
     cart.add_to_cart(product.slug)
@@ -166,16 +116,7 @@ def add_to_cart_view(request):
 def remove_from_cart_view(request):
     request = request
     eur_btc_rate = btc_current_rates()
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
-        cart = Cart.objects.get(id=cart_id)
+    cart = cart_create(request)
     product_slug = request.GET.get('product_slug')
     product = Art.objects.get(slug=product_slug)
     cart.remove_from_cart(product.slug)
@@ -193,15 +134,12 @@ def remove_from_cart_view(request):
         user_btc_balance_enough = True
     else:
         user_btc_balance_enough = False
-    print(user_btc_balance_enough)
 
     cart_is_not_empty = False
     if (cart.items.count() > 0):
         cart_is_not_empty = True
-        print(cart_is_not_empty)
     else:
-        print(cart_is_not_empty)
-
+        cart_is_not_empty = False
     return JsonResponse(
         {'cart_total_items': cart.items.count(),
          'cart_total_price': cart.cart_total,
@@ -212,17 +150,7 @@ def remove_from_cart_view(request):
 
 
 def remove_from_cart_all_view(request):
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
-        cart = Cart.objects.get(id=cart_id)
-    # product = Art.objects.get(slug=product_slug)
+    cart = cart_create(request)
     for cart_item in cart.items.all():
         if cart_item:
             prod = cart_item.product
@@ -233,20 +161,6 @@ def remove_from_cart_all_view(request):
         else:
             pass
     return HttpResponseRedirect('/logout')
-
-
-def cart_create(request):
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
-        cart = Cart.objects.get(id=cart_id)
-    return cart
 
 
 def products_in_rent(request):
@@ -262,16 +176,7 @@ class ArtsOfOwnerInRent(ListView):
     context_object_name = 'products'
 
     def get(self, request, *args, **kwargs):
-        try:
-            cart_id = request.session['cart_id']
-            cart = Cart.objects.get(id=cart_id)
-            request.session['total'] = cart.items.count()
-        except:
-            cart = Cart()
-            cart.save()
-            cart_id = cart.id
-            request.session['cart_id'] = cart_id
-            cart = Cart.objects.get(id=cart_id)
+        cart = cart_create(request)
         categories = Category.objects.all()
         context = {
             'categories': categories,
@@ -290,16 +195,7 @@ class ArtsOfOwner(ListView):
     #     return Art.objects.filter(owner=self.request.user)
 
     def get(self, request, *args, **kwargs):
-        try:
-            cart_id = request.session['cart_id']
-            cart = Cart.objects.get(id=cart_id)
-            request.session['total'] = cart.items.count()
-        except:
-            cart = Cart()
-            cart.save()
-            cart_id = cart.id
-            request.session['cart_id'] = cart_id
-            cart = Cart.objects.get(id=cart_id)
+        cart = cart_create(request)
         categories = Category.objects.all()
         # products = Art.objects.filter(owner=self.request.user)
         context = {
@@ -344,16 +240,7 @@ def return_art(request, pk):
 def change_rent_period(request):
     request = request
     eur_btc_rate = btc_current_rates()
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
-        cart = Cart.objects.get(id=cart_id)
+    cart = cart_create(request)
 
     period = request.GET.get('period')
     item_id = request.GET.get('item_id')
@@ -361,7 +248,6 @@ def change_rent_period(request):
     cart_item.rent_length = int(period)
     cart_item.item_total = int(period) * Decimal(cart_item.product.price)
     cart_item.btc_item_total = '{:12.8f}'.format(float(cart_item.item_total) * eur_btc_rate)
-    print(cart_item.btc_item_total)
 
     cart_item.save()
     new_cart_total = 0.00
@@ -378,7 +264,6 @@ def change_rent_period(request):
         user_btc_balance_enough = True
     else:
         user_btc_balance_enough = False
-    print(user_btc_balance_enough)
 
 
     cart_is_empty = True
@@ -400,15 +285,7 @@ def change_rent_period(request):
 
 def make_order(request):
     categories = Category.objects.all()
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
+    cart = cart_create(request)
     context = {
         'cart': cart,
         'categories': categories,
@@ -463,20 +340,7 @@ def complete_order(request):
         #
         # send_mass_mail(mailinglist, fail_silently=False)
     # return HttpResponse('Mail successfully sent')
-    return HttpResponseRedirect('/orderhistory')
-
-
-def sendmail(request):
-    to_addr = 'sergiy.piano@gmail.com'
-    send_mail(
-        'Subject',
-        'Email message',
-        'sergiyrentshop@gmail.com',
-        [to_addr],
-        fail_silently=False,
-    )
-
-    return HttpResponse('Mail successfully sent')
+    return HttpResponseRedirect('/orderfailed')
 
 
 
@@ -489,15 +353,7 @@ def order_history(request):
         orders = OrderHistory.objects.all().filter(temp_owner_email=current_user.email)
     else:
         orders = OrderHistory.objects.all().filter(owner_email=current_user.email)
-    try:
-        cart_id = request.session['cart_id']
-        cart = Cart.objects.get(id=cart_id)
-        request.session['total'] = cart.items.count()
-    except:
-        cart = Cart()
-        cart.save()
-        cart_id = cart.id
-        request.session['cart_id'] = cart_id
+    cart = cart_create(request)
 
 
     context = {
@@ -507,4 +363,22 @@ def order_history(request):
     }
     return render(request, 'order_history.html', context)
 
+def order_success(request):
+    current_user = MyUser.objects.get(username=request.user.username)
+    if (current_user.is_student):
+        orders = OrderHistory.objects.all().filter(temp_owner_email=current_user.email)
+    else:
+        orders = OrderHistory.objects.all().filter(owner_email=current_user.email)
+    cart = cart_create(request)
+    categories = Category.objects.all()
+    context = {
+        'cart': cart,
+        'categories': categories,
+        'orders': orders,
+    }
+
+    return  render(request, 'order_success.html', context)
+
+def order_failed(request):
+    return render(request, 'order_failed.html')
 

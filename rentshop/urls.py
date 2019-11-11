@@ -1,6 +1,6 @@
-from django.conf.urls import url
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
+
 from rentshop.views import (
     home_view,
     product_view,
@@ -15,7 +15,8 @@ from rentshop.views import (
     remove_from_cart_all_view,
     return_art, change_rent_period,
     make_order, complete_order,
-    sendmail,
+    order_success,
+    order_failed,
     order_history
 )
 
@@ -39,6 +40,8 @@ urlpatterns = [
     path('complete_order/', complete_order, name='complete_order'),
 
     path('orderhistory/', order_history, name='order_history'),
+    path('ordersuccess/', order_success, name='order_success'),
+    path('orderfailed/', order_failed, name='order_failed'),
 
     path('add_to_cart/', add_to_cart_view, name='add_to_cart'),
     path('remove_from_cart/', remove_from_cart_view, name='remove_from_cart'),

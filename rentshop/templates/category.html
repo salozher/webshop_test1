@@ -8,17 +8,15 @@
         {% for product in products_of_category %}
 
             <div class="col-sm-3 product-item-{{ product.id }}">
-            <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt="" style="width: 95%; height: auto"></a>
+                <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt=""
+                                                            style="width: 95%; height: auto"></a>
                 <h3 class="text-center">{{ product.title }}</h3>
                 <p class="text-center">Price: <strong> €{{ product.price }} /p.month</strong></p>
-                <a class="addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">
-                    <button class="btn btn-success">Add to cart</button>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-
-                </a>
+                {% if user.is_student %}
+                    <a class="addtocart" data-slug="{{ product.slug }}" data-id="{{ product.id }}">
+                        <button class="btn btn-success">Add to cart</button>
+                    </a>
+                {% endif %}
             </div>
         {% endfor %}
     </div>

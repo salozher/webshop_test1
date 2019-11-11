@@ -1,12 +1,19 @@
-from django.utils.text import slugify
+import hashlib
+import os
 import random
 import string
-import hashlib
-import ecdsa
-import os
 from binascii import hexlify
-from base58 import b58encode
 
+import ecdsa
+from base58 import b58encode
+from blockchain import exchangerates
+
+
+def btc_current_rates():
+    btc_rates = exchangerates.get_ticker()
+    btc_eur_rate = btc_rates.get('EUR').buy
+    eur_btc_rate = float('{:09.8f}'.format(1 / btc_eur_rate))
+    return eur_btc_rate
 
 def random_secret_exponent(curve_order):
     while True:
@@ -38,17 +45,10 @@ def get_bitcoin_address(public_key, prefix=b'\x00'):
 
 
 def make_btc_account(instance, new_set=None):
-    # private_key = generate_private_key()
-
-    #     or:
     private_key = ecdsa.SigningKey.generate(curve=ecdsa.SECP256k1).to_string()
 
     public_key = get_public_key_uncompressed(private_key)
     address = get_bitcoin_address(public_key)
-
-    print(f'private key: {hexlify(private_key)}')
-    print(f'public key uncompressed: {hexlify(public_key)}')
-    print(f'btc address: {address}')
 
     key1 = hexlify(private_key).decode('utf-8')
     key2 = hexlify(public_key).decode('utf-8')
@@ -62,17 +62,11 @@ def make_btc_account(instance, new_set=None):
     return new_set
 
 
-
-
-
-
 def random_string_generator(size=10, chars=string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 
 def unique_slug_generator(instance, new_slug=None):
-    # str = instance.title
-    # slug = slugify(str)
     new_slug = "{randstr}".format(randstr=random_string_generator(size=6))
     return new_slug
 

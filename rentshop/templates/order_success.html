@@ -1,0 +1,9 @@
+{% block content %}
+    {% block content_header %}
+        <div class="alert alert-info alert-dismissable">
+        <h1 class="text-center">Your Order is successfully processed! <br> Please check out your e-mail.</h1>
+        </div>
+    {% endblock %}
+
+    {% include 'order_history.html' %}
+{% endblock %}
