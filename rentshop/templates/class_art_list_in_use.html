@@ -13,9 +13,18 @@
             <th>Title</th>
             <th>Description</th>
             <th>Price/per month</th>
+        {% if user.is_employee %}
             <th>Renting Person</th>
+            {% endif %}
+            {% if user.is_student %}
+                <th>Owner</th>
+            {% endif %}
+
+
             <th>Rent end date</th>
+            {% if not user.is_student %}
             <th>Currently in use</th>
+            {% endif %}
         </tr>
         </thead>
         <tbody>
@@ -31,7 +40,12 @@
                 <td>{{ art.title }}</td>
                 <td>{{ art.description }}</td>
                 <td>€{{ art.price }}/p.m.</td>
+            {% if user.is_employee %}
                 <td>{{ art.temp_owner.email }}</td>
+            {% endif %}
+            {% if user.is_student %}
+                <td>{{ art.owner.email }}</td>
+            {% endif %}
                 <td>{{ art.rent_end_date }}</td>
                 {% if not user.is_student %}
                     <td>

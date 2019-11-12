@@ -169,11 +169,15 @@ def remove_from_cart_all_view(request):
 
 class ArtsOfOwnerInRent(ListView):
     template_name = 'class_art_list_in_use.html'
-    context_object_name = 'products'
+    # context_object_name = 'products'
     def get(self, request, *args, **kwargs):
         cart = cart_create(request)
         categories = Category.objects.all()
-        products_in_rent = Art.objects.filter(owner=request.user).filter(available=False)
+        current_user = MyUser.objects.get(username=request.user.username)
+        if (current_user.is_employee):
+            products_in_rent = Art.objects.filter(owner=current_user).filter(available=False)
+        elif(current_user.is_student):
+            products_in_rent = Art.objects.filter(temp_owner=current_user).filter(available=False)
         context = {
             'categories': categories,
             'products': products_in_rent,
