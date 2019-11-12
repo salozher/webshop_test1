@@ -1,13 +1,15 @@
-import hashlib
-import os
-import random
-import string
+import hashlib, os, random, string, ecdsa
 from binascii import hexlify
-
-import ecdsa
+from datetime import date
 from base58 import b58encode
 from blockchain import exchangerates
+from dateutil.relativedelta import *
 
+
+def rent_enddate_calculator(period_month):
+    start_date = date.today()
+    end_date = start_date + relativedelta(months=+period_month)
+    return end_date
 
 def btc_current_rates():
     btc_rates = exchangerates.get_ticker()

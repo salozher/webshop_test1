@@ -53,10 +53,9 @@
                     </div>
 
                 </div>
-
-                <div class="row">
+                <div class="row align-items-center">
                     {% for product in products %}
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="product-item-{{ product.id }}">
                                 <div class="thumbnail">
                                     <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt=""
@@ -64,12 +63,13 @@
                                     <div class="caption" style="height: auto">
 
                                         <h4 class="text-center"><a
-                                                href={{ product.get_absolute_url }}>{{ product.title }} {{ product.id }}</a>
+                                                href={{ product.get_absolute_url }}>{{ product.title }}</a>
                                         </h4>
                                         <h4 class="text-center">€{{ product.price }}/p.mounth</h4>
                                         {% if user.is_student %}
                                             <a class="pull-right">
-                                                <button class="btn btn-success addtocart" data-slug="{{ product.slug }}"
+                                                <button class="btn btn-success addtocart"
+                                                        data-slug="{{ product.slug }}"
                                                         data-id="{{ product.id }}">Add to cart
                                                 </button>
                                             </a>

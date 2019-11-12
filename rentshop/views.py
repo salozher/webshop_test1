@@ -1,14 +1,14 @@
 from datetime import date
 from decimal import Decimal
 from blockchain import blockexplorer
-from dateutil.relativedelta import *
+from django.core.mail import send_mass_mail
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
 from .forms import ArtObjectForm
 from .models import Category, Art, CartItem, Cart, MyUser, OrderHistory
-from .utils import btc_current_rates
+from .utils import btc_current_rates, rent_enddate_calculator
 
 
 def cart_create(request):
@@ -23,6 +23,7 @@ def cart_create(request):
         request.session['cart_id'] = cart_id
         cart = Cart.objects.get(id=cart_id)
     return cart
+
 
 def home_view(request):
     cart = cart_create(request)
@@ -163,24 +164,19 @@ def remove_from_cart_all_view(request):
     return HttpResponseRedirect('/logout')
 
 
-def products_in_rent(request):
-    return Art.objects.filter(owner=request.user).filter(available=False)
-
-
-def products(request):
-    return Art.objects.filter(owner=request.user)
-
+# def products_in_rent(request):
+#     return Art.objects.filter(owner=request.user).filter(available=False)
 
 class ArtsOfOwnerInRent(ListView):
     template_name = 'class_art_list_in_use.html'
     context_object_name = 'products'
-
     def get(self, request, *args, **kwargs):
         cart = cart_create(request)
         categories = Category.objects.all()
+        products_in_rent = Art.objects.filter(owner=request.user).filter(available=False)
         context = {
             'categories': categories,
-            'products': products_in_rent(request),
+            'products': products_in_rent,
             'cart': cart,
         }
         return render(request, self.template_name, context)
@@ -190,17 +186,15 @@ class ArtsOfOwner(ListView):
     model = Art
     template_name = 'class_art_list.html'
     context_object_name = 'products'
-
     # def get_queryset(self):
     #     return Art.objects.filter(owner=self.request.user)
-
     def get(self, request, *args, **kwargs):
         cart = cart_create(request)
         categories = Category.objects.all()
-        # products = Art.objects.filter(owner=self.request.user)
+        products = Art.objects.filter(owner=request.user)
         context = {
             'categories': categories,
-            'products': products(request),
+            'products': products,
             'cart': cart,
         }
         return render(request, self.template_name, context)
@@ -211,7 +205,6 @@ class UploadArtView(CreateView):
     form_class = ArtObjectForm
     success_url = reverse_lazy('class_art_list')
     template_name = 'add_new_art.html'
-
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super(UploadArtView, self).form_valid(form)
@@ -248,7 +241,6 @@ def change_rent_period(request):
     cart_item.rent_length = int(period)
     cart_item.item_total = int(period) * Decimal(cart_item.product.price)
     cart_item.btc_item_total = '{:12.8f}'.format(float(cart_item.item_total) * eur_btc_rate)
-
     cart_item.save()
     new_cart_total = 0.00
     for item in cart.items.all():
@@ -262,9 +254,6 @@ def change_rent_period(request):
     total = float(cart.btc_cart_total)
     if (balance >= total):
         user_btc_balance_enough = True
-    else:
-        user_btc_balance_enough = False
-
 
     cart_is_empty = True
     if (int(cart.items.count()) > 0):
@@ -279,7 +268,6 @@ def change_rent_period(request):
          'balance': balance,
          'total': total,
          'cart_is_empty': cart_is_empty,
-
          })
 
 
@@ -292,20 +280,16 @@ def make_order(request):
     }
     return render(request, 'order.html', context)
 
-def rent_enddate_calculator(period_month):
-    start_date = date.today()
-    end_date = start_date+relativedelta(months= +period_month)
-    return end_date
 
 def complete_order(request):
     # user = MyUser.objects.get(crypto_wallet=pk)
     user = MyUser.objects.get(username=request.user.username)
-
     cart_id = request.session['cart_id']
     cart = Cart.objects.get(id=cart_id)
-
+    mailinglist = ()
     for ordered_item in cart.items.all():
-        product = ordered_item.product
+        product = Art.objects.get(slug=ordered_item.product.slug)
+        # product = ordered_item.product
         product_title = product.title
         ordered_item_owner = product.owner.username
         owner_email = product.owner.email
@@ -319,29 +303,37 @@ def complete_order(request):
         order.owner_email = owner_email
         order.temp_owner_email = renter_email
         order.rent_start_date = date.today()
-        order.rent_end_date = rent_enddate_calculator(int(order_period))
+        enddate = rent_enddate_calculator(int(order_period))
+        order.rent_end_date = enddate
         order.payment_amount = price_to_pay
         order.save()
 
-        # mailinglist = ()
-        # message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
-        #                       "Thank you for ordering an art object " + product_title + " from " +
-        #                       ordered_item_owner + "! You can contact the owner by email: " +
-        #                       owner_email + " to arrange the item delivery to you.",
-        #                       'SergiyRentShop@gmail.com', [renter_email],)
-        #
-        # message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
-        #                     "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
-        #                     renter_name + " for a period of " + order_period + " month! The price amount of $" +
-        #                     price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
-        #                     renter_email + " to arrange the item delivery.",
-        #                     "SergiyRentShop@gmail.com", [owner_email],)
-        # mailinglist = mailinglist + (message_to_student, message_to_owner,)
-        #
-        # send_mass_mail(mailinglist, fail_silently=False)
-    # return HttpResponse('Mail successfully sent')
-    return HttpResponseRedirect('/orderfailed')
+        cart.items.remove(ordered_item)
+        cart.save()
+        product.available = False
+        product.rent_end_date = enddate
+        product.temp_owner = user
+        product.save()
+        print(enddate)
 
+
+        message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
+                              "Thank you for ordering an art object " + product_title + " from " +
+                              ordered_item_owner + "! You can contact the owner by email: " +
+                              owner_email + " to arrange the item delivery to you.",
+                              'SergiyRentShop@gmail.com', [renter_email],)
+
+        message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
+                            "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
+                            renter_name + " for a period of " + order_period + " month! The price amount of $" +
+                            price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
+                            renter_email + " to arrange the item delivery.",
+                            "SergiyRentShop@gmail.com", [owner_email],)
+        mailinglist = mailinglist + (message_to_student, message_to_owner,)
+
+    # send_mass_mail(mailinglist, fail_silently=False)
+    # return HttpResponse('Mail successfully sent')
+    return HttpResponseRedirect('/ordersuccess')
 
 
 def order_history(request):
@@ -349,12 +341,11 @@ def order_history(request):
     current_user = MyUser.objects.get(username=request.user.username)
 
     categories = Category.objects.all()
-    if(current_user.is_student):
+    if (current_user.is_student):
         orders = OrderHistory.objects.all().filter(temp_owner_email=current_user.email)
     else:
         orders = OrderHistory.objects.all().filter(owner_email=current_user.email)
     cart = cart_create(request)
-
 
     context = {
         'cart': cart,
@@ -362,6 +353,7 @@ def order_history(request):
         'orders': orders,
     }
     return render(request, 'order_history.html', context)
+
 
 def order_success(request):
     current_user = MyUser.objects.get(username=request.user.username)
@@ -377,8 +369,8 @@ def order_success(request):
         'orders': orders,
     }
 
-    return  render(request, 'order_success.html', context)
+    return render(request, 'order_success.html', context)
+
 
 def order_failed(request):
     return render(request, 'order_failed.html')
-
