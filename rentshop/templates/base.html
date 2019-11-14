@@ -34,8 +34,8 @@
             <a class="navbar-brand" href="/"><strong>Home</strong></a>
         </div>
         {% if user.is_authenticated %}
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 {% if not request.get_full_path == '/' %}
                     <li class="dropdown">
@@ -52,45 +52,45 @@
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Orders History{% if user.is_employee %} and Art Management {% endif %}<span class="caret"></span></a>
+                       aria-expanded="false">Orders History{% if user.is_employee %} and Art Management {% endif %}<span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="{% url 'order_history' %}">Orders History</a>
                         </li>
-                        {% if user.is_employee %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'class_art_list_in_use' %}">Art objects currently in
                                 rent</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'class_art_list' %}">Manage your Art objects</a>
-                        </li>
+
+                        {% if user.is_employee %}
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'class_art_list' %}">Manage your Art objects</a>
+                            </li>
                         {% endif %}
                     </ul>
                 </li>
 
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url "cart" %}">Cart<span class='badge' id="cart_count">{{ cart.items.count }}</span></a>
+                </li>
+                <li>
+                    <a style="color: white">
+                        You are logged in as <strong> {{ user.username }}</strong>
+                    </a>
+                </li>
+                <li><a href="{% url 'remove_all_and_logout' %}">Logout</a></li>
+                {% if user.is_admin %}
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                    {% endif %}
+            </ul>
 
 
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="{% url "cart" %}">Cart<span class='badge' id="cart_count">{{ cart.items.count }}</span></a>
-                    </li>
-                    <li>
-                        <a style="color: white">
-                            You are logged in as <strong> {{ user.username }}</strong>
-                        </a>
-
-                    </li>
-
-                    <li><a href="{% url 'remove_all_and_logout' %}">Logout</a></li>
-                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
-
-                </ul>
-
-
-            {% endif %}
+        {% endif %}
         </div>
         <!-- /.navbar-collapse -->
     </div>

@@ -13,8 +13,8 @@
             <th>Title</th>
             <th>Description</th>
             <th>Price/per month</th>
-        {% if user.is_employee %}
-            <th>Renting Person</th>
+            {% if user.is_employee %}
+                <th>Renting Person</th>
             {% endif %}
             {% if user.is_student %}
                 <th>Owner</th>
@@ -22,8 +22,9 @@
 
 
             <th>Rent end date</th>
+            <th>Payed out</th>
             {% if not user.is_student %}
-            <th>Currently in use</th>
+                <th>Currently in use</th>
             {% endif %}
         </tr>
         </thead>
@@ -40,18 +41,21 @@
                 <td>{{ art.title }}</td>
                 <td>{{ art.description }}</td>
                 <td>€{{ art.price }}/p.m.</td>
-            {% if user.is_employee %}
-                <td>{{ art.temp_owner.email }}</td>
-            {% endif %}
-            {% if user.is_student %}
-                <td>{{ art.owner.email }}</td>
-            {% endif %}
+                {% if user.is_employee %}
+                    <td>{{ art.temp_owner.email }}</td>
+                {% endif %}
+                {% if user.is_student %}
+                    <td>{{ art.owner.email }}</td>
+                {% endif %}
                 <td>{{ art.rent_end_date }}</td>
+                <td>{{ art.payment_successful }}</td>
                 {% if not user.is_student %}
                     <td>
                         <form method="post" action="{% url 'return_art' art.pk %}">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Item is returned <br> from renting person</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Item is returned <br> from renting
+                                person
+                            </button>
                         </form>
                     </td>
                 {% endif %}

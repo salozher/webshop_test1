@@ -53,9 +53,9 @@
                     </div>
 
                 </div>
-                <div class="row align-items-center">
+                <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="product-item-{{ product.id }}">
                                 <div class="thumbnail">
                                     <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt=""

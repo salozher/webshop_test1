@@ -137,6 +137,7 @@ class Art(models.Model):
     rent_end_date = models.DateField(default=timezone.now(), blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
+    payment_successful = models.BooleanField(default=False)
     objects = ProductManager()
 
     def __str__(self):

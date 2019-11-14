@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
 from .forms import ArtObjectForm
 from .models import Category, Art, CartItem, Cart, MyUser, OrderHistory
-from .utils import btc_current_rates, rent_enddate_calculator
+from .utils import btc_current_rates, rent_enddate_calculator, btc_gate_simulator
 
 
 def cart_create(request):
@@ -169,6 +169,7 @@ def remove_from_cart_all_view(request):
 
 class ArtsOfOwnerInRent(ListView):
     template_name = 'class_art_list_in_use.html'
+
     # context_object_name = 'products'
     def get(self, request, *args, **kwargs):
         cart = cart_create(request)
@@ -176,7 +177,7 @@ class ArtsOfOwnerInRent(ListView):
         current_user = MyUser.objects.get(username=request.user.username)
         if (current_user.is_employee):
             products_in_rent = Art.objects.filter(owner=current_user).filter(available=False)
-        elif(current_user.is_student):
+        elif (current_user.is_student):
             products_in_rent = Art.objects.filter(temp_owner=current_user).filter(available=False)
         context = {
             'categories': categories,
@@ -190,6 +191,7 @@ class ArtsOfOwner(ListView):
     model = Art
     template_name = 'class_art_list.html'
     context_object_name = 'products'
+
     # def get_queryset(self):
     #     return Art.objects.filter(owner=self.request.user)
     def get(self, request, *args, **kwargs):
@@ -209,6 +211,7 @@ class UploadArtView(CreateView):
     form_class = ArtObjectForm
     success_url = reverse_lazy('class_art_list')
     template_name = 'add_new_art.html'
+
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super(UploadArtView, self).form_valid(form)
@@ -227,6 +230,7 @@ def return_art(request, pk):
         art = Art.objects.get(pk=pk)
         if (art.rent_end_date <= present):
             art.available = True
+            art.payment_successful = False
             art.temp_owner = None
             art.save()
         else:
@@ -298,6 +302,7 @@ def complete_order(request):
         ordered_item_owner = product.owner.username
         owner_email = product.owner.email
         price_to_pay = str(ordered_item.item_total)
+        btc_price_to_pay = float(ordered_item.btc_item_total)
         order_period = str(ordered_item.rent_length)
         renter_email = user.email
         renter_name = user.username
@@ -312,30 +317,33 @@ def complete_order(request):
         order.payment_amount = price_to_pay
         order.save()
 
-        cart.items.remove(ordered_item)
-        cart.save()
-        product.available = False
-        product.rent_end_date = enddate
-        product.temp_owner = user
-        product.save()
-        print(enddate)
+        payment_successfull = btc_gate_simulator(user.crypto_wallet, product.owner.crypto_wallet, btc_price_to_pay)
 
+        if (payment_successfull):
+            product.payment_successful = True
+            product.available = False
+            product.rent_end_date = enddate
+            product.temp_owner = user
+            cart.items.remove(ordered_item)
+            cart.save()
+            product.save()
 
-        message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
-                              "Thank you for ordering an art object " + product_title + " from " +
-                              ordered_item_owner + "! You can contact the owner by email: " +
-                              owner_email + " to arrange the item delivery to you.",
-                              'SergiyRentShop@gmail.com', [renter_email],)
+            message_to_student = ("Sergiy's ArtShop item ordered: " + product_title,
+                                  "Thank you for ordering an art object " + product_title + " from " +
+                                  ordered_item_owner + "! You can contact the owner by email: " +
+                                  owner_email + " to arrange the item delivery to you.",
+                                  'SergiyRentShop@gmail.com', [renter_email],)
 
-        message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
-                            "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
-                            renter_name + " for a period of " + order_period + " month! The price amount of $" +
-                            price_to_pay + " is transferred to your BTC wallet. Please contact renting person by following email " +
-                            renter_email + " to arrange the item delivery.",
-                            "SergiyRentShop@gmail.com", [owner_email],)
-        mailinglist = mailinglist + (message_to_student, message_to_owner,)
-
-    # send_mass_mail(mailinglist, fail_silently=False)
+            message_to_owner = ("Sergiy's ArtShop: Your item " + product_title + " is ordered!",
+                                "Sergiy's ArtShop: Your item " + product_title + " is ordered by " +
+                                renter_name + " for a period of " + order_period + " month! The price amount of $" +
+                                price_to_pay + " (BTC " + str(btc_price_to_pay) + ") is transferred to your BTC wallet. Please contact renting person by following email " +
+                                renter_email + " to arrange the item delivery.",
+                                "SergiyRentShop@gmail.com", [owner_email],)
+            mailinglist = mailinglist + (message_to_student, message_to_owner,)
+        else:
+            return HttpResponseRedirect('/orderfailed')
+        send_mass_mail(mailinglist, fail_silently=False)
     # return HttpResponse('Mail successfully sent')
     return HttpResponseRedirect('/ordersuccess')
 

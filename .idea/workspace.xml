@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0011_auto_20191114_2009.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -225,7 +230,8 @@
       <workItem from="1573030025579" duration="7496000" />
       <workItem from="1573055682098" duration="1613000" />
       <workItem from="1573476348126" duration="15286000" />
-      <workItem from="1573567346031" duration="8975000" />
+      <workItem from="1573567346031" duration="9013000" />
+      <workItem from="1573754977917" duration="7124000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -451,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573575029666</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="order_success and order_failed are implemented + removing processed items from a card in successfull payment case">
+      <created>1573576331056</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1573576331056</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -6,6 +6,14 @@ from blockchain import exchangerates
 from dateutil.relativedelta import *
 
 
+def btc_gate_simulator(btc_surce_account, btc_destination_account, btc_amount):
+    # BTC wallet prepares a transaction and return True on successful completion or False if the transaction failed.
+    if(True):
+        return True
+    else:
+        return False
+
+
 def rent_enddate_calculator(period_month):
     start_date = date.today()
     end_date = start_date + relativedelta(months=+period_month)
