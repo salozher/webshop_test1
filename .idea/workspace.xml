@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0011_auto_20191114_2009.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -231,7 +225,7 @@
       <workItem from="1573055682098" duration="1613000" />
       <workItem from="1573476348126" duration="15286000" />
       <workItem from="1573567346031" duration="9013000" />
-      <workItem from="1573754977917" duration="7124000" />
+      <workItem from="1573754977917" duration="9468000" />
     </task>
     <task id="LOCAL-00001" summary="commit on sunday evening">
       <created>1561923361472</created>
@@ -464,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573576331056</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="first relise">
+      <created>1573763828577</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1573763828577</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +508,8 @@
     <MESSAGE value="order view - btc calculations are ready" />
     <MESSAGE value="order_success and order_failed are implemented" />
     <MESSAGE value="order_success and order_failed are implemented + removing processed items from a card in successfull payment case" />
-    <option name="LAST_COMMIT_MESSAGE" value="order_success and order_failed are implemented + removing processed items from a card in successfull payment case" />
+    <MESSAGE value="first relise" />
+    <option name="LAST_COMMIT_MESSAGE" value="first relise" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/serg_rentshop$manage.coverage" NAME="manage Coverage Results" MODIFIED="1571321897031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
