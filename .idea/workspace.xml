@@ -1,9 +1,260 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="">
+    <list default="true" id="99217b31-6fcf-4695-a242-79fae555dc8b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Django_Lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/serg_rentshop.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentshop/migrations/0012_auto_20191114_2351.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webshop_test1.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/tooltip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0002_auto_20191014_2318.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0002_auto_20191014_2318.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0003_auto_20191015_1302.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0003_auto_20191015_1302.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0004_auto_20191030_2231.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0004_auto_20191030_2231.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0005_auto_20191105_1347.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0005_auto_20191105_1347.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0006_auto_20191106_1413.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0006_auto_20191106_1413.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0007_auto_20191106_1648.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0007_auto_20191106_1648.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0008_auto_20191106_1700.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0008_auto_20191106_1700.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0009_auto_20191111_1648.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0009_auto_20191111_1648.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0010_auto_20191111_1650.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0010_auto_20191111_1650.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0011_auto_20191114_2009.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0011_auto_20191114_2009.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/BdfFontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/BdfFontFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/BlpImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/BlpImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/DcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/DcxImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/DdsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/DdsImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/EpsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/EpsImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/FontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/FontFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/FpxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/FpxImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/FtexImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/FtexImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/GifImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/GifImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/GimpGradientFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/GimpGradientFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/GimpPaletteFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/GimpPaletteFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/IcnsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/IcnsImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/IcoImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/IcoImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/Image.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/Image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageCms.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageCms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageColor.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageColor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageFont.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageFont.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageGrab.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageGrab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageMorph.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageMorph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageOps.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageOps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImagePalette.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImagePalette.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageQt.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageQt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageShow.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageShow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageStat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageStat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/IptcImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/IptcImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/Jpeg2KImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/Jpeg2KImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/JpegImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/JpegImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/McIdasImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/McIdasImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/MicImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/MicImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/MspImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/MspImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PSDraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PcfFontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PcxImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PdfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PdfImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PdfParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PdfParser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PngImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PngImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PsdImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PsdImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PyAccess.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/PyAccess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/SgiImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/SgiImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/SpiderImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/SpiderImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/TarIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/TarIO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/TgaImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/TgaImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/TiffImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/TiffImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/WmfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/WmfImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/XbmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/XbmImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/XpmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/XpmImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/_binary.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/PIL/_binary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/layout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_field.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/templatetags/crispy_forms_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_dynamic_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_dynamic_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_form_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_form_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_layout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_layout_objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_layout_objects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/crispy_forms/tests/test_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/baseparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/baseparser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/list.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/show.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/show.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/uninstall.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/commands/uninstall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/configuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/download.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/download.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/locations.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/locations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/operations/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/operations/check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/operations/freeze.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/operations/freeze.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/operations/prepare.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/operations/prepare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/req_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/req_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/req_install.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/req_install.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/req_uninstall.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/req/req_uninstall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/resolve.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/resolve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/appdirs.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/appdirs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/hashes.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/hashes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/misc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/outdated.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/outdated.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/packaging.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/packaging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/utils/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/bazaar.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/bazaar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/git.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/git.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/mercurial.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/mercurial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/subversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/vcs/subversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_internal/wheel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/appdirs.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/appdirs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/_cmd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/adapter.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/adapter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/caches/redis_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/caches/redis_cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/heuristics.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/cachecontrol/heuristics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/big5prober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/big5prober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/chardistribution.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/chardistribution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/charsetgroupprober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/charsetgroupprober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/eucjpprober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/eucjpprober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/euckrprober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/euckrprober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/euctwprober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/euctwprober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/gb2312prober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/gb2312prober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/mbcsgroupprober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/mbcsgroupprober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/sbcsgroupprober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/sbcsgroupprober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/sjisprober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/sjisprober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/utf8prober.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/chardet/utf8prober.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/colorama/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/colorama/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/colorama/ansitowin32.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/colorama/ansitowin32.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/colorama/initialise.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/colorama/initialise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/_backport/shutil.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/_backport/shutil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/locators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/manifest.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/manifest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/markers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/markers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/scripts.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/scripts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/wheel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distro.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/_inputstream.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/_inputstream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/_tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/_tokenizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/_trie/py.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/_trie/py.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/filters/alphabeticalattributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/filters/alphabeticalattributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/filters/lint.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/filters/lint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/filters/whitespace.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/filters/whitespace.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/html5parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/html5parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/dom.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/dom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/etree.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/etree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/etree.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/etree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/etree_lxml.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/etree_lxml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/genshi.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/html5lib/treewalkers/genshi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/codec.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/codec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/idna/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/ipaddress.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/ipaddress.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/linklockfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/linklockfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/mkdirlockfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/mkdirlockfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/pidlockfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/pidlockfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/sqlitelockfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/lockfile/sqlitelockfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/msgpack/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/msgpack/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/msgpack/fallback.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/msgpack/fallback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/_compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/markers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/markers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/requirements.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/requirements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/packaging/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pkg_resources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pkg_resources/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pkg_resources/py31compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pkg_resources/py31compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/bar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/counter.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/counter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/spinner.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/progress/spinner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pyparsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pytoml/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pytoml/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pytoml/writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/pytoml/writer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/adapters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/adapters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/cookies.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/cookies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/help.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/sessions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/sessions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/retrying.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/retrying.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/_collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/_collections.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/connectionpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/connectionpool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/appengine.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/appengine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/ntlmpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/ntlmpool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/pyopenssl.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/pyopenssl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/securetransport.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/contrib/securetransport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/filepost.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/filepost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/poolmanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/poolmanager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/retry.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/retry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/ssl_.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/ssl_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/timeout.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/timeout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/urllib3/util/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/webencodings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/webencodings/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/reference.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/reference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/tzinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/tzinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/filters/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/filters/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/lexer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/easy_install-3.7-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/easy_install-3.7-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/easy_install-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/easy_install-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pip-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pip-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pip3-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pip3-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pip3.7-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pip3.7-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webshop_test1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webshop_test1/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,52 +262,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/webshop_test1$manage.coverage" NAME="manage Coverage Results" MODIFIED="1561966944211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1PmPoIudL2hByIeP4TZoDppV72i" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1Tcu0VMgb2nJVxt19iT6lmpwGOD" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/rentshop/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webshop_test1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\@Python Projects\webshop_test1\static" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\@Python Projects\webshop_test1\rentshop\templates" />
-      <recent name="C:\@Python Projects\webshop_test1\ecomapp" />
-      <recent name="C:\@Python Projects\webshop_test1\ecomapp\templates" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -70,39 +289,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.Unnamed">
-    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="webshop_test1" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
-      <module name="webshop_test1" />
+  <component name="RunManager">
+    <configuration name="serg_rentshop" type="Python.DjangoServer" factoryName="Django server">
+      <module name="serg_rentshop" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="webshop_test1.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\@Python Projects\webshop_test1\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="SDK_HOME" value="C:\@Python Projects\serg_rentshop\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -117,355 +314,22 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="webshop_test1" type="Python.DjangoServer" factoryName="Django server">
-      <module name="webshop_test1" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\@Python Projects\webshop_test1\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="5000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Django server.webshop_test1" />
-      <item itemvalue="Django server.Unnamed" />
-      <item itemvalue="Python.manage" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.manage" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7f13b9a9-96a5-4665-b211-2cf659030341" name="Default Changelist" comment="" />
-      <created>1561727643088</created>
+      <changelist id="99217b31-6fcf-4695-a242-79fae555dc8b" name="Default Changelist" comment="" />
+      <created>1573771482367</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1561727643088</updated>
-      <workItem from="1561727644361" duration="5612000" />
-      <workItem from="1561736992812" duration="17288000" />
-      <workItem from="1561798862347" duration="23414000" />
-      <workItem from="1561892811252" duration="15701000" />
-      <workItem from="1561966881936" duration="1263000" />
-      <workItem from="1562500216914" duration="614000" />
-      <workItem from="1563198308142" duration="11000" />
-      <workItem from="1564571514335" duration="280000" />
-      <workItem from="1564571816115" duration="723000" />
-      <workItem from="1564861124787" duration="82000" />
-      <workItem from="1564861225475" duration="10468000" />
-      <workItem from="1564872418894" duration="717000" />
-      <workItem from="1564873156114" duration="2197000" />
-      <workItem from="1565002424078" duration="1759000" />
-      <workItem from="1566476486350" duration="11233000" />
-      <workItem from="1566494213004" duration="5052000" />
-      <workItem from="1566502601084" duration="1821000" />
-      <workItem from="1566563328080" duration="588000" />
-      <workItem from="1566563938862" duration="598000" />
-      <workItem from="1566904915656" duration="7000" />
-      <workItem from="1567080236804" duration="17884000" />
-      <workItem from="1567434338569" duration="599000" />
-      <workItem from="1567677352054" duration="622000" />
-      <workItem from="1567678546897" duration="4547000" />
-      <workItem from="1567759061307" duration="5397000" />
-      <workItem from="1568112949463" duration="7187000" />
-      <workItem from="1568203068127" duration="5977000" />
-      <workItem from="1568209712531" duration="2162000" />
-      <workItem from="1568213625051" duration="8548000" />
-      <workItem from="1568287121822" duration="997000" />
-      <workItem from="1568289218919" duration="498000" />
-      <workItem from="1568289738771" duration="4877000" />
-      <workItem from="1568298604225" duration="17677000" />
-      <workItem from="1568794093609" duration="58000" />
-      <workItem from="1568794202117" duration="4417000" />
-      <workItem from="1568887048485" duration="6973000" />
-      <workItem from="1568900254059" duration="10995000" />
-      <workItem from="1568978408300" duration="6337000" />
-      <workItem from="1568984902078" duration="11231000" />
-      <workItem from="1569157733412" duration="16263000" />
-      <workItem from="1569185652862" duration="101000" />
-      <workItem from="1569186260529" duration="3031000" />
-      <workItem from="1570617533601" duration="1034000" />
-      <workItem from="1570699315434" duration="49000" />
-      <workItem from="1571063612251" duration="4651000" />
-      <workItem from="1571068989360" duration="14692000" />
-      <workItem from="1571134191986" duration="3709000" />
-      <workItem from="1571224526245" duration="654000" />
-      <workItem from="1571232724626" duration="33765000" />
-      <workItem from="1571277734264" duration="563000" />
-      <workItem from="1571313551064" duration="4418000" />
-      <workItem from="1571322640233" duration="22472000" />
-      <workItem from="1571581721631" duration="2798000" />
-      <workItem from="1571740798511" duration="5851000" />
-      <workItem from="1572431676445" duration="28986000" />
-      <workItem from="1572602067774" duration="1662000" />
-      <workItem from="1572605482781" duration="10518000" />
-      <workItem from="1572860451529" duration="100000" />
-      <workItem from="1572860603744" duration="26534000" />
-      <workItem from="1572954821492" duration="6521000" />
-      <workItem from="1573030025579" duration="7496000" />
-      <workItem from="1573055682098" duration="1613000" />
-      <workItem from="1573476348126" duration="15286000" />
-      <workItem from="1573567346031" duration="9013000" />
-      <workItem from="1573754977917" duration="9468000" />
+      <updated>1573771482367</updated>
+      <workItem from="1573771486932" duration="1219000" />
+      <workItem from="1573772722748" duration="632000" />
+      <workItem from="1573773444433" duration="1927000" />
+      <workItem from="1573775434892" duration="749000" />
     </task>
-    <task id="LOCAL-00001" summary="commit on sunday evening">
-      <created>1561923361472</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1561923361472</updated>
-    </task>
-    <task id="LOCAL-00002" summary="commit on sunday evening">
-      <created>1566479960652</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1566479960652</updated>
-    </task>
-    <task id="LOCAL-00003" summary="commit on sunday evening">
-      <created>1567113299075</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1567113299075</updated>
-    </task>
-    <task id="LOCAL-00004" summary="updated Cart - only possible to see available items in all views">
-      <created>1568126727491</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1568126727491</updated>
-    </task>
-    <task id="LOCAL-00005" summary="updated user model">
-      <created>1568213353776</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1568213353776</updated>
-    </task>
-    <task id="LOCAL-00006" summary="new user model - updated">
-      <created>1568214427442</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1568214427442</updated>
-    </task>
-    <task id="LOCAL-00007" summary="application name updated from ecomapp to rentshop">
-      <created>1568291122813</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1568291122814</updated>
-    </task>
-    <task id="LOCAL-00008" summary="on logout all items being removed from cart, items visible for rent again">
-      <created>1568299257017</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1568299257017</updated>
-    </task>
-    <task id="LOCAL-00009" summary="on logout all items being removed from cart, items visible for rent again">
-      <created>1568316507667</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1568316507667</updated>
-    </task>
-    <task id="LOCAL-00010" summary="on logout all items being removed from cart, items visible for rent again">
-      <created>1568318070360</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1568318070360</updated>
-    </task>
-    <task id="LOCAL-00011" summary="on logout all items being removed from cart, items visible for rent again">
-      <created>1568319928618</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1568319928618</updated>
-    </task>
-    <task id="LOCAL-00012" summary="updated cart - calculations of item total and cart total is working">
-      <created>1569160752237</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1569160752237</updated>
-    </task>
-    <task id="LOCAL-00013" summary="updated cart - calculations of item total and cart total is working">
-      <created>1569184131661</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1569184131661</updated>
-    </task>
-    <task id="LOCAL-00014" summary="added Order model, adjusted related items and fields">
-      <created>1571093529891</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1571093529891</updated>
-    </task>
-    <task id="LOCAL-00015" summary="added Order model, adjusted related items and fields (bugfix)">
-      <created>1571136748436</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1571136748436</updated>
-    </task>
-    <task id="LOCAL-00016" summary="updated cart_item's minimal rent time and price calculation, added confirmation button to proceed to the order checkout">
-      <created>1571254148688</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1571254148688</updated>
-    </task>
-    <task id="LOCAL-00017" summary="sending authomated e-mail notifications per ordered item by order completion is implemented">
-      <created>1571338286860</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1571338286860</updated>
-    </task>
-    <task id="LOCAL-00018" summary="sending authomated e-mail notifications per ordered item by order completion is implemented&#10;successfully tested">
-      <created>1571610772575</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1571610772575</updated>
-    </task>
-    <task id="LOCAL-00019" summary="in all views product removed from diplay after being added in to the cart">
-      <created>1571744761572</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1571744761572</updated>
-    </task>
-    <task id="LOCAL-00020" summary="in cart view implemented BTC module with currency balance and exchange rate">
-      <created>1572466094183</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1572466094183</updated>
-    </task>
-    <task id="LOCAL-00021" summary="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC">
-      <created>1572474444591</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1572474444591</updated>
-    </task>
-    <task id="LOCAL-00022" summary="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (not completed)">
-      <created>1572475692054</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1572475692054</updated>
-    </task>
-    <task id="LOCAL-00023" summary="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (completed) + empty cart blocking order button (not completed)">
-      <created>1572880578039</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1572880578039</updated>
-    </task>
-    <task id="LOCAL-00024" summary="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (completed) + empty cart blocking order button (not completed)">
-      <created>1572881523645</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1572881523645</updated>
-    </task>
-    <task id="LOCAL-00025" summary="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (completed) + empty cart blocking order button (completed)">
-      <created>1572884098870</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1572884098870</updated>
-    </task>
-    <task id="LOCAL-00026" summary="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (completed) + empty cart blocking order button (completed)">
-      <created>1572884667465</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1572884667465</updated>
-    </task>
-    <task id="LOCAL-00027" summary="minor front-end design adjustments:&#10;Active click on picture&#10;elements layout adjusted on each Art object&#10;autorefresh on carouselle elements&#10;product preview image is made bigger">
-      <created>1572957880175</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1572957880175</updated>
-    </task>
-    <task id="LOCAL-00028" summary="minor front-end design adjustments:&#10;Active click on picture&#10;elements layout adjusted on each Art object&#10;autorefresh on carouselle elements&#10;product preview image is made bigger">
-      <created>1572961023410</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1572961023410</updated>
-    </task>
-    <task id="LOCAL-00029" summary="order view - btc calculations are ready">
-      <created>1573071916961</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1573071916961</updated>
-    </task>
-    <task id="LOCAL-00030" summary="order_success and order_failed are implemented">
-      <created>1573513733853</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1573513733853</updated>
-    </task>
-    <task id="LOCAL-00031" summary="order_success and order_failed are implemented">
-      <created>1573514061215</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1573514061215</updated>
-    </task>
-    <task id="LOCAL-00032" summary="order_success and order_failed are implemented + removing processed items from a card in successfull payment case">
-      <created>1573575029666</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1573575029666</updated>
-    </task>
-    <task id="LOCAL-00033" summary="order_success and order_failed are implemented + removing processed items from a card in successfull payment case">
-      <created>1573576331056</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1573576331056</updated>
-    </task>
-    <task id="LOCAL-00034" summary="first relise">
-      <created>1573763828577</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1573763828577</updated>
-    </task>
-    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,36 +347,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="commit on sunday evening" />
-    <MESSAGE value="updated Cart - only possible to see available items in all views" />
-    <MESSAGE value="updated user model" />
-    <MESSAGE value="new user model - updated" />
-    <MESSAGE value="application name updated from ecomapp to rentshop" />
-    <MESSAGE value="on logout all items being removed from cart, items visible for rent again" />
-    <MESSAGE value="updated cart - calculations of item total and cart total is working" />
-    <MESSAGE value="added Order model, adjusted related items and fields" />
-    <MESSAGE value="added Order model, adjusted related items and fields (bugfix)" />
-    <MESSAGE value="updated cart_item's minimal rent time and price calculation, added confirmation button to proceed to the order checkout" />
-    <MESSAGE value="sending authomated e-mail notifications per ordered item by order completion is implemented" />
-    <MESSAGE value="sending authomated e-mail notifications per ordered item by order completion is implemented&#10;successfully tested" />
-    <MESSAGE value="in all views product removed from diplay after being added in to the cart" />
-    <MESSAGE value="in cart view implemented BTC module with currency balance and exchange rate" />
-    <MESSAGE value="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC" />
-    <MESSAGE value="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (not completed)" />
-    <MESSAGE value="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (completed) + empty cart blocking order button (not completed)" />
-    <MESSAGE value="in cart view implemented BTC module with currency balance and exchange rate + total calculations in BTC + balance to price check (completed) + empty cart blocking order button (completed)" />
-    <MESSAGE value="minor front-end design adjustments:&#10;Active click on picture&#10;elements layout adjusted on each Art object&#10;autorefresh on carouselle elements&#10;product preview image is made bigger" />
-    <MESSAGE value="order view - btc calculations are ready" />
-    <MESSAGE value="order_success and order_failed are implemented" />
-    <MESSAGE value="order_success and order_failed are implemented + removing processed items from a card in successfull payment case" />
-    <MESSAGE value="first relise" />
-    <option name="LAST_COMMIT_MESSAGE" value="first relise" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/serg_rentshop$manage.coverage" NAME="manage Coverage Results" MODIFIED="1571321897031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/webshop_test1$manage.coverage" NAME="manage Coverage Results" MODIFIED="1568313373598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

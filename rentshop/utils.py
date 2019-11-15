@@ -1,6 +1,11 @@
-import hashlib, os, random, string, ecdsa
+import hashlib
+import os
+import random
+import string
 from binascii import hexlify
 from datetime import date
+
+import ecdsa
 from base58 import b58encode
 from blockchain import exchangerates
 from dateutil.relativedelta import *

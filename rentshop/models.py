@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+
 from blockchain import exchangerates
 from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser
 from django.db import models
@@ -6,6 +7,7 @@ from django.db.models.signals import pre_save
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
+
 from .utils import unique_slug_generator, order_id_generator, make_btc_account
 
 
