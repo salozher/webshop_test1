@@ -27,14 +27,6 @@ def pre_save_category_slug(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_category_slug, sender=Category)
 
 
-
-
-
-class ProductManager(models.Manager):
-    def all(self, *args, **kwargs):
-        return super(ProductManager, self).get_queryset().filter(available=True)
-
-
 class OrderManager(models.Manager):
     def all(self, *args, **kwargs):
         return super(OrderManager, self).get_queryset().all()
@@ -112,6 +104,11 @@ def image_folder(instance, filename):
     return "{0}/{1}".format(foldername, filename)
 
 
+class ProductManager(models.Manager):
+    def all(self, *args, **kwargs):
+        return super(ProductManager, self).get_queryset().filter(available=True)
+
+
 class Art(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     title = models.CharField(max_length=100)
@@ -143,8 +140,6 @@ def pre_save_art_slug(sender, instance, *args, **kwargs):
         slug = unique_slug_generator(sender, instance)
         # slug = slugify(instance.title)
         instance.slug = slug
-
-
 pre_save.connect(pre_save_art_slug, sender=Art)
 
 
@@ -214,8 +209,6 @@ def pre_save_order_id(sender, instance, *args, **kwargs):
     if not instance.order_id:
         order_id = order_id_generator(sender, instance)
         instance.order_id = order_id
-
-
 pre_save.connect(pre_save_order_id, sender=Order)
 
 

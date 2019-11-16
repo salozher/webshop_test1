@@ -1,23 +1,20 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
     <h2 class="text-center">Your cart</h2>
     <br>
     <table class="table mb-md-3">
         <thead>
         <tr>
-            <td class="text-center">Art Object</td>
-            <td class="text-center">Price/p.month</td>
-            <td class="text-center">Period/Month</td>
-            <td class="text-center">Price</td>
-            <td class="text-center"></td>
+            <th class="text-center">Art Object</th>
+            <th class="text-center">Price/p.month</th>
+            <th class="text-center">Period/Month</th>
+            <th class="text-center">Price</th>
+            <th class="text-center"></th>
         </tr>
         </thead>
         {% for item in cart.items.all %}
             <tr class="cart-item-{{ item.product.id }}" item="{{ item.product.title }}">
-
                 <td class="text-center"><strong>{{ item.product.title }}</strong><img src="{{ item.product.cover.url }}"
                                                                                       alt=""
                                                                                       style="width: 50px; height: auto">
@@ -28,8 +25,8 @@
                         <input id="rent_period" type="number" name="rent_length" class="item_rent_length"
                                data-id="{{ item.id }}" value="{{ item.rent_length }}" step="1" min="3"
                                max="12"
-                               style="width: 44px"> <a>
-                    </a></form>
+                               style="width: 44px">
+                    </form>
                 </td>
                 <td class="text-center" id="cart-item-total-{{ item.id }}">€{{ item.item_total }}</td>
                 <td class="text-center"><a class="remove_from_cart" data-slug="{{ item.product.slug }}"
@@ -40,23 +37,20 @@
             <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
             <script>
                 datavalue = $('.item_rent_length').val()
-                console.log(datavalue)
-
             </script>
         {% endfor %}
         <tr>
             <td></td>
             <td></td>
             <td></td>
-            <td class="text-center" id="cart-total-price">Total Price: €{{ cart.cart_total }}</td>
+            <th class="text-center" id="cart-total-price">Total Price: €{{ cart.cart_total }}</th>
             <td></td>
-
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
-            <td class="text-center" id="cart-btc-total-price">Total Price in BTC: {{ cart.btc_cart_total }}</td>
+            <th class="text-center" id="cart-btc-total-price">Total Price in BTC: {{ cart.btc_cart_total }}</th>
             <td></td>
 
         </tr>
@@ -67,9 +61,9 @@
 
         <tr>
             <div>
-                <td class="text-center">Your BTC account</td>
-                <td class="text-center">Your BTC balance</td>
-                <td class="text-center">Exchange rate</td>
+                <th class="text-center">Your BTC account</th>
+                <th class="text-center">Your BTC balance</th>
+                <th class="text-center">Exchange rate</th>
             </div>
         </tr>
         <br>
@@ -80,8 +74,8 @@
                 <td class="text-center">1€ = BTC: {{ eur_btc_rate }}</td>
             </div>
         </tr>
-
     </table>
+
     {% if cart_is_not_empty %}
         <div id="order-button" style="visibility: visible">
         <a class="pull-right" href={% url "make_order" %}>
@@ -95,8 +89,6 @@
         $('#order-button').css('visibility', 'hidden')
     </script>
 {% endif %}
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -133,7 +125,6 @@
                 })
             })
         })
-
     </script>
 
 
@@ -153,7 +144,6 @@
                         url: '{%  url "change_rent_period" %}',
                         data: data,
                         success: function (data) {
-
                             $('#cart-item-total-' + item_id).html('€' + parseFloat(data.item_total).toFixed(2))
                             $('#cart-total-price').html('Total Price: €' + parseFloat(data.cart_total_price).toFixed(2))
                             $('#cart-btc-total-price').html('Total Price in BTC:' + parseFloat(data.cart_btc_total_price).toFixed(8))

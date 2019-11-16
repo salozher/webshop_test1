@@ -77,16 +77,12 @@ def cart_view(request):
     btc_balance = user_crypto_balance(request)
     eur_btc_rate = btc_current_rates()
     cart = cart_create(request)
-
     user_btc_balance_enough = False
     if (user_crypto_balance(request) >= cart.btc_cart_total):
         user_btc_balance_enough = True
-
     cart_is_not_empty = False
     if (cart.items.count() > 0):
         cart_is_not_empty = True
-    else:
-        cart_is_not_empty = False
     context = {
         'cart': cart,
         'categories': categories,
@@ -133,14 +129,9 @@ def remove_from_cart_view(request):
     total = float(cart.btc_cart_total)
     if (balance >= total):
         user_btc_balance_enough = True
-    else:
-        user_btc_balance_enough = False
-
     cart_is_not_empty = False
     if (cart.items.count() > 0):
         cart_is_not_empty = True
-    else:
-        cart_is_not_empty = False
     return JsonResponse(
         {'cart_total_items': cart.items.count(),
          'cart_total_price': cart.cart_total,
@@ -159,15 +150,11 @@ def remove_from_cart_all_view(request):
             cart.save()
             prod.available = True
             prod.save()
-        else:
-            pass
     return HttpResponseRedirect('/logout')
 
 
 class ArtsOfOwnerInRent(ListView):
     template_name = 'class_art_list_in_use.html'
-
-    # context_object_name = 'products'
     def get(self, request, *args, **kwargs):
         cart = cart_create(request)
         categories = Category.objects.all()
@@ -187,7 +174,6 @@ class ArtsOfOwnerInRent(ListView):
 class ArtsOfOwner(ListView):
     model = Art
     template_name = 'class_art_list.html'
-    context_object_name = 'products'
     def get(self, request, *args, **kwargs):
         cart = cart_create(request)
         categories = Category.objects.all()
@@ -235,7 +221,6 @@ def change_rent_period(request):
     request = request
     eur_btc_rate = btc_current_rates()
     cart = cart_create(request)
-
     period = request.GET.get('period')
     if (int(period) < 3):
         period = 3
@@ -287,14 +272,12 @@ def make_order(request):
 
 
 def complete_order(request):
-    # user = MyUser.objects.get(crypto_wallet=pk)
     user = MyUser.objects.get(username=request.user.username)
     cart_id = request.session['cart_id']
     cart = Cart.objects.get(id=cart_id)
     mailinglist = ()
     for ordered_item in cart.items.all():
         product = Art.objects.get(slug=ordered_item.product.slug)
-        # product = ordered_item.product
         product_title = product.title
         ordered_item_owner = product.owner.username
         owner_email = product.owner.email
@@ -341,21 +324,18 @@ def complete_order(request):
         else:
             return HttpResponseRedirect('/orderfailed')
         send_mass_mail(mailinglist, fail_silently=False)
-    # return HttpResponse('Mail successfully sent')
     return HttpResponseRedirect('/ordersuccess')
 
 
 def order_history(request):
     request = request
     current_user = MyUser.objects.get(username=request.user.username)
-
     categories = Category.objects.all()
     if (current_user.is_student):
         orders = OrderHistory.objects.all().filter(temp_owner_email=current_user.email)
     else:
         orders = OrderHistory.objects.all().filter(owner_email=current_user.email)
     cart = cart_create(request)
-
     context = {
         'cart': cart,
         'categories': categories,
@@ -377,7 +357,6 @@ def order_success(request):
         'categories': categories,
         'orders': orders,
     }
-
     return render(request, 'order_success.html', context)
 
 

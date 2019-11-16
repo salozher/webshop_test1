@@ -21,6 +21,7 @@
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 {% for product in products %}
+
                                     {% if forloop.first %}
                                         <div class="item active product-item-{{ product.id }}">
                                             <a href={{ product.get_absolute_url }}>
@@ -30,6 +31,7 @@
                                                 <p class="text-center">{{ product.title }}</p>
                                             </div>
                                         </div>
+
                                     {% else %}
                                         <div class="item product-item-{{ product.id }}">
                                             <a href={{ product.get_absolute_url }}><img class="slide-image"
@@ -39,7 +41,9 @@
                                             <p class="text-center">{{ product.title }}</p>
                                         </div>
                                     {% endif %}
+
                                 {% endfor %}
+
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"
                                style="background: transparent">
@@ -51,7 +55,6 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
                 <div class="row">
                     {% for product in products %}
@@ -66,6 +69,7 @@
                                                 href={{ product.get_absolute_url }}>{{ product.title }}</a>
                                         </h4>
                                         <h4 class="text-center">€{{ product.price }}/p.mounth</h4>
+
                                         {% if user.is_student %}
                                             <a class="pull-right">
                                                 <button class="btn btn-success addtocart"
@@ -74,6 +78,7 @@
                                                 </button>
                                             </a>
                                         {% endif %}
+
                                     </div>
                                 </div>
                             </div>
@@ -83,13 +88,12 @@
             </div>
         </div>
     {% else %}
-        <h2>Hello Guest!<br> Welcome to Serg's Rent Shop <br> To go ahead, please log in:</h2>
-        <h3>For testing you can use following accounts: <br>username:<br>User1 <br>User2<br>Student1<br>Student2<br>Student3
-        </h3>
-        <h3>For all those accounts the password is: <br>password</h3>
-        <h3>Pay attention: switch off auto-translation from English language on the page!</h3>
+        <h2>Hello Guest!<br> Welcome to Serg's Rent Shop.<br>Please log in:</h2>
+        <h4>For testing you can use following accounts: <br>username:<br>User1 <br>User2<br>Student1<br>Student2<br>Student3
+        </h4>
+        <h4>For all those accounts the password is: <br>password</h4>
+        <h3>Pay attention:<br>switch off auto-translation from English language on the page!</h3>
          <a href="{% url 'login' %}"><button class="btn btn-danger btn-block">Login</button></a>
-
     {% endif %}
 
     <script>
@@ -114,34 +118,4 @@
             })
         })
     </script>
-
-    {#    script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
-    {#    <#}
-    {#    script >#}
-    {#    $(document).ready(function () {#}
-    {#        $('.remove_from_cart').on('click', function (e) {#}
-    {#            e.preventDefault()#}
-    {#            product_slug = $(this).attr('data-slug')#}
-    {#            item_product_id = $(this).attr('data-id')#}
-    {#            data = {#}
-    {#                product_slug: product_slug,#}
-    {#            }#}
-    {#            console.log(product_slug)#}
-    {#            $.ajax({#}
-    {#                type: 'GET',#}
-    {#                url: '{% url "remove_from_cart" %}',#}
-    {#                data: data,#}
-    {#                success: function (data) {#}
-    {#                    console.log(data)#}
-    {#                    $("#cart_count").html(data.cart_total)#}
-    {#                    $('.cart-item-' + item_product_id).css('display', 'none')#}
-    {#                    $('#cart-total-price').html('Total Price: $' + parseFloat(data.cart_total_price).toFixed(2))#}
-    {#                }#}
-    {#            })#}
-    {#        })#}
-    {#    })#}
-    {##}
-    {#    </script>#}
-
-
 {% endblock content %}

@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
-
 {% block title %}Login{% endblock %}
-
 {% block content %}
 <h2>Login</h2>
 <{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+    <p class="alert-danger"><strong>Your username and password didn't match. Please try again.</strong></p>
 {% endif %}
 
 {% if next %}
@@ -28,7 +26,6 @@
   <td>{{ form.password.label_tag }}</td>
   <td>{{ form.password }}</td>
 </div>
-
 <div>
   <input type="submit" value="login" />
   <input type="hidden" name="next" value="{{ next }}" />
