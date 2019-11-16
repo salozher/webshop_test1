@@ -166,9 +166,6 @@ def remove_from_cart_all_view(request):
     return HttpResponseRedirect('/logout')
 
 
-# def products_in_rent(request):
-#     return Art.objects.filter(owner=request.user).filter(available=False)
-
 class ArtsOfOwnerInRent(ListView):
     template_name = 'class_art_list_in_use.html'
 
@@ -193,9 +190,6 @@ class ArtsOfOwner(ListView):
     model = Art
     template_name = 'class_art_list.html'
     context_object_name = 'products'
-
-    # def get_queryset(self):
-    #     return Art.objects.filter(owner=self.request.user)
     def get(self, request, *args, **kwargs):
         cart = cart_create(request)
         categories = Category.objects.all()
@@ -213,7 +207,6 @@ class UploadArtView(CreateView):
     form_class = ArtObjectForm
     success_url = reverse_lazy('class_art_list')
     template_name = 'add_new_art.html'
-
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super(UploadArtView, self).form_valid(form)
@@ -246,6 +239,10 @@ def change_rent_period(request):
     cart = cart_create(request)
 
     period = request.GET.get('period')
+    if (int(period) < 3):
+        period = 3
+    elif (int(period) >12):
+        period = 12
     item_id = request.GET.get('item_id')
     cart_item = CartItem.objects.get(id=int(item_id))
     cart_item.rent_length = int(period)
