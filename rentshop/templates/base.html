@@ -76,8 +76,10 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url "cart" %}">Cart<span class='badge' id="cart_count">{{ cart.items.count }}</span></a>
-                </li>
+                {% if user.is_student %}
+                    <li><a href="{% url "cart" %}">Cart<span class='badge' id="cart_count">{{ cart.items.count }}</span></a>
+                    </li>
+                {% endif %}
                 <li>
                     <a style="color: white">
                         You are logged in as <strong> {{ user.username }}</strong>
@@ -85,8 +87,8 @@
                 </li>
                 <li><a href="{% url 'remove_all_and_logout' %}">Logout</a></li>
                 {% if user.is_admin %}
-                <li><a href="{% url 'admin:index' %}">Admin</a></li>
-                    {% endif %}
+                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                {% endif %}
             </ul>
 
 

@@ -62,7 +62,6 @@ class MyUserManager(BaseUserManager):
         user.is_admin = True
         user.is_employee = True
         user.is_student = True
-        user.crypto_balanse = 0
         user.private_key = 0
         user.public_key = 0
         user.crypto_wallet = 0
@@ -76,7 +75,6 @@ class MyUser(AbstractBaseUser):
     private_key = models.CharField(verbose_name='Crypto wallet private (secret) key', max_length=100, unique=True)
     public_key = models.CharField(verbose_name='Crypto wallet public key', max_length=130, unique=True)
     crypto_wallet = models.CharField(verbose_name='Public Bitcoin Address', max_length=100, unique=True)
-    crypto_balanse = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_employee = models.BooleanField(default=False)

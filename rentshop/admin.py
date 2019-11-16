@@ -43,7 +43,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = MyUser
-        fields = ('username', 'password', 'private_key', 'public_key', 'crypto_wallet', 'crypto_balanse', 'is_employee', 'is_student', 'is_active', 'is_admin')
+        fields = ('username', 'password', 'private_key', 'public_key', 'crypto_wallet', 'is_employee', 'is_student', 'is_active', 'is_admin')
 
     def clean_password(self):
         return self.initial["password"]
@@ -56,11 +56,11 @@ class UserAdmin(BaseUserAdmin):
 
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin that reference specific fields on auth.User.
-    list_display = ('username', 'crypto_balanse', 'email', 'is_admin', 'is_employee', 'is_student')
+    list_display = ('username', 'email', 'is_admin', 'is_employee', 'is_student')
     list_filter = ('is_admin', 'is_employee', 'is_student')
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('email', 'crypto_wallet','private_key', 'public_key', 'crypto_balanse' )}),
+        ('Personal info', {'fields': ('email', 'crypto_wallet','private_key', 'public_key')}),
         ('Permissions', {'fields': ('is_employee', 'is_student', 'is_admin')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
