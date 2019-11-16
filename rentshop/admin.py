@@ -3,7 +3,6 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.models import Group
-
 from rentshop.models import CartItem, Cart
 from .models import MyUser, Art, Category, Order, OrderHistory
 
@@ -47,9 +46,6 @@ class UserChangeForm(forms.ModelForm):
         fields = ('username', 'password', 'private_key', 'public_key', 'crypto_wallet', 'crypto_balanse', 'is_employee', 'is_student', 'is_active', 'is_admin')
 
     def clean_password(self):
-        # Regardless of what the user provides, return the initial value.
-        # This is done here, rather than on the field, because the
-        # field does not have access to the initial value
         return self.initial["password"]
 
 
@@ -59,8 +55,7 @@ class UserAdmin(BaseUserAdmin):
     add_form = UserCreationForm
 
     # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserAdmin
-    # that reference specific fields on auth.User.
+    # These override the definitions on the base UserAdmin that reference specific fields on auth.User.
     list_display = ('username', 'crypto_balanse', 'email', 'is_admin', 'is_employee', 'is_student')
     list_filter = ('is_admin', 'is_employee', 'is_student')
     fieldsets = (
@@ -85,7 +80,6 @@ admin.site.register(MyUser, UserAdmin)
 admin.site.register(Art)
 admin.site.register(Category)
 admin.site.unregister(Group)
-
 admin.site.register([CartItem, Cart])
 admin.site.register(Order)
 admin.site.register(OrderHistory)

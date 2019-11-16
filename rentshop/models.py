@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 from blockchain import exchangerates
 from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser
 from django.db import models
@@ -7,7 +6,6 @@ from django.db.models.signals import pre_save
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
-
 from .utils import unique_slug_generator, order_id_generator, make_btc_account
 
 
@@ -26,15 +24,10 @@ def pre_save_category_slug(sender, instance, *args, **kwargs):
     if not instance.slug:
         slug = slugify(instance.name)
         instance.slug = slug
-
-
 pre_save.connect(pre_save_category_slug, sender=Category)
 
 
-def image_folder(instance, filename):
-    filename = instance.title + '-' + instance.slug + '.' + filename.split('.')[1]
-    foldername = instance.slug
-    return "{0}/{1}".format(foldername, filename)
+
 
 
 class ProductManager(models.Manager):
@@ -65,14 +58,7 @@ class MyUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, username, email, password):
-        """
-        Creates and saves a superuser with the given username, email and password.
-        """
-        user = self.create_user(
-            username,
-            email,
-            password=password,
-        )
+        user = self.create_user(username, email, password=password)
         user.is_admin = True
         user.is_employee = True
         user.is_student = True
@@ -95,9 +81,7 @@ class MyUser(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     is_employee = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
-
     objects = MyUserManager()
-
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
@@ -121,10 +105,13 @@ def pre_save_user_btc_account_set(sender, instance, *args, **kwargs):
         instance.private_key = btc_account_set[0]
         instance.public_key = btc_account_set[1]
         instance.crypto_wallet = btc_account_set[2]
-
-
 pre_save.connect(pre_save_user_btc_account_set, sender=MyUser)
 
+
+def image_folder(instance, filename):
+    filename = instance.title + '-' + instance.slug + '.' + filename.split('.')[1]
+    foldername = instance.slug
+    return "{0}/{1}".format(foldername, filename)
 
 
 class Art(models.Model):
