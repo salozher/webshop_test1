@@ -1,11 +1,13 @@
 from datetime import date
 from decimal import Decimal
+
 from blockchain import blockexplorer
 from django.core.mail import send_mass_mail
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
+
 from .forms import ArtObjectForm
 from .models import Category, Art, CartItem, Cart, MyUser, OrderHistory
 from .utils import btc_current_rates, rent_enddate_calculator, btc_gate_simulator

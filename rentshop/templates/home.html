@@ -58,27 +58,29 @@
                 </div>
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="product-item-{{ product.id }}">
                                 <div class="thumbnail">
-                                    <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt=""
-                                                                                style="width: 200px; height: auto"></a>
-                                    <div class="caption" style="height: auto">
+                                    <div style="width: 270px; height: 300px">
+                                        <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt=""
+                                                                                    style="width: 110px; height: auto"></a>
+                                        <div class="caption" style="height: auto">
 
-                                        <h4 class="text-center"><a
-                                                href={{ product.get_absolute_url }}>{{ product.title }}</a>
-                                        </h4>
-                                        <h4 class="text-center">€{{ product.price }}/p.mounth</h4>
+                                            <h4 class="text-center"><a
+                                                    href={{ product.get_absolute_url }}>{{ product.title }}</a>
+                                            </h4>
+                                            <h4 class="text-center">€{{ product.price }}/p.mounth</h4>
 
-                                        {% if user.is_student %}
-                                            <a class="pull-right">
-                                                <button class="btn btn-success addtocart"
-                                                        data-slug="{{ product.slug }}"
-                                                        data-id="{{ product.id }}">Add to cart
-                                                </button>
-                                            </a>
-                                        {% endif %}
+                                            {% if user.is_student %}
+                                                <a class="pull-right">
+                                                    <button class="btn btn-success addtocart"
+                                                            data-slug="{{ product.slug }}"
+                                                            data-id="{{ product.id }}">Add to cart
+                                                    </button>
+                                                </a>
+                                            {% endif %}
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -89,11 +91,13 @@
         </div>
     {% else %}
         <h2>Hello Guest!<br> Welcome to Serg's Rent Shop.<br>Please log in:</h2>
-        <h4>For testing you can use following accounts: <br>username:<br>User1 <br>User2<br>Student1<br>Student2<br>Student3
+        <h4>For testing you can use following accounts: <br>username:<br>User1 <br>User2<br>User3<br>Student1<br>Student2<br>Student3
         </h4>
         <h4>For all those accounts the password is: <br>password</h4>
         <h3>Pay attention:<br>switch off auto-translation from English language on the page!</h3>
-         <a href="{% url 'login' %}"><button class="btn btn-danger btn-block">Login</button></a>
+        <a href="{% url 'login' %}">
+            <button class="btn btn-danger btn-block">Login</button>
+        </a>
     {% endif %}
 
     <script>

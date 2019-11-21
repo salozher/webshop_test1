@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99217b31-6fcf-4695-a242-79fae555dc8b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/0oubuv/Maastricht-0oubuv.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/0oubuv/Maastricht-0oubuv.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/migrations/0013_auto_20191116_1719.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/migrations/0013_auto_20191116_1719.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/add_new_art.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/add_new_art.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/art_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/art_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/class_art_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/class_art_list_in_use.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/order_failed.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/order_failed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/order_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/order_success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rentshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/distlib/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-10.0.1-py3.7.egg/pip/_vendor/requests/compat.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +90,13 @@
       <workItem from="1573772722748" duration="632000" />
       <workItem from="1573773444433" duration="1927000" />
       <workItem from="1573775434892" duration="1352000" />
-      <workItem from="1573916021378" duration="8370000" />
+      <workItem from="1573916021378" duration="10006000" />
+      <workItem from="1573928561130" duration="465000" />
+      <workItem from="1573929826266" duration="3883000" />
+      <workItem from="1574159489122" duration="7410000" />
+      <workItem from="1574167193275" duration="7101000" />
+      <workItem from="1574238860758" duration="16146000" />
+      <workItem from="1574326363964" duration="6039000" />
     </task>
     <task id="LOCAL-00001" summary="release">
       <created>1573776227060</created>
@@ -123,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573921401080</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="release bugfix and cleanup">
+      <created>1573925901086</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573925901086</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +155,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="release" />
     <MESSAGE value="release bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="release bugfix" />
+    <MESSAGE value="release bugfix and cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="release bugfix and cleanup" />
   </component>
 </project>

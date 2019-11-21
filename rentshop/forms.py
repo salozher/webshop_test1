@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Art, CartItem
+from .models import Art
 
 
 class ArtObjectForm(forms.ModelForm):
