@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="99217b31-6fcf-4695-a242-79fae555dc8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rentshop/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rentshop/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/rentshop/templates/category.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +84,8 @@
       <workItem from="1574159489122" duration="7410000" />
       <workItem from="1574167193275" duration="7101000" />
       <workItem from="1574238860758" duration="16146000" />
-      <workItem from="1574326363964" duration="6909000" />
+      <workItem from="1574326363964" duration="7020000" />
+      <workItem from="1574364900701" duration="1645000" />
     </task>
     <task id="LOCAL-00001" summary="release">
       <created>1573776227060</created>
@@ -128,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574355067222</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="release bugfix and cleanup">
+      <created>1574355977184</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574355977184</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
