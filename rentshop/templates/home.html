@@ -58,10 +58,10 @@
                 </div>
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-4">
+                        <div class="col-sm-4" style="width: 270px; height: 300px">
                             <div class="product-item-{{ product.id }}">
                                 <div class="thumbnail">
-                                    <div style="width: 270px; height: 300px">
+
                                         <a href={{ product.get_absolute_url }}><img src="{{ product.cover.url }}" alt=""
                                                                                     style="width: 110px; height: auto"></a>
                                         <div class="caption" style="height: auto">
@@ -81,7 +81,7 @@
                                             {% endif %}
 
                                         </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
